@@ -161,6 +161,36 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="font\MissionGothic-Black.eot" />
+    <Content Include="font\MissionGothic-Black.ttf" />
+    <Content Include="font\MissionGothic-Black.woff" />
+    <Content Include="font\MissionGothic-BlackItalic.eot" />
+    <Content Include="font\MissionGothic-BlackItalic.ttf" />
+    <Content Include="font\MissionGothic-BlackItalic.woff" />
+    <Content Include="font\MissionGothic-Bold.eot" />
+    <Content Include="font\MissionGothic-Bold.ttf" />
+    <Content Include="font\MissionGothic-Bold.woff" />
+    <Content Include="font\MissionGothic-BoldItalic.eot" />
+    <Content Include="font\MissionGothic-BoldItalic.ttf" />
+    <Content Include="font\MissionGothic-BoldItalic.woff" />
+    <Content Include="font\MissionGothic-Light.eot" />
+    <Content Include="font\MissionGothic-Light.ttf" />
+    <Content Include="font\MissionGothic-Light.woff" />
+    <Content Include="font\MissionGothic-LightItalic.eot" />
+    <Content Include="font\MissionGothic-LightItalic.ttf" />
+    <Content Include="font\MissionGothic-LightItalic.woff" />
+    <Content Include="font\MissionGothic-Regular.eot" />
+    <Content Include="font\MissionGothic-Regular.ttf" />
+    <Content Include="font\MissionGothic-Regular.woff" />
+    <Content Include="font\MissionGothic-RegularItalic.eot" />
+    <Content Include="font\MissionGothic-RegularItalic.ttf" />
+    <Content Include="font\MissionGothic-RegularItalic.woff" />
+    <Content Include="font\MissionGothic-Thin.eot" />
+    <Content Include="font\MissionGothic-Thin.ttf" />
+    <Content Include="font\MissionGothic-Thin.woff" />
+    <Content Include="font\MissionGothic-ThinItalic.eot" />
+    <Content Include="font\MissionGothic-ThinItalic.ttf" />
+    <Content Include="font\MissionGothic-ThinItalic.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
