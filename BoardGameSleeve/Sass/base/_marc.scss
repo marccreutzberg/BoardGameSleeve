@@ -11,9 +11,11 @@ header {
     nav {
         ul {
             list-style-type: none;
+           
 
             li {
                 padding: 20px;
+                display: inline-block;
                 a {
                     font-family: 'Mission Gothic Bold';
                     font-weight: bold;
@@ -23,6 +25,8 @@ header {
         }
     }
 }
+
+
 
 @font-face {
     font-family: 'Mission Gothic Regular';

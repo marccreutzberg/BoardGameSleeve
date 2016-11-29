@@ -643,7 +643,8 @@ header {
   header nav ul {
     list-style-type: none; }
     header nav ul li {
-      padding: 20px; }
+      padding: 20px;
+      display: inline-block; }
       header nav ul li a {
         font-family: 'Mission Gothic Bold';
         font-weight: bold;
