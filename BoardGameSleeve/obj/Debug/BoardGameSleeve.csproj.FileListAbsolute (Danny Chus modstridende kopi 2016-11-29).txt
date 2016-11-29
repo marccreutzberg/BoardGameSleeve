@@ -1,0 +1,6 @@
+C:\Users\Danny\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
+C:\Users\Danny\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe
+C:\Users\Danny\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.pdb
+C:\Users\Danny\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
+C:\Users\Danny\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
