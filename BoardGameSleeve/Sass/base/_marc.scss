@@ -10,19 +10,22 @@ $textBlue: #8cc1e3;
 
 /*Frontpage and layout*/
 header {
-    border-bottom: 2px solid $borderGray;
+    border-bottom: 1px solid $borderGray;
     padding-top: 10px;
 
     nav {
         ul {
             list-style-type: none;
+            text-align: center;
+            margin: 0;
+            padding: 5px 0 20px;
 
             li {
                 display: inline-block;
 
                 a {
-                    font-size: 20px;
-                    font-family: 'Mission Gothic Bold';
+                    font-size: 18px;
+                    font-family: 'Mission Gothic Light';
                     font-weight: bold;
                     font-style: italic;
                     color: $backColor;
@@ -35,7 +38,7 @@ header {
 }
 
 .basket {
-    margin-top: 15px;
+    margin-top: 75px;
 }
 
 .frontpage {
@@ -213,6 +216,12 @@ footer {
             font-family: 'Mission Gothic Light';
         }
 
+        ul {
+            li {
+                font-size: 14px;
+            }
+        }
+
         a {
             background-color: $backColor;
             -moz-border-radius: 35px;
@@ -229,6 +238,96 @@ footer {
 }
 
 
+/*Basket*/
+.shopBasket {
+    hr {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .basketQuantity {
+        height: 70px;
+        padding: 45px 0;
+        border-right: 1px solid $borderGray;
+
+        a {
+            line-height: 300%;
+            color: $backColor;
+            text-decoration: none;
+            font-size: 25px;
+            font-family: 'Mission Gothic';
+            font-weight: 900;
+            font-style: normal;
+        }
+    }
+
+    .basketQuantityCount {
+        margin-top: 10px;
+        text-align: center;
+        border: 1px solid $backgroundGray;
+    }
+
+    .basketPrice {
+        height: 70px;
+        padding: 45px 0;
+        text-align: center;
+
+        h3 {
+            margin-top: 30px;
+            font-size: 24px;
+        }
+    }
+}
+
+.basketImage {
+    height: 120px;
+    padding: 20px 0;
+    text-align: center;
+    border-right: 1px solid $borderGray;
+
+    img {
+        width: 75%;
+    }
+}
+
+.basketImageHeading, .basketDescriptionItem, .basketQuantityItem {
+    border-right: 1px solid $borderGray;
+    height: 25px;
+    padding: 10px;
+
+    text-align: center;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.basketPriceItem {
+    padding: 10px;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.basketDescription {
+    padding: 20px 0;
+    border-right: 1px solid $borderGray;
+    height: 120px;
+
+    h2 {
+        margin: 0;
+    }
+
+    p {
+        margin: 5px 0 0;
+    }
+}
 
 @font-face {
     font-family: 'Mission Gothic Regular';
