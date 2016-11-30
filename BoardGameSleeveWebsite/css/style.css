@@ -824,20 +824,23 @@ footer {
   font-weight: 300;
   font-style: italic; }
 
+.productPage {
+  padding-top: 30px; }
+
 .product-box, #product-image, #product-info, #product-games, #product-description {
   height: 350px;
-  width: 500px;
   border: 1px solid grey; }
 
 #product-image {
-  float: left; }
+  text-align: center;
+  padding: 20px; }
   #product-image img {
-    width: 100%;
-    height: 100%;
-    padding: 10px; }
+    width: 40%; }
 
 #product-info {
-  float: right;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
   background-color: lightgray; }
   #product-info hr {
     border: 1px solid black; }
@@ -853,20 +856,18 @@ footer {
 
 #product-games {
   margin-top: 200px;
-  float: left; }
+  width: 100%; }
   #product-games h2 {
     margin: -75px 0px 0px -16px;
     border: 1px solid grey;
     padding: 15px 0px 25px 15px;
-    width: 250px;
     height: 75px; }
 
 #product-description {
   margin-top: 200px;
-  float: right; }
+  width: 100%; }
   #product-description h2 {
     margin: -75px 0px 0px -16px;
     border: 1px solid grey;
     padding: 15px 0px 25px 15px;
-    width: 250px;
     height: 75px; }

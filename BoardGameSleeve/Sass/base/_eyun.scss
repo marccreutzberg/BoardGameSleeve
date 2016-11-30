@@ -1,37 +1,47 @@
-﻿.product-box {
+﻿.productPage {
+    padding-top: 30px;
+}
+
+.product-box {
     height: 350px;
-    width: 500px;
-    border: 1px solid grey
+    border: 1px solid grey;
 }
 
 #product-image {
     @extend .product-box;
-    float: left;
+    text-align: center;
+    padding: 20px;
+
     img {
-        width: 100%;
-        height: 100%;
-        padding: 10px;
+        width: 40%;
     }
 }
 
 #product-info {
     @extend .product-box;
-    float: right;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
     background-color: lightgray;
+
     hr {
         border: 1px solid black;
     }
+
     p {
         margin: 0px;
     }
+
     input {
         width: 50px;
     }
+
     #add-to-cart {
         p {
             float: left;
             margin: 5px;
         }
+
         button {
             float: right;
         }
@@ -43,7 +53,6 @@
         margin: -75px 0px 0px -16px;
         border: 1px solid grey;
         padding: 15px 0px 25px 15px;
-        width: 250px;
         height: 75px;
     }
 }
@@ -52,12 +61,12 @@
     @extend .product-box;
     @include productHeaders;
     margin-top: 200px;
-    float: left;
+    width: 100%;
 }
 
 #product-description {
     @extend .product-box;
     @include productHeaders;
     margin-top: 200px;
-    float: right;
+    width: 100%;
 }
