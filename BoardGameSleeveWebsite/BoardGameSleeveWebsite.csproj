@@ -207,6 +207,8 @@
     <Content Include="font\MissionGothic-ThinItalic.woff" />
     <Content Include="Views\Product\SingleProduct.cshtml" />
     <Content Include="Views\Product\Products.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
