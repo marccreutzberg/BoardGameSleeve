@@ -126,6 +126,12 @@ td,
 th {
   padding: 0; }
 
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  box-sizing: border-box; }
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  box-sizing: border-box; }
+
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -142,9 +148,9 @@ th {
   @media (min-width: 992px) {
     .container {
       width: 970px; } }
-  @media (min-width: 1200px) {
+  @media (min-width: 1024px) {
     .container {
-      width: 1170px; } }
+      width: 1054px; } }
 
 .row {
   margin-left: -15px;
@@ -529,7 +535,7 @@ th {
   .col-md-offset-12 {
     margin-left: 100%; } }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left; }
   .col-lg-1 {
@@ -639,16 +645,114 @@ body {
   font-family: Mission Gothic Regular; }
 
 header {
-  border-bottom: 2px solid #dcdcdc; }
+  border-bottom: 2px solid #dcdcdc;
+  padding-top: 10px; }
   header nav ul {
     list-style-type: none; }
     header nav ul li {
-      padding: 20px;
       display: inline-block; }
       header nav ul li a {
+        font-size: 20px;
         font-family: 'Mission Gothic Bold';
         font-weight: bold;
-        font-style: italic; }
+        font-style: italic;
+        color: #01020a;
+        text-decoration: none;
+        line-height: 200%; }
+
+.basket {
+  margin-top: 15px; }
+
+.frontpage {
+  background-color: #f2f6fa; }
+
+.frontpageProductDesc {
+  margin-top: 20px;
+  text-align: center; }
+  .frontpageProductDesc h2 {
+    font-size: 24px; }
+  .frontpageProductDesc p {
+    font-size: 18px; }
+
+.frontpageProduct {
+  text-align: center; }
+  .frontpageProduct h3 {
+    margin: 5px 0 0;
+    font-family: 'Mission Gothic';
+    font-weight: 900;
+    font-style: normal; }
+  .frontpageProduct h4 {
+    margin: 3px 0 5px;
+    font-family: 'Mission Gothic Light'; }
+  .frontpageProduct .col-md-4 {
+    padding: 40px 0;
+    border-right: 1px solid #dcdcdc; }
+  .frontpageProduct .col-md-4:nth-child(3n+3) {
+    border-right: none; }
+  .frontpageProduct a {
+    background-color: #01020a;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    border-radius: 35px;
+    text-align: center;
+    padding: 0 30px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none; }
+
+.frontpageTop {
+  padding-top: 40px;
+  padding-bottom: 20px; }
+  .frontpageTop h1 {
+    font-size: 60px;
+    margin-bottom: 0;
+    margin-top: 65px; }
+  .frontpageTop h2 {
+    color: #8cc1e3;
+    font-size: 18px;
+    margin-top: -15px; }
+
+.textCenter {
+  text-align: center; }
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: #dcdcdc;
+  border: none;
+  margin: 0;
+  padding: 0; }
+
+.browse {
+  background-color: #01020a;
+  -moz-border-radius: 35px;
+  -webkit-border-radius: 35px;
+  border-radius: 35px;
+  float: left;
+  text-align: center;
+  padding: 0 30px;
+  margin-right: 20px;
+  cursor: pointer; }
+  .browse p {
+    color: #fff;
+    font-size: 18px; }
+
+.searchBoardGame {
+  border: 1px solid #dcdcdc;
+  color: #dcdcdc;
+  padding-left: 50px;
+  background-image: url("/img/Search-icon.png");
+  background-repeat: no-repeat;
+  background-position: 15px, center;
+  height: 50px;
+  width: 450px;
+  margin-top: 40px; }
+
+footer {
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-top: 2px solid #dcdcdc; }
 
 @font-face {
   font-family: 'Mission Gothic Regular';

@@ -13,3 +13,6 @@ C:\Users\Marc Creutzberg\Dropbox\Webudvikler Tværfaglig Opgave\Website\BoardGam
 C:\Users\Marc Creutzberg\Dropbox\Game Sleeve Website\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
 C:\Users\Marc Creutzberg\Dropbox\Game Sleeve Website\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
 C:\Users\Marc Creutzberg\Dropbox\Game Sleeve Website\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
+C:\Users\Marc Creutzberg\Dropbox\Game Sleeve Website\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe
+C:\Users\Marc Creutzberg\Dropbox\Game Sleeve Website\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.pdb
+C:\Users\Marc Creutzberg\Dropbox\Game Sleeve Website\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
