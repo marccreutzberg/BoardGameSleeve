@@ -944,12 +944,13 @@ footer {
   padding-top: 30px; }
 
 .product-box, #product-image, #product-info, #product-games, #product-description {
-  height: 350px;
+  height: 380px;
   border: 1px solid grey; }
 
 #product-image {
   text-align: center;
-  padding: 20px; }
+  padding: 20px;
+  box-sizing: border-box; }
   #product-image img {
     width: 40%; }
 
@@ -959,31 +960,61 @@ footer {
   width: 100%;
   background-color: lightgray; }
   #product-info hr {
-    border: 1px solid black; }
+    margin: 15px 0px 15px 0px;
+    background-color: black; }
   #product-info p {
     margin: 0px; }
   #product-info input {
     width: 50px; }
-  #product-info #add-to-cart p {
-    float: left;
-    margin: 5px; }
-  #product-info #add-to-cart button {
-    float: right; }
+  #product-info #add-to-cart {
+    margin-top: 50px; }
+    #product-info #add-to-cart p {
+      float: left;
+      margin-right: 15px; }
+    #product-info #add-to-cart button {
+      float: right; }
 
 #product-games {
   margin-top: 200px;
+  margin-top: 150px;
   width: 100%; }
-  #product-games h2 {
-    margin: -75px 0px 0px -16px;
+  #product-games .product-header {
+    margin: -78px 0px 0px -1px;
     border: 1px solid grey;
-    padding: 15px 0px 25px 15px;
-    height: 75px; }
+    height: 75px;
+    width: 50%; }
+  #product-games h2 {
+    text-align: center; }
+  #product-games p {
+    margin: 15px; }
+  #product-games ul {
+    list-style-type: none; }
 
 #product-description {
   margin-top: 200px;
-  width: 100%; }
-  #product-description h2 {
-    margin: -75px 0px 0px -16px;
+  margin-top: 150px;
+  width: 100%;
+  margin-bottom: 20px; }
+  #product-description .product-header {
+    margin: -78px 0px 0px -1px;
     border: 1px solid grey;
-    padding: 15px 0px 25px 15px;
-    height: 75px; }
+    height: 75px;
+    width: 50%; }
+  #product-description h2 {
+    text-align: center; }
+  #product-description p {
+    margin: 15px; }
+
+#add-cart-button {
+  background-color: deepskyblue;
+  -moz-border-radius: 35px;
+  -webkit-border-radius: 35px;
+  border-radius: 35px;
+  float: right;
+  text-align: center;
+  padding: 10px 60px 10px 60px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: white; }
+  #add-cart-button:hover {
+    background-color: black; }

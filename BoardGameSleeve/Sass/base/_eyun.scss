@@ -3,7 +3,7 @@
 }
 
 .product-box {
-    height: 350px;
+    height: 380px;
     border: 1px solid grey;
 }
 
@@ -11,6 +11,7 @@
     @extend .product-box;
     text-align: center;
     padding: 20px;
+    box-sizing: border-box;
 
     img {
         width: 40%;
@@ -25,7 +26,8 @@
     background-color: lightgray;
 
     hr {
-        border: 1px solid black;
+        margin: 15px 0px 15px 0px;
+        background-color: black;
     }
 
     p {
@@ -37,9 +39,10 @@
     }
 
     #add-to-cart {
+        margin-top: 50px;
         p {
             float: left;
-            margin: 5px;
+            margin-right: 15px;
         }
 
         button {
@@ -49,24 +52,57 @@
 }
 
 @mixin productHeaders {
-    h2 {
-        margin: -75px 0px 0px -16px;
+    .product-header {
+        
+        margin: -78px 0px 0px -1px;
         border: 1px solid grey;
-        padding: 15px 0px 25px 15px;
         height: 75px;
+        width: 50%;
+        
+    }
+    h2{
+        text-align: center;
+    }
+    margin-top: 200px;
+    p{
+        margin: 15px;
     }
 }
 
 #product-games {
     @extend .product-box;
     @include productHeaders;
-    margin-top: 200px;
+    margin-top: 150px;
     width: 100%;
+    ul{
+        list-style-type: none;
+    }
+    
+
 }
 
 #product-description {
     @extend .product-box;
     @include productHeaders;
-    margin-top: 200px;
+
+    margin-top: 150px;
     width: 100%;
+    margin-bottom: 20px;
+}
+
+#add-cart-button{
+    background-color: deepskyblue;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    border-radius: 35px;
+    float: right;
+    text-align: center;
+    padding: 10px 60px 10px 60px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+
+    &:hover{
+        background-color: black;
+    }
 }
