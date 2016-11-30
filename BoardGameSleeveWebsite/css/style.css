@@ -644,6 +644,7 @@ th {
 body {
   font-family: Mission Gothic Regular; }
 
+/*Frontpage and layout*/
 header {
   border-bottom: 2px solid #dcdcdc;
   padding-top: 10px; }
@@ -753,6 +754,51 @@ footer {
   text-align: center;
   background-color: #f1f1f1;
   border-top: 2px solid #dcdcdc; }
+
+/*Products*/
+.products h1 {
+  text-align: center;
+  margin: 40px 0; }
+
+.products ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.products .col-md-4 {
+  border-right: 1px solid #dcdcdc; }
+
+.products .col-md-4:nth-child(3n+3) {
+  border-right: none; }
+
+.products hr {
+  overflow: hidden;
+  position: absolute;
+  left: 0; }
+
+.products .product {
+  padding: 40px 0 40px 40px; }
+  .products .product img {
+    width: 80%; }
+  .products .product h3 {
+    font-family: 'Mission Gothic';
+    font-weight: 900;
+    font-style: normal; }
+  .products .product h4 {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-family: 'Mission Gothic Light'; }
+  .products .product a {
+    background-color: #01020a;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    border-radius: 35px;
+    text-align: center;
+    padding: 8px 50px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 450%; }
 
 @font-face {
   font-family: 'Mission Gothic Regular';

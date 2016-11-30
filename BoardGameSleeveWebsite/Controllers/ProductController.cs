@@ -13,5 +13,12 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View("SingleProduct");
         }
+
+        public ActionResult Products()
+        {
+            return View();
+        }
+
+        
     }
 }
