@@ -147,6 +147,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +196,7 @@
     <Content Include="font\MissionGothic-ThinItalic.eot" />
     <Content Include="font\MissionGothic-ThinItalic.ttf" />
     <Content Include="font\MissionGothic-ThinItalic.woff" />
+    <Content Include="Views\Product\SingleProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
