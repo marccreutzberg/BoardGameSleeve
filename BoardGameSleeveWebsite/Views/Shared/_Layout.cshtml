@@ -14,33 +14,37 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div style="text-align: center;" class="col-md-2 col-md-offset-5">
                     <a href="/">
-                        <img width="100%" src="~/img/at-logo.jpg" />
+                        <img width="65%" src="~/img/logo.png" />
                     </a>
                 </div>
-                <nav class="col-md-8">
-                    <ul>
-                        <li>
-                            <a href="/Product/Products">PRODUCTS - </a>
-                        </li>
-                        <li>
-                            <a href="#">GAME -</a>
-                        </li>
-                        <li>
-                            <a href="/Home/About">ABOUT -</a>
-                        </li>
-                        <li>
-                            <a href="/Home/Contact">CONTACT</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="col-md-1">
+                <div class="col-md-1 col-md-offset-4">
                     <div class="basket">
-                        <img src="/img/basket.png" />
+                        <a href="/Shop/Basket">
+                            <img src="/img/basket.png" />
+                        </a>
                     </div>
                 </div>
             </div>
+            <nav class="col-md-12">
+                <ul>
+                    <li>
+                        <a href="/Product/Products">PRODUCT - </a>
+                    </li>
+                    <li>
+                        <a href="#">GAME -</a>
+                    </li>
+                    <li>
+                        <a href="#">ABOUT -</a>
+                    </li>
+                    <li>
+                        <a href="#">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
         </div>
     </header>
     @RenderBody()
