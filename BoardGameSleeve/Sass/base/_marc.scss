@@ -276,6 +276,7 @@ footer {
         height: 70px;
         padding: 45px 0;
         text-align: center;
+        border-right: 1px solid $borderGray;
 
         h3 {
             margin-top: 30px;
@@ -299,7 +300,6 @@ footer {
     border-right: 1px solid $borderGray;
     height: 25px;
     padding: 10px;
-
     text-align: center;
 
     h3 {
@@ -308,6 +308,8 @@ footer {
 }
 
 .basketPriceItem {
+    border-right: 1px solid $borderGray;
+    text-align: center;
     padding: 10px;
 
     h3 {
@@ -326,6 +328,33 @@ footer {
 
     p {
         margin: 5px 0 0;
+    }
+}
+
+.basketRemoveItem {
+    padding: 60px 0 0;
+
+    img {
+        width: 100%;
+    }
+}
+
+.basketCheckOutPush {
+    border-right: 1px solid $borderGray;
+    height: 120px;
+}
+
+.basketCheckOut {
+    a {
+        background-color: $backColor;
+        -moz-border-radius: 35px;
+        -webkit-border-radius: 35px;
+        border-radius: 35px;
+        text-align: center;
+        padding: 8px 50px;
+        color: #fff;
+        font-size: 15px;
+        text-decoration: none;
     }
 }
 
