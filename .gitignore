@@ -286,3 +286,5 @@ build/
 /BoardGameSleeveWebsite/bin/BoardGameSleeveWebsite.dll
 /BoardGameSleeveWebsite/bin/BoardGameSleeveWebsite.pdb
 /BoardGameSleeveWebsite/bin/BoardGameSleeveWebsite.dll.config
+
+/.vs/*
