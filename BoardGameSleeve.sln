@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGameSleeve", "BoardGam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGameSleeveWebsite", "BoardGameSleeveWebsite\BoardGameSleeveWebsite.csproj", "{BCFE1569-C876-4F31-A6CA-4363CDC4C98C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBoardGameSleeve", "DataBoardGameSleeve\DataBoardGameSleeve.csproj", "{AF701380-66EF-43AD-AAAF-CB37AB7E340A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{BCFE1569-C876-4F31-A6CA-4363CDC4C98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCFE1569-C876-4F31-A6CA-4363CDC4C98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCFE1569-C876-4F31-A6CA-4363CDC4C98C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF701380-66EF-43AD-AAAF-CB37AB7E340A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF701380-66EF-43AD-AAAF-CB37AB7E340A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF701380-66EF-43AD-AAAF-CB37AB7E340A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF701380-66EF-43AD-AAAF-CB37AB7E340A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

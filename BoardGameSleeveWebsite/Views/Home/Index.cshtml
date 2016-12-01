@@ -1,4 +1,6 @@
-﻿
+﻿@using BoardGameSleeveWebsite.Models
+@model Home
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -52,30 +54,19 @@
     <div class="frontpageProduct">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="~/img/product.png" />
-                    <h3>Board Game Sleeves •  Large</h3>
-                    <h4>Size: 59 x 92 mm</h4>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <img src="~/img/product.png" />
-                    <h3>Board Game Sleeves •  Medium</h3>
-                    <h4>Size: 57 x 89 mm</h4>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <img src="~/img/product.png" />
-                    <h3>Board Game Sleeves •  Small</h3>
-                    <h4>Size: 44 x 68 mm</h4>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
+                @foreach (var p in Model.Products)
+                {
+                    <div class="col-md-4">
+                        <img src="~/img/product.png" />
+                        <h3>Board Game Sleeves • @p.Size.Name</h3>
+                        <h4>Size @p.Size.Width x @p.Size.Height mm</h4>
+                        <a href="#">
+                            Select this size
+                        </a>
+                    </div>
+                }
+                
+         
             </div>
         </div>
     </div>

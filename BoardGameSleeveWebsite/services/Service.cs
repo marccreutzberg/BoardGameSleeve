@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DataBoardGameSleeve;
 using BoardGameSleeveWebsite.Models;
 
 namespace BoardGameSleeveWebsite.services
@@ -14,14 +13,15 @@ namespace BoardGameSleeveWebsite.services
 
     public class Service : IService
     {
-        DataService dataService = new DataService();
+
+        private ModelContext dbContext = new ModelContext();
 
         public Home HomeModel()
         {
-            Home home = new Home();
+                Home home = new Home();
+                home.Products = dbContext.Products.Include("Size").Take(3).ToList();
 
-
-            return home;
+                return home;
         }
 
     }
