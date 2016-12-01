@@ -99,3 +99,24 @@ C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\Data
 C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\DataBoardGameSleeve.pdb
 C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\ApplicationInsights.config
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\csc.exe
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\vbc.exe
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll.config
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.pdb
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\DataBoardGameSleeve.exe
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\DataBoardGameSleeve.pdb
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb

@@ -358,6 +358,79 @@ footer {
     }
 }
 
+
+/*checkout*/
+
+.checkOut {
+    padding: 30px 0;
+
+    h1 {
+        text-align: center;
+        margin: 0 0 20px;
+    }
+}
+
+.checkoutLeft {
+    p {
+        margin: 20px 0 0;
+    }
+
+    input {
+        width: 300px;
+        height: 40px;
+        border: 1px solid $borderGray;
+        background-color: #fff;
+    }
+
+    .zip {
+        width: 100px;
+    }
+
+    .city {
+        width: 180px;
+        margin-left: 20px;
+    }
+}
+
+.checkoutRight {
+
+    h4 {
+        margin: 20px 0 0;
+    }
+
+    p {
+        margin: 10px 0;
+        float: left;
+    }
+
+    span {
+        margin: 10px 0;
+        float: right;
+    }
+
+    textarea {
+        width: 100%;
+        height: 140px;
+    }
+
+    a {
+        background-color: $backColor;
+        -moz-border-radius: 35px;
+        -webkit-border-radius: 35px;
+        border-radius: 35px;
+        text-align: center;
+        padding: 8px 50px;
+        color: #fff;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 450%;
+    }
+}
+
+.clear {
+    clear: both;
+}
+
 @font-face {
     font-family: 'Mission Gothic Regular';
     src: url('/font/MissionGothic-RegularItalic.eot');
