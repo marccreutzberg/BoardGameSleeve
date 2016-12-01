@@ -10,7 +10,6 @@ namespace BoardGameSleeveWebsite.Controllers
 {
     public class HomeController : Controller
     {
-
         public Service service = new Service();
 
         // GET: Home

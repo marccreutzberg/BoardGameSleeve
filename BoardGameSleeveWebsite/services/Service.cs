@@ -14,7 +14,7 @@ namespace BoardGameSleeveWebsite.services
 
     public class Service : IService
     {
-        public IDataService iDataService { get; set; }
+        DataService dataService = new DataService();
 
         public Home HomeModel()
         {
