@@ -1,10 +1,15 @@
-﻿.productPage {
+﻿$borderGray: #dcdcdc;
+$backgroundGray: #f1f1f1;
+$backColor: #01020a;
+
+
+.productPage {
     padding-top: 30px;
 }
 
 .product-box {
     height: 380px;
-    border: 1px solid grey;
+    border: 2px solid $borderGray;
 }
 
 #product-image {
@@ -23,11 +28,11 @@
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
-    background-color: lightgray;
+    background-color: $backgroundGray;
 
     hr {
         margin: 15px 0px 15px 0px;
-        background-color: black;
+        background-color: #dcdcdc;
     }
 
     p {
@@ -52,10 +57,9 @@
 }
 
 @mixin productHeaders {
-    .product-header {
-        
+    .product-header {       
         margin: -78px 0px 0px -1px;
-        border: 1px solid grey;
+        border: 2px solid $borderGray;
         height: 75px;
         width: 50%;
         
@@ -76,7 +80,9 @@
     width: 100%;
     ul{
         list-style-type: none;
+        margin-left: -20px;
     }
+
     
 
 }
