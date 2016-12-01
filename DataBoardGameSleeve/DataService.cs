@@ -8,11 +8,11 @@ namespace DataBoardGameSleeve
 {
     public interface IDataService
     {
-        //void homeProducts();
+        void homeProducts();
     }
 
-    public class DataService
+    public class DataService : IDataService
     {
-        //public void homeProducts() { }
+        public void homeProducts() { }
     }
 }

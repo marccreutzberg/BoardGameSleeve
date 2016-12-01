@@ -14,17 +14,12 @@ namespace BoardGameSleeveWebsite.services
 
     public class Service : IService
     {
-        private IDataService iDataService;
-
-        public Service(IDataService idataService)
-        {
-            this.iDataService = idataService;
-        }
+        public IDataService iDataService { get; set; }
 
         public Home HomeModel()
         {
             Home home = new Home();
-            
+
 
             return home;
         }
