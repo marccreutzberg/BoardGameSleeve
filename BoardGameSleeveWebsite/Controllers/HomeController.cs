@@ -10,17 +10,12 @@ namespace BoardGameSleeveWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private IService iService;
-
-        public HomeController(IService iService)
-        {
-            this.iService = iService;
-        }
+        public Service service = new Service();
 
         // GET: Home
         public ActionResult Index()
         {
-            //Home model = iService.HomeModel();
+            Home model = service.HomeModel();
 
             return View();
         }

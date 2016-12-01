@@ -98,3 +98,5 @@ C:\Users\Marc Creutzberg\Desktop\board\BoardGameSleeveWebsite\bin\Microsoft.Code
 C:\Users\Marc Creutzberg\Desktop\board\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
 C:\Users\Marc Creutzberg\Desktop\board\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Marc Creutzberg\Desktop\board\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
+C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\DataBoardGameSleeve.exe
+C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\DataBoardGameSleeve.pdb
