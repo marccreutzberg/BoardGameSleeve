@@ -945,7 +945,7 @@ footer {
 
 .product-box, #product-image, #product-info, #product-games, #product-description {
   height: 380px;
-  border: 1px solid grey; }
+  border: 2px solid #dcdcdc; }
 
 #product-image {
   text-align: center;
@@ -958,10 +958,10 @@ footer {
   padding: 20px;
   box-sizing: border-box;
   width: 100%;
-  background-color: lightgray; }
+  background-color: #f1f1f1; }
   #product-info hr {
     margin: 15px 0px 15px 0px;
-    background-color: black; }
+    background-color: #dcdcdc; }
   #product-info p {
     margin: 0px; }
   #product-info input {
@@ -980,7 +980,7 @@ footer {
   width: 100%; }
   #product-games .product-header {
     margin: -78px 0px 0px -1px;
-    border: 1px solid grey;
+    border: 2px solid #dcdcdc;
     height: 75px;
     width: 50%; }
   #product-games h2 {
@@ -988,7 +988,8 @@ footer {
   #product-games p {
     margin: 15px; }
   #product-games ul {
-    list-style-type: none; }
+    list-style-type: none;
+    margin-left: -20px; }
 
 #product-description {
   margin-top: 200px;
@@ -997,7 +998,7 @@ footer {
   margin-bottom: 20px; }
   #product-description .product-header {
     margin: -78px 0px 0px -1px;
-    border: 1px solid grey;
+    border: 2px solid #dcdcdc;
     height: 75px;
     width: 50%; }
   #product-description h2 {
