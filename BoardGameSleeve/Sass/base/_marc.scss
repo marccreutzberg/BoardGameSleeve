@@ -1,4 +1,6 @@
-﻿body {
+﻿@import "mixins/grid";
+
+body {
     font-family: Mission Gothic Regular;
 }
 
@@ -534,3 +536,20 @@ footer {
     font-weight: 300;
     font-style: italic;
 }
+
+
+
+
+
+@media (min-width: @screen-sm-min) {
+    .browse{
+        width: 46%;
+        margin: 0 2%;
+    }
+}
+
+
+@media (min-width: @screen-md-min) { }
+
+
+@media (min-width: @screen-lg-min) {  }
