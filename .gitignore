@@ -280,3 +280,9 @@ __pycache__/
 
 ### VisualStudio Patch ###
 build/
+
+
+### DLL files ###
+/BoardGameSleeveWebsite/bin/BoardGameSleeveWebsite.dll
+/BoardGameSleeveWebsite/bin/BoardGameSleeveWebsite.pdb
+/BoardGameSleeveWebsite/bin/BoardGameSleeveWebsite.dll.config
