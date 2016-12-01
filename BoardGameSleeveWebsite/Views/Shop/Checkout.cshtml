@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="checkOut">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Customer Information</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="checkoutForm">
+                        <div style="border-right: 1px solid gray" class="col-md-6">
+                            <div class="checkoutLeft">
+                                <p>First* & Last name*</p>
+                                <input type="Text" value="" />
+
+                                <p>Address *</p>
+                                <input type="Text" value="" />
+
+                                <p>Zipcode* & City</p>
+                                <input type="Text" class="zip" value="" />
+                                <input type="Text" class="city" value="" />
+
+                                <p>Country*</p>
+                                <input type="Text" value="" />
+
+                                <p>Email*</p>
+                                <input type="Text" value="" />
+
+                                <p>Phone*</p>
+                                <input type="Text" value="" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="checkoutRight">
+                                <h4>Summary</h4>
+                                <hr />
+
+                                <p>Subtotal</p>
+                                <span>$20</span>
+
+                                <hr />
+                                <p>Shipping</p>
+                                <span>$5</span>
+
+                                <hr />
+
+                                <p>Total</p>
+                                <span>$25</span>
+
+                                <div class="clear"></div>
+
+                                <h4>Comment</h4>
+                                <textarea></textarea>
+
+                                <a href="#">
+                                    Complete Order
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
