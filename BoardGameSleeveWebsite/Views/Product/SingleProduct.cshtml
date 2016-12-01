@@ -21,10 +21,11 @@
                     <p>Width: </p>
                     <p>Height: </p>
                     <hr>
+                    <p>Dispatch: Ships within 7-10 days</p>
                     <div id="add-to-cart">
                         <p>Quantity </p>
-                        <input type="number" name="quantity">
-                        <button>LÆG I KURV</button>
+                        <input type="number" name="quantity" min="0">
+                        <div id="add-cart-button">LÆG I KURV</div>
                     </div>
                 </div>
             </div>
@@ -35,9 +36,15 @@
         <div class="row">
             <div class="col-md-6">
                 <div id="product-games">
-                    <h2>Game to use</h2>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6">
+                            <div class="product-header">
+                                <h2>Game to use</h2>
+                            </div>
+                        </div>
+                    </div>
                     <ul>
-                        <li>A Game of Thrones LCG™</li>
+                        <li><a>A Game of Thrones LCG™</a></li>
                         <li>Dominant Species™</li>
                         <li>Eaten by Zombies!™</li>
                         <li>Race for the Galaxy™</li>
@@ -47,13 +54,19 @@
             </div>
             <div class="col-md-6">
                 <div id="product-description">
-                    <h2>Description</h2>
-                    <h4>
-                        Card Game Card Sleeves
-                    </h4>
-                    <p>Expertly engineered to fit all of your favorite games with cards sized 63.5x88mm!</p>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6">
+                            <div class="product-header">
+
+                                <h2>Description</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Card Game Card Sleeves <br />Expertly engineered to fit all of your favorite games with cards sized 63.5x88mm!</p>
                 </div>
             </div>
         </div>
     </div>
 </main>
+

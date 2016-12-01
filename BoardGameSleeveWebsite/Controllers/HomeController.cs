@@ -13,5 +13,15 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View();
         }
+
+        public ActionResult Contact()
+        {
+            return View("Contact");
+        }
+
+        public ActionResult About()
+        {
+            return View("About");
+        }
     }
 }

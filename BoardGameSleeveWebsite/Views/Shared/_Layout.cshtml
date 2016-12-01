@@ -3,43 +3,54 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - Board Game Sleeves</title>
     <link href="/css/style.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div style="text-align: center;" class="col-md-2 col-md-offset-5">
                     <a href="/">
-                        <img width="100%" src="~/img/at-logo.jpg" />
+                        <img width="65%" src="~/img/logo.png" />
                     </a>
                 </div>
-                <nav class="col-md-8">
-                    <ul>
-                        <li>
-                            <a href="/Product/Products">PRODUCT - </a>
-                        </li>
-                        <li>
-                            <a href="#">GAME -</a>
-                        </li>
-                        <li>
-                            <a href="#">ABOUT -</a>
-                        </li>
-                        <li>
-                            <a href="#">CONTACT</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="col-md-1">
+                <div class="col-md-1 col-md-offset-4">
                     <div class="basket">
-                        <img src="/img/basket.png" />
+                        <a href="/Shop/Basket">
+                            <img src="/img/basket.png" />
+                        </a>
                     </div>
                 </div>
             </div>
+            <nav class="col-md-12">
+                <ul>
+                    <li>
+                        <a href="/Product/Products">PRODUCT - </a>
+                    </li>
+                    <li>
+                        <a href="#">GAME -</a>
+                    </li>
+                    <li>
+                        <a href="/Home/About">ABOUT -</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Contact">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
         </div>
     </header>
     @RenderBody()
+
+    <script src="/scripts/script.js"></script>
+
     <footer>
         <p>Arcane Tinmen ApS • Bjoernholms Allé 4-6 • DK-8260 Viby J • Denmark • Phone: 0045 8676 5636</p>
     </footer>
