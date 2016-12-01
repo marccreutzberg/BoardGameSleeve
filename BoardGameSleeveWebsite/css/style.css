@@ -952,6 +952,9 @@ footer {
   text-decoration: none;
   line-height: 450%; }
 
+.checkoutRight hr {
+  clear: both; }
+
 .checkoutRight a:hover {
   color: #8cc1e3; }
 
