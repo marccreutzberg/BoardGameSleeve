@@ -32,6 +32,10 @@ header {
                     text-decoration: none;
                     line-height: 200%;
                 }
+
+                a:hover {
+                    color: $textBlue;
+                }
             }
         }
     }
@@ -88,10 +92,14 @@ header {
         -webkit-border-radius: 35px;
         border-radius: 35px;
         text-align: center;
-        padding: 0 30px;
+        padding: 5px 35px;
         color: #fff;
         font-size: 15px;
         text-decoration: none;
+    }
+
+    a:hover {
+        color: $textBlue;
     }
 }
 
@@ -234,6 +242,10 @@ footer {
             text-decoration: none;
             line-height: 450%;
         }
+
+        a:hover {
+            color: $textBlue;
+        }
     }
 }
 
@@ -356,6 +368,10 @@ footer {
         font-size: 15px;
         text-decoration: none;
     }
+
+     a:hover {
+        color: $textBlue;
+    }
 }
 
 
@@ -424,6 +440,10 @@ footer {
         font-size: 15px;
         text-decoration: none;
         line-height: 450%;
+    }
+
+     a:hover {
+        color: $textBlue;
     }
 }
 
