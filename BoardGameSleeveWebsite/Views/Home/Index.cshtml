@@ -2,9 +2,9 @@
 @model VMHome
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    List<Product> products = (List<Product>)this.ViewData["products"];
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	string x = (string)this.ViewData["lol"];
 }
 <main class="frontpage">
     <div class="frontpageTop">
@@ -16,7 +16,7 @@
                             <h1>BOARD GAME SLEEVES</h1>
                             <h2>PROTECT YOUR CARDS</h2>
                             <p>Let the cards last as long as the game, Avoid bended <br /> corners, scratches and natural tearing with a transparent<br> sleeve.</p>
-
+							<p>@x dasds</p>
 
                             <div class="browse">
                                 <p>BROWSE BY GAME</p>

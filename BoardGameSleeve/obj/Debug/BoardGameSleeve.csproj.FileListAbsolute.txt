@@ -40,3 +40,4 @@ C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\bin\
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
+C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
