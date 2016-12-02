@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BoardGameSleeveWebsite.Models;
+using BoardGameSleeveWebsite.ViewModels;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -15,7 +15,7 @@ namespace BoardGameSleeveWebsite.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            Home model = service.HomeModel();
+            VMHome model = service.HomeModel();
 
             return View("Index", model);
         }
