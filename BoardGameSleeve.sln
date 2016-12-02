@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGameSleeve", "BoardGameSleeve\BoardGameSleeve.csproj", "{34593209-E603-4BA1-956C-6E4BB84122CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGameSleeveWebsite", "BoardGameSleeveWebsite\BoardGameSleeveWebsite.csproj", "{BCFE1569-C876-4F31-A6CA-4363CDC4C98C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34593209-E603-4BA1-956C-6E4BB84122CB} = {34593209-E603-4BA1-956C-6E4BB84122CB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
