@@ -180,7 +180,7 @@
     </Compile>
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
-    <Compile Include="Models\Home.cs" />
+    <Compile Include="ViewModels\VMHome.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\Sale.cs" />
     <Compile Include="DataModels\Size.cs" />
