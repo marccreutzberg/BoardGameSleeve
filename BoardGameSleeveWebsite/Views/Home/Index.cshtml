@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Product> products = (List<Product>)this.ViewData["products"];
 }
 <main class="frontpage">
     <div class="frontpageTop">
@@ -60,11 +61,12 @@
                         <img src="~/img/product.png" />
                         <h3>Board Game Sleeves • @p.Size.Name</h3>
                         <h4>Size @p.Size.Width x @p.Size.Height mm</h4>
-                        <a href="#">
-                            Select this size
-                        </a>
+                        @{ 
+                            string href = "href=/product/singleproduct/" + p.ID;
+                        }
+                        <a @href>Select this size</a>
                     </div>
-                }
+                 }
                 
          
             </div>

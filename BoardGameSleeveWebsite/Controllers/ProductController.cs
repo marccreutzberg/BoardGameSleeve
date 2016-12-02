@@ -9,7 +9,7 @@ namespace BoardGameSleeveWebsite.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult SingleProduct()
+        public ActionResult SingleProduct(int id)
         {
             return View("SingleProduct");
         }
