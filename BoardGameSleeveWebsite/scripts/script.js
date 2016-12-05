@@ -14,4 +14,9 @@
 (function ($) {
     $("body").on("click", "#add-cart-button", functions.addToCart);
 
+
+
+
 })(jQuery);
+
+

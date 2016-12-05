@@ -143,10 +143,13 @@
     <Content Include="bin\System.Web.Webpages.Deployment.dll" />
     <Content Include="bin\System.Web.Webpages.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="css\administration.css" />
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\arrow.png" />
     <Content Include="img\at-logo.jpg" />
     <Content Include="img\basket.png" />
+    <Content Include="img\bglogin.png" />
     <Content Include="img\frontpageSpot.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\product.png" />
