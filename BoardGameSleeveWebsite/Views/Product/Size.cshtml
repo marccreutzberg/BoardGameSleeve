@@ -1,11 +1,10 @@
 ﻿@using BoardGameSleeveWebsite.ViewModels
 @model VMSize
-
 @{
     ViewBag.Title = "Size";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
 }
-
 <main class="products">
     <div class="container">
         <div class="row">
@@ -13,13 +12,10 @@
                 <h1>@Model.Products.FirstOrDefault().Size.Name.ToUpper() SLEEVES</h1>
             </div>
         </div>
-
         <hr />
         <div class="row">
             @foreach (var p in Model.Products)
             {
-                int count = 0;
-
                 <div class="col-md-4">
                     <div class="product">
                         <img src="~/img/Products/extra-large.png" />
@@ -28,6 +24,7 @@
                         <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
                         <h4>Color: @p.Color</h4>
 
+                        <p>COUNT @count</p>
                         @{
                             string href = "href=/product/singleproduct/" + p.ID;
                         }
@@ -35,20 +32,16 @@
                         <a @href>
                             Add to cart
                         </a>
-                        
                     </div>
-                    @if (count % 3 == 0)
-                    {
-                    <hr />
-                    }
                 </div>
-            }
+                count++;
+                if (count % 3 == 0)
+                {
+                    @Html.Raw("</div> <hr /> <div class=\"row\">");
+                    }
+                }
         </div>
     </div>
 
 
-
-
 </main>
-
-
