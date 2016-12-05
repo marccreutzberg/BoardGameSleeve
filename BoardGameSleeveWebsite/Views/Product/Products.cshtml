@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
 }
 
 <main class="products">
@@ -13,14 +14,12 @@
                 <h1>SEE OUR SELECTION OF BOARD GAME SLEEVES HERE</h1>
             </div>
         </div>
-
-
         <hr />
         <div class="row">
 
             @foreach (var p in Model.Products)
             {
-                int count = 0;
+                count++;
                 <div class="col-md-4">
                     <div class="product">
                         <img src="~/img/Products/extra-large.png" />
@@ -29,7 +28,6 @@
                         <h4>
                             Colors: @foreach (var c in p.Colors)
                             {
-
                                 if (c == p.Colors.Last())
                                 {
                                     @c
@@ -39,15 +37,12 @@
                                 {
                                     @c@:,
                                 }
-
-
                             }
                         </h4>
                         @if (p.Games != null)
                         {
                             <h4>Popular for use with:</h4>
                             <ul>
-
                                 @foreach (var g in p.Games)
                                 {
                                     <li>- @g</li>
@@ -55,28 +50,24 @@
                                 <li>
                                     - and many more
                                 </li>
-
-
-
                             </ul>
                         }
                         @{
                             string href = "/product/size/" + p.SizeID;
                         }
-
                         <a href=@href>
                             Select this size
                         </a>
                     </div>
-
-                    @if (count % 3 == 0)
-                    {
-                        <hr />
-                    }
-
                 </div>
-                            }
-
-
+                    if (count == 3)
+                    {
+                        count = 0;
+                        @Html.Raw("</div> <hr /> <div class=\"row\">");
+       
+                    }
+                
+               }
         </div>
+     </div>
 </main>
