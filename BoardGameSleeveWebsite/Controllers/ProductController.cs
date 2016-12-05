@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -15,6 +16,13 @@ namespace BoardGameSleeveWebsite.Controllers
         // GET: Product
         public ActionResult SingleProduct(int id)
         {
+
+            if (Session["Products"] == null)
+            {
+                Session["products"] = new List<SessionProduct>();
+            }
+
+
             return View("SingleProduct");
         }
 
@@ -33,6 +41,27 @@ namespace BoardGameSleeveWebsite.Controllers
             return View("Size", model);
         }
 
-        
+        [WebMethod]
+        public void AddToBasket(int productId, int quantity)
+        {
+            List<SessionProduct> products  = (List<SessionProduct>)Session["Products"];
+
+            SessionProduct product = new SessionProduct(productId, quantity);
+            products.Add(product);
+
+        }
+    }
+}
+
+
+public class SessionProduct
+{
+    int productId { get; set; }
+    int quantity { get; set; }
+    
+    public SessionProduct(int ProductId, int Quantity)
+    {
+        productId = ProductId;
+        quantity = Quantity;
     }
 }
