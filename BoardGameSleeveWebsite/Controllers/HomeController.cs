@@ -15,8 +15,7 @@ namespace BoardGameSleeveWebsite.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            Home model = service.HomeModel();
-            this.ViewData["lol"] = "hello";
+            VMHome model = service.HomeModel();
             return View("Index", model);
         }
 

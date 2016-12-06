@@ -46,3 +46,6 @@ C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFra
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
+C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
+C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml

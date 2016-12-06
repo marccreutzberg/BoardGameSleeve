@@ -5,10 +5,10 @@ using System.Web;
 
 namespace BoardGameSleeveWebsite.Models
 {
-    public class VMHome
+    public class VMProductSingle
     {
-        public List<Product> Products { get; set; }
+        public Product Product;
 
-        public VMHome() { }
+        public VMProductSingle() { }
     }
 }

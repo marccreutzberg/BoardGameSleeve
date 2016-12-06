@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BoardGameSleeveWebsite.Models;
+using BoardGameSleeveWebsite.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,17 +10,17 @@ namespace BoardGameSleeveWebsite.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
-        public ActionResult SingleProduct(int id)
+        public Service service = new Service();
+        
+        public ActionResult SingleProduct(int? id)
         {
-            return View("SingleProduct");
+            VMProductSingle model = service.ProductSingleModel(id.HasValue == true ? id.Value : 1);
+            return View("SingleProduct", model);
         }
 
         public ActionResult Products()
         {
             return View();
         }
-
-        
     }
 }
