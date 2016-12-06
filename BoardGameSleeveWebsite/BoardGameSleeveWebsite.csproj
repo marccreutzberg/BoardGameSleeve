@@ -143,10 +143,13 @@
     <Content Include="bin\System.Web.Webpages.Deployment.dll" />
     <Content Include="bin\System.Web.Webpages.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="css\administration.css" />
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\arrow.png" />
     <Content Include="img\at-logo.jpg" />
     <Content Include="img\basket.png" />
+    <Content Include="img\bglogin.png" />
     <Content Include="img\frontpageSpot.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\product.png" />
@@ -178,13 +181,15 @@
     </Compile>
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
-    <Compile Include="Models\Home.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="ViewModels\VMHome.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\Sale.cs" />
     <Compile Include="DataModels\Size.cs" />
-    <Compile Include="Views\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="Views\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="Views\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="ViewModels\VMProducts.cs" />
+    <Compile Include="ViewModels\VMSize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\Service.cs" />
   </ItemGroup>
@@ -194,7 +199,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -235,6 +239,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shop\Checkout.cshtml" />
+    <Content Include="Views\Product\Size.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -244,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
