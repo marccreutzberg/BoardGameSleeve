@@ -6,40 +6,48 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-12">
-        <h2>Size</h2>
+<div class="createSize">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Admistere Size</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <h3>Size Overview</h3>
+            <div class="listOverview">
+                <ul>
+                    @{
+                        foreach (var size in Model)
+                        {
+                            <li>
+                                <strong>Name:</strong> @size.Name - <strong>Width:</strong> @size.Width - <strong>Height:</strong>                                 @size.Height
+
+                                <div data-id="@size.ID" id="delete-size-button" title="Delete product">
+                                    <img width="20" src="~/img/RemoveItemIcon2.png" />
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-1">
+            <h3>Create </h3>
+            <p>Width</p>
+            <input type="number" name="Width" value="" id="width-Size" />
+
+            <p>Height</p>
+            <input type="number" name="Height" value="" id="height-Size" />
+
+            <p>Size Name (Eks. Large)</p>
+            <input type="text" name="Name" value="" id="name-Size" />
+
+            <p>Description</p>
+            <textarea name="Name" value="" id="description-Size" ></textarea>
+
+            <div id="create-size-button">CREATE SIZE</div>
+        </div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-8">
-        <ul>
-          @{ 
-              foreach (var size in Model)
-              {
-                  <li>Width: @size.Width - Height: @size.Height</li>
-              }
-          }
-        </ul>
-    </div>
-    <div class="col-md-4">
-       <h2>Create </h2>
-        <p>Width</p>
-        <input type="number" name="Width" value="" id="width-Size" />
-
-        <p>Height</p>
-        <input type="number" name="Height" value="" id="height-Size" />
-
-        <p>Size Name (Eks. Large)</p>
-        <input type="text" name="Name" value="" id="name-Size" />
-
-        <p>Description</p>
-        <input type="text" name="Name" value="" id="description-Size" />
-
-
-        <div id="create-size-button">CREATE SIZE</div>
-    </div>
-</div>
-
-

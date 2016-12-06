@@ -38,7 +38,8 @@ namespace BoardGameSleeveWebsite.Controllers
             s.Width = width;
             s.Name = name;
             s.SizeDescription = description;
-       
+
+            service.createSize(s);
         }
 
         public ActionResult CreateGame()
