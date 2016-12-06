@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace BoardGameSleeveWebsite.ViewModels
+namespace BoardGameSleeveWebsite
 {
     public class VMGames
     {

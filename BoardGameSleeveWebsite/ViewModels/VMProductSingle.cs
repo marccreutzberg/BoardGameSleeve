@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BoardGameSleeveWebsite.ViewModels
+namespace BoardGameSleeveWebsite
 {
     public class VMProductSingle
     {

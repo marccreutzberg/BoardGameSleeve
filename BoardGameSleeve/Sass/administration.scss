@@ -1,10 +1,13 @@
-﻿h1 {
-    color: #fff;
+﻿$blackcolor: #3d3d3d;
+$WhiteColor: #fff;
+
+h1 {
+    color: $WhiteColor;
 }
 
 
 .administrationsNavn {
-    background-color: #3d3d3d;
+    background-color: $blackcolor;
     height: 100%;
     padding: 20px 40px;
 
@@ -31,24 +34,90 @@
     }
 }
 
+.createSize{
+    p{
+        margin: 20px 0 0 0;
+    }
+}
+
+.createSize input[type="text"], .createSize input[type="number"] {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.createSize textarea {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+
+
 .login {
     margin-top: 50px;
     padding: 20px;
     width: 100%;
-    background-color: #fff;
+    background-color: $WhiteColor;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-    border: 1px solid #3d3d3d;
+    border: 1px solid $blackcolor;
 
-    p{
+    p {
         margin: 10px 0 0 0;
     }
-    input{
+
+    input {
         width: 100%;
         padding-left: 10px;
         height: 35px;
-        border: 1px solid #3d3d3d;
+        border: 1px solid $blackcolor;
         box-sizing: border-box;
     }
+}
+
+#create-size-button {
+    cursor: pointer;
+    background-color: $blackcolor;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    width: 200px;
+    color: $WhiteColor;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.listOverview {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #5d5d5d;
+        }
+
+        li:nth-child(odd) {
+            background-color: #5d5d5d;
+            color: $WhiteColor;
+        }
+    }
+
+    img{
+        margin: 0px 10px;
+    }
+}
+
+#delete-size-button{
+    float: right;
+    cursor: pointer;
 }

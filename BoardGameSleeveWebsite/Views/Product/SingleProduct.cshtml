@@ -1,4 +1,4 @@
-﻿@using BoardGameSleeveWebsite.Models
+﻿@using BoardGameSleeveWebsite.ViewModels
 @model VMProductSingle
 
 @{
@@ -12,6 +12,7 @@
 	string color = product.Color;
 	string width = product.Size.Width.ToString() + "mm";
 	string height = product.Size.Height.ToString() + "mm";
+    int productId = product.ID;
 }
 
 @section css{
@@ -51,6 +52,7 @@
                     <div id="add-to-cart">
                         <p>Quantity </p>
                         <input type="number" name="quantity" min="1" id="quantity-product">
+                        <input type="hidden" name="productId" id="productId" value="@productId"/>
                         <div id="add-cart-button">Add to Cart</div>
                     </div>
                 </div>
