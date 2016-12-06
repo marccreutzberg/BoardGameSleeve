@@ -30,13 +30,82 @@
         });
     }
 
+    function updateBasketQuantity() {
+        var productId = $(this).attr("data-id");
+        var quantity = $(".quantity-number").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/Shop/UpdateBasketQuantity",
+            data: JSON.stringify({ productId: productId, quantity: quantity }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
+    }
+
+    function subtractQuantity() {
+        var productId = $(this).attr("data-id");
+        var prev = $("#quantity-number" + productId).val();
+        var subtracted = prev - 1;
+
+        $.ajax({
+            type: "POST",
+            url: "/Shop/SubtractToQuantityProduct",
+            data: JSON.stringify({ productId: productId }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
+        $("#quantity-number" + productId).val(subtracted);
+    }
+
+    function addQuantity() {
+        var productId = $(this).attr("data-id");
+        var prev = $("#quantity-number" + productId).val();
+        var added = parseInt(prev) + 1;
+
+        $.ajax({
+            type: "POST",
+            url: "/Shop/AddToQuantityProduct",
+            data: JSON.stringify({ productId: productId }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
+        $("#quantity-number" + productId).val(added);
+    }
+
+
+    function removeProductFromSession() {
+        var productId = $(this).attr("data-id");
+        
+        $.ajax({
+            type: "POST",
+            url: "/Shop/DeleteProductFromSession",
+            data: JSON.stringify({ productId: productId }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
+    }
+
+
     return {
         addToCart: addToCart,
         createSize: createSize,
+        updateBasketQuantity: updateBasketQuantity,
+        addQuantity: addQuantity,
+        subtractQuantity: subtractQuantity,
+        removeProductFromSession: removeProductFromSession,
     }
 })();
 
 (function ($) {
     $("body").on("click", "#add-cart-button", functions.addToCart);
     $("body").on("click", "#create-size-button", functions.createSize);
+    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity)
+    $("body").on("click", "#add-quantity", functions.addQuantity);
+    $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
+    $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
 })(jQuery);

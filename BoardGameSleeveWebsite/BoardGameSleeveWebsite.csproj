@@ -188,6 +188,7 @@
     </Compile>
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
+    <Compile Include="ViewModels\VMBasket.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\Service.cs" />
     <Compile Include="ViewModels\VMSize.cs" />
+    <Compile Include="ViewModels\WMAdministrationSize.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

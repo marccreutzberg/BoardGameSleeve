@@ -103,5 +103,22 @@ namespace BoardGameSleeveWebsite.services
             dbContext.Sizes.Add(size);
             dbContext.SaveChanges();
         }
+
+        public List<Product> GetProductsBasedOnIds(List<SessionProduct> sessionProducts)
+        {
+            List<Product> products = new List<Product>();
+
+            if(sessionProducts != null)
+            {
+                foreach (var s in sessionProducts)
+                {
+                    Product p = dbContext.Products.Include("Size").Where(x => x.ID == s.productId).FirstOrDefault();
+                    products.Add(p);
+                }
+            }
+            
+
+            return products;
+        }
     }
 }
