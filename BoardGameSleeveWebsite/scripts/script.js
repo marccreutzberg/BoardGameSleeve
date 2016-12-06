@@ -109,8 +109,7 @@
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
     $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
 
-        top.location.href = "/admin/size";
-    }
+    top.location.href = "/admin/size";
 
     function deleteSize() {
         var id = $(this).data("id");
@@ -144,7 +143,7 @@
         top.location.href = "/admin/size";
     }
     function createGame() {
-    	console.log("createGame()");
+        console.log("createGame()");
     }
 
     return {
@@ -152,7 +151,7 @@
         createSize: createSize,
         deleteSize: deleteSize,
         editSize: editSize,
-        createSize: createSize
+        createGame: createGame
     }
 })();
 
