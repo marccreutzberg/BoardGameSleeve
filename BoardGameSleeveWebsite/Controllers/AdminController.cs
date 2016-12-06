@@ -12,8 +12,6 @@ namespace BoardGameSleeveWebsite.Controllers
     public class AdminController : Controller
     {
         public Service service = new Service();
-        public ModelContext dbContext = new ModelContext();
-
         // GET: Admin
         public ActionResult index()
         {
@@ -25,7 +23,7 @@ namespace BoardGameSleeveWebsite.Controllers
             return View("Login");
         }
 
-        public ActionResult CreateProduct()
+        public ActionResult Product()
         {
             return View("CreateProduct");
         }
@@ -36,6 +34,23 @@ namespace BoardGameSleeveWebsite.Controllers
 
             return View(sizes);
         }
+
+        #region Game Things
+        public ActionResult Game()
+        {
+            return View();
+        }
+        public ActionResult CreateGame(string name, int sizeId)
+        {
+            string createGameError = service.CreateGame(name, sizeId);
+            return Content(createGameError);
+        }
+        public ActionResult DeleteGame(int id)
+        {
+            string deleteGameError = service.DeleteGame(id);
+            return Content(deleteGameError);
+        }
+        #endregion
 
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)

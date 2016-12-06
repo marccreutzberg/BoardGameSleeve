@@ -13,8 +13,6 @@
 
         });
     }
-
-
     function createSize() {
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
@@ -63,12 +61,16 @@
 
         top.location.href = "/admin/size";
     }
+    function createGame() {
+    	console.log("createGame()");
+    }
 
     return {
         addToCart: addToCart,
         createSize: createSize,
         deleteSize: deleteSize,
         editSize: editSize,
+        createSize: createSize
     }
 })();
 
@@ -77,4 +79,5 @@
     $("body").on("click", "#create-size-button", functions.createSize);
     $("body").on("click", "#delete-size-button", functions.deleteSize);
     $("body").on("click", "#edit-chosen-size-button", functions.editSize);
+    $("body").on("click", "#createGameBtn", functions.createGame);
 })(jQuery);
