@@ -34,8 +34,8 @@ h1 {
     }
 }
 
-.createSize{
-    p{
+.createSize {
+    p {
         margin: 20px 0 0 0;
     }
 }
@@ -78,7 +78,7 @@ h1 {
     }
 }
 
-#create-size-button {
+#create-size-button, #edit-chosen-size-button {
     cursor: pointer;
     background-color: $blackcolor;
     -moz-border-radius: 8px;
@@ -112,12 +112,18 @@ h1 {
         }
     }
 
-    img{
+    img {
         margin: 0px 10px;
     }
 }
 
-#delete-size-button{
+#delete-size-button {
     float: right;
     cursor: pointer;
 }
+
+#edit-size-button {
+    float: right;
+    cursor: pointer;
+}
+

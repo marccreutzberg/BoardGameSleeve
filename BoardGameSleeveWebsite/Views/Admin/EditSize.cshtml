@@ -1,0 +1,37 @@
+﻿@using BoardGameSleeveWebsite.ViewModels
+@model Size
+
+@{
+    ViewBag.Title = "EditSize";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="createSize">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Edit Size</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Create </h3>
+            <p>Width</p>
+
+            <input type="number" name="Width" value="@Model.Width" id="width-Size" />
+
+            <p>Height</p>
+            <input type="number" name="Height" value="@Model.Height" id="height-Size" />
+
+            <p>Size Name (Eks. Large)</p>
+            <input type="text" name="Name" value="@Model.Name" id="name-Size" />
+
+            <p>Description</p>
+            <textarea name="Name" id="description-Size">@Model.SizeDescription</textarea>
+
+            <input type="hidden" name="name" value="@Model.ID" id="id-Size" />
+
+            <div id="edit-chosen-size-button">Edit SIZE</div>
+        </div>
+    </div>
+</div>
+
+

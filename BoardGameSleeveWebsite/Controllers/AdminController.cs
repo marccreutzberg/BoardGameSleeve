@@ -12,7 +12,14 @@ namespace BoardGameSleeveWebsite.Controllers
     public class AdminController : Controller
     {
         public Service service = new Service();
+        public ModelContext dbContext = new ModelContext();
+
         // GET: Admin
+        public ActionResult index()
+        {
+            return View();
+        }
+
         public ActionResult Login()
         {
             return View("Login");
@@ -42,13 +49,35 @@ namespace BoardGameSleeveWebsite.Controllers
             service.createSize(s);
         }
 
+        [WebMethod]
+        public void DeleteSize(int id)
+        {
+            service.deleteSizeFromId(id);
+        }
+
+        public ActionResult EditSize(int id)
+        {
+            Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+
+            //if(s == null)
+            //{
+            //    return RedirectToAction("Size");
+            //}
+
+            return View(s);
+        }
+
+        [WebMethod]
+        public ActionResult EditChosenSize(int width, int height, string name, string description, int id)
+        {
+            service.editSize(width, height, name, description, id);
+
+            return Content("redirect");
+        }
+
         public ActionResult CreateGame()
         {
             return View("CreateGame");
         }
-
-
-
-
     }
 }
