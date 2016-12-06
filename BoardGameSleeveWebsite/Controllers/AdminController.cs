@@ -59,10 +59,10 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
 
-            //if(s == null)
-            //{
-            //    return RedirectToAction("Size");
-            //}
+            if (s == null)
+            {
+                return RedirectToAction("Size");
+            }
 
             return View(s);
         }
