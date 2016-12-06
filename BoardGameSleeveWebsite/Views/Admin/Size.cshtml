@@ -14,7 +14,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <h3>Size Overview</h3>
             <div class="listOverview">
                 <ul>
@@ -24,9 +24,13 @@
                             <li>
                                 <strong>Name:</strong> @size.Name - <strong>Width:</strong> @size.Width - <strong>Height:</strong>                                 @size.Height
 
-                                <div data-id="@size.ID" id="delete-size-button" title="Delete product">
+                                <div data-id="@size.ID" id="delete-size-button" title="Delete Product">
                                     <img width="20" src="~/img/RemoveItemIcon2.png" />
                                 </div>
+
+                                <a id="edit-size-button" title="Edit Product" href='@Url.Action("EditSize", new { id = @size.ID })'>
+                                    <img width="23" src="/img/edit-icon.png" />
+                                </a>
                             </li>
                         }
                     }
@@ -45,7 +49,7 @@
             <input type="text" name="Name" value="" id="name-Size" />
 
             <p>Description</p>
-            <textarea name="Name" value="" id="description-Size" ></textarea>
+            <textarea name="Name" value="" id="description-Size"></textarea>
 
             <div id="create-size-button">CREATE SIZE</div>
         </div>

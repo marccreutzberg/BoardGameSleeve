@@ -148,5 +148,26 @@ namespace BoardGameSleeveWebsite.services
                 return e.Message;
             }
         }
+
+        public void deleteSizeFromId(int id)
+        {
+            Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+
+            dbContext.Sizes.Remove(s);
+
+            dbContext.SaveChanges();
+        }
+
+        public void editSize(int width, int height, string name, string description, int id)
+        {
+            Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+
+            s.Width = width;
+            s.Height = height;
+            s.Name = name;
+            s.SizeDescription = description;
+
+            dbContext.SaveChanges();
+        }
     }
 }
