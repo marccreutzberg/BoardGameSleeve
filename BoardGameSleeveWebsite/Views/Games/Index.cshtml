@@ -1,6 +1,6 @@
-﻿@using BoardGameSleeveWebsite.Models
+﻿@using BoardGameSleeveWebsite.ViewModels
 @using System.Text;
-@model VMGames2
+@model VMGames
 
 @{
 	ViewBag.Title = "Index";
@@ -74,7 +74,7 @@
 					</thead>
 					<tbody>
 						@{
-							List<VMGames2.GameItemFirst> games = Model.gameItems;
+							List<VMGames.GameItemFirst> games = Model.gameItems;
 							for (int i = 0; i < games.Count; i++)
 							{
 								<tr>
@@ -86,7 +86,7 @@
 					</tbody>
 					<tbody style="display:none;">
 						@{
-							List<VMGames2.SizeItemFirst> sizes = Model.sizeItems;
+							List<VMGames.SizeItemFirst> sizes = Model.sizeItems;
 							for (int i = 0; i < sizes.Count; i++)
 							{
 								<tr>

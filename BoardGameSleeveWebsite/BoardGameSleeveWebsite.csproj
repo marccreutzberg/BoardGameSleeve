@@ -260,7 +260,6 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="scripts\Games.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>

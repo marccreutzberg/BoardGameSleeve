@@ -9,61 +9,6 @@ namespace BoardGameSleeveWebsite
 {
     public class VMGames
     {
-        public class GamesTable
-        {
-            public List<string> Sizes;
-            public List<Game2> Games;
-            public void Sort()
-            {
-                this.Sizes.Sort();
-                this.Games.Sort((Game2 g1, Game2 g2) =>
-                {
-                    return string.Compare(g1.Name, g2.Name);
-                });
-            }
-        }
-        public class Game2
-        {
-            public string Name;
-            public List<string> Sizes;
-            public Game2(string name, List<string> sizes)
-            {
-                this.Name = name;
-                this.Sizes = sizes;
-                this.Sizes.Sort();
-            }
-        }
-
-        public GamesTable gamesTable;
-        public string GamesTableJson;
-        public VMGames(List<Game> games, List<Size> sizes)
-        {
-            this.gamesTable = new GamesTable();
-
-            List<string> textSizes= new List<string>();
-            foreach (Size size in sizes)
-                textSizes.Add(size.Name);
-
-            List<Game2> games2 = new List<Game2>();
-            foreach (Game game in games)
-            {
-                List<string> gameSizes = new List<string>();
-                foreach (Size size in game.Sizes)
-                    gameSizes.Add(size.Name);
-                games2.Add(new Game2(game.Name, gameSizes));
-            }
-
-            this.gamesTable.Games = games2;
-            this.gamesTable.Sizes = textSizes;
-
-            this.gamesTable.Sort();
-
-            this.GamesTableJson = JsonConvert.SerializeObject(gamesTable); ;
-        }
-    }
-
-    public class VMGames2
-    {
         public class GameItemFirst
         {
             public string Name;
@@ -101,7 +46,7 @@ namespace BoardGameSleeveWebsite
         public List<GameItemFirst> gameItems;
         public List<SizeItemFirst> sizeItems;
 
-        public VMGames2(List<Game> games, List<Size> sizes)
+        public VMGames(List<Game> games, List<Size> sizes)
         {
             this.gameItems = new List<GameItemFirst>();
             this.sizeItems = new List<SizeItemFirst>();
