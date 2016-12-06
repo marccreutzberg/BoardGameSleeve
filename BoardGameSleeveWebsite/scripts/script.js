@@ -14,21 +14,20 @@
         });
     }
 
+
     function createSize() {
-        alert('CREATE SIZE JS');
+        var widthVal = $("#width-Size").val();
+        var heightVal = $("#height-Size").val();
+        var nameVal = $("#name-Size").val();
+        var descriptionVal = $("#description-Size").val();
 
-        //var widthVal = $("#width-Size").val();
-        //var heightVal = $("#height-Size").val();
-        //var nameVal = $("#name-Size").val();
-        //var descriptionVal = $("#description-Size").val();
-
-        //$.ajax({
-        //    type: "POST",
-        //    url: "/Admini/CreateSize",
-        //    data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal }),
-        //    contentType: "application/json; charset=utf-8",
-        //    dataType: "json",
-        //});
+        $.ajax({
+            type: "POST",
+            url: "/Admin/CreateSize",
+            data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
     }
 
     return {
