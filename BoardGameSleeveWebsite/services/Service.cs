@@ -91,5 +91,17 @@ namespace BoardGameSleeveWebsite.services
             List<Size> sizes = (from size in dbContext.Sizes select size).ToList();
             return new VMGames(games, sizes);
         }
+
+        public List<Size> GetSize()
+        {
+            List<Size> Sizes = dbContext.Sizes.ToList();
+            return Sizes;
+        }
+
+        public void createSize(Size size)
+        {
+            dbContext.Sizes.Add(size);
+            dbContext.SaveChanges();
+        }
     }
 }
