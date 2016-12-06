@@ -283,8 +283,15 @@ footer {
     .basketQuantityCount {
         margin-top: 10px;
         text-align: center;
-        border: 1px solid $backgroundGray;
+        border: 1px solid $backgroundGray;   
+        
+        .quantity-number {
+            width: 50px;
+            height: 50px;
+        }  
     }
+
+    
 
     .basketPrice {
         height: 70px;
@@ -347,7 +354,7 @@ footer {
 
 .basketRemoveItem {
     padding: 60px 0 0;
-
+    cursor:pointer;
     img {
         width: 100%;
     }
@@ -371,7 +378,7 @@ footer {
         text-decoration: none;
     }
 
-     a:hover {
+    a:hover {
         color: $textBlue;
     }
 }
@@ -444,11 +451,11 @@ footer {
         line-height: 450%;
     }
 
-    hr{
+    hr {
         clear: both;
     }
 
-     a:hover {
+    a:hover {
         color: $textBlue;
     }
 }

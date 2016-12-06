@@ -1,8 +1,34 @@
-﻿
+﻿@using BoardGameSleeveWebsite.ViewModels
+@model VMProductSingle
+
 @{
-    ViewBag.Title = "SingleProduct";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "SingleProduct";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	Product product = Model.Product;
+
+	string productName = product.Name;
+	string title = product.Size.Name;
+	string price = product.Price.ToString() + " kr.";
+	string color = product.Color;
+	string width = product.Size.Width.ToString() + "mm";
+	string height = product.Size.Height.ToString() + "mm";
+    int productId = product.ID;
 }
+
+@section css{
+	<style>
+		#ps-productname
+		{
+			margin-bottom: 0;
+			margin-top: 5px;
+		}
+		#ps-title
+		{
+			margin-top: 5px;
+		}
+	</style>
+}
+
 
 <main class="productPage">
     <div class="container">
@@ -14,18 +40,20 @@
             </div>
             <div class="col-md-6">
                 <div id="product-info">
-                    <h2>Large 20MM * 56MM</h2>
-                    <p>Price: </p>
+					<h2 id="ps-productname">@productName</h2>
+                    <h3 id="ps-title">@title</h3>
+                    <p>Price: @price</p>
                     <hr>
-                    <p>Color: </p>
-                    <p>Width: </p>
-                    <p>Height: </p>
+                    <p>Color: @color</p>
+                    <p>Width: @width</p>
+                    <p>Height: @height</p>
                     <hr>
                     <p>Dispatch: Ships within 7-10 days</p>
                     <div id="add-to-cart">
                         <p>Quantity </p>
-                        <input type="number" name="quantity" min="0" id="quantity-product">
-                        <div id="add-cart-button">LÆG I KURV</div>
+                        <input type="number" name="quantity" min="1" id="quantity-product">
+                        <input type="hidden" name="productId" id="productId" value="@productId"/>
+                        <div id="add-cart-button">Add to Cart</div>
                     </div>
                 </div>
             </div>

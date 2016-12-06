@@ -12,17 +12,15 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-    <script src="~/scripts/script.js"></script>
+    
 
     <script>
 
         $(document).ready(function () {
-            $(".administrationsNavn").height($(document).height() - 40);
 
-            $(window).resize(function () {
-                $(".administrationsNavn").height($(document).height() - 40);
-            });
-
+            windowsize = 0;
+            windowsize = $(document).height() - 40;
+            $(".administrationsNavn").height(windowsize);
         });
     </script>
 </head>
@@ -35,13 +33,13 @@
 
                 <ul>
                     <li>
-                        <a href="#">Create Product</a>
+                        <a href="/admin/produt">Product</a>
                     </li>
                     <li>
-                        <a href="#">Edit Product</a>
+                        <a href="/admin/size">Size</a>
                     </li>
                     <li>
-                        <a href="#">See orders</a>
+                        <a href="/admin/size">Game</a>
                     </li>
                 </ul>
             </nav>
@@ -50,6 +48,8 @@
             </div>
         </div>
     </div>
+
+    <script src="~/scripts/script.js"></script>
 
 </body>
 </html>
