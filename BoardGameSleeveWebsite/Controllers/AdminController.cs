@@ -18,7 +18,7 @@ namespace BoardGameSleeveWebsite.Controllers
             return View("Login");
         }
 
-        public ActionResult CreateProduct()
+        public ActionResult Product()
         {
             return View("CreateProduct");
         }
@@ -29,6 +29,23 @@ namespace BoardGameSleeveWebsite.Controllers
 
             return View(sizes);
         }
+
+        #region Game Things
+        public ActionResult Game()
+        {
+            return View();
+        }
+        public ActionResult CreateGame(string name, int sizeId)
+        {
+            string createGameError = service.CreateGame(name, sizeId);
+            return Content(createGameError);
+        }
+        public ActionResult DeleteGame(int id)
+        {
+            string deleteGameError = service.DeleteGame(id);
+            return Content(deleteGameError);
+        }
+        #endregion
 
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
@@ -42,13 +59,6 @@ namespace BoardGameSleeveWebsite.Controllers
             service.createSize(s);
         }
 
-        public ActionResult CreateGame()
-        {
-            return View("CreateGame");
-        }
-
-
-
-
+        
     }
 }

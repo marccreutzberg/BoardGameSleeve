@@ -13,8 +13,6 @@
 
         });
     }
-
-
     function createSize() {
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
@@ -31,14 +29,18 @@
 
         location.reload();
     }
+    function createGame() {
+    	console.log("createGame()");
+    }
 
     return {
         addToCart: addToCart,
-        createSize: createSize,
+        createSize: createSize
     }
 })();
 
 (function ($) {
     $("body").on("click", "#add-cart-button", functions.addToCart);
     $("body").on("click", "#create-size-button", functions.createSize);
+    $("body").on("click", "#createGameBtn", functions.createGame);
 })(jQuery);

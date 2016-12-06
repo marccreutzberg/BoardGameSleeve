@@ -250,9 +250,8 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shop\Checkout.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
-    <Content Include="scripts\Games.js.map" />
-    <Content Include="Views\Admin\CreateGame.cshtml" />
-    <Content Include="Views\Admin\CreateProduct.cshtml" />
+    <Content Include="Views\Admin\Game.cshtml" />
+    <Content Include="Views\Admin\Product.cshtml" />
     <Content Include="Views\Admin\Size.cshtml" />
     <Content Include="Views\Product\Size.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
@@ -269,6 +268,7 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="scripts\file1.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
