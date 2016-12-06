@@ -10,6 +10,7 @@
             data: JSON.stringify({ productId: id, quantity: productQuantity }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+
         });
     }
 
