@@ -14,14 +14,24 @@ namespace BoardGameSleeveWebsite.Controllers
         public Service service = new Service();
 
         // GET: Product
-        public ActionResult SingleProduct(int id)
+        public ActionResult SingleProduct(int? id)
         {
             if (Session["Products"] == null)
             {
                 Session["products"] = new List<SessionProduct>();
             }
-            VMProductSingle model = service.ProductSingleModel(id.HasValue == true ? id.Value : 1);
-            return View("SingleProduct", model);
+
+
+            if (id.HasValue == false)
+            {
+                //Goto back to products page
+                return RedirectToAction("Products");
+            }
+            else
+            {
+                VMProductSingle model = service.ProductSingleModel(id.Value);
+                return View("SingleProduct", model);
+            }
         }
 
         public ActionResult Products()

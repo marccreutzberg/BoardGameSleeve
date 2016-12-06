@@ -49,3 +49,6 @@ C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\Boa
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
+C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
+C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\System.Web.dll
+C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml

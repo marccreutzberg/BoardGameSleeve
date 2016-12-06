@@ -1,4 +1,4 @@
-﻿using BoardGameSleeveWebsite.Models;
+﻿using BoardGameSleeveWebsite.ViewModels;
 using BoardGameSleeveWebsite.services;
 using System;
 using System.Collections.Generic;

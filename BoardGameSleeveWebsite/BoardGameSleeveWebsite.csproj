@@ -169,6 +169,7 @@
     <Content Include="img\Search-icon.png" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\Games.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -187,6 +188,7 @@
     </Compile>
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
+    <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
     <Compile Include="ViewModels\VMHome.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="DataModels\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\Service.cs" />
+    <Compile Include="ViewModels\VMSize.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -243,6 +246,7 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shop\Checkout.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="scripts\Games.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
