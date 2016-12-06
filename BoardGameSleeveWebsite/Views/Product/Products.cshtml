@@ -1,8 +1,10 @@
-﻿
+﻿@using BoardGameSleeveWebsite.ViewModels
+@model VMProducts
+
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    int count = 0;
 }
 
 <main class="products">
@@ -12,218 +14,60 @@
                 <h1>SEE OUR SELECTION OF BOARD GAME SLEEVES HERE</h1>
             </div>
         </div>
-
         <hr />
-
         <div class="row">
-            <div class="col-md-4">
-                <div class="product">
-                    <img src="~/img/Products/extra-large.png" />
-                    <h3>Board Game Sleeves •  XLarge</h3>
-                    <h4>AT-10402</h4>
-                    <h4>Size: 59 x 92 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
+
+            @foreach (var p in Model.Products)
+            {
+                count++;
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="~/img/Products/extra-large.png" />
+                        <h3>Board Game Sleeves •  @p.SizeName</h3>
+                        <h4>Size: @p.Width x @p.Height mm</h4>
+                        <h4>
+                            Colors: @foreach (var c in p.Colors)
+                            {
+                                if (c == p.Colors.Last())
+                                {
+                                    @c
+                                }
+
+                                else
+                                {
+                                    @c@:,
+                                }
+                            }
+                        </h4>
+                        @if (p.Games != null)
+                        {
+                            <h4>Popular for use with:</h4>
+                            <ul>
+                                @foreach (var g in p.Games)
+                                {
+                                    <li>- @g</li>
+                                }
+                                <li>
+                                    - and many more
+                                </li>
+                            </ul>
+                        }
+                        @{
+                            string href = "/product/size/" + p.SizeID;
+                        }
+                        <a href=@href>
+                            Select this size
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product">
-
-                    <img src="~/img/Products/Medium.png" />
-                    <h3>Board Game Sleeves •  Medium</h3>
-                    <h4>Size: 57 x 89 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product">
-
-                    <img src="~/img/Products/Mini.png" />
-                    <h3>Board Game Sleeves •  Mini</h3>
-                    <h4>Size: 44 x 68 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-            </div>
+                    if (count == 3)
+                    {
+                        count = 0;
+                        @Html.Raw("</div> <hr /> <div class=\"row\">");
+       
+                    }
+                
+               }
         </div>
-
-
-        <hr />
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="product">
-
-                    <img src="~/img/Products/Oversized.png" />
-                    <h3>Board Game Sleeves •  Oversized</h3>
-                    <h4>Size: 59 x 92 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product">
-
-                    <img src="~/img/Products/Small.png" />
-                    <h3>Board Game Sleeves •  Small</h3>
-                    <h4>Size: 57 x 89 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product">
-
-                    <img src="~/img/Products/Square.png" />
-                    <h3>Board Game Sleeves •  Square</h3>
-                    <h4>Size: 44 x 68 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <hr />
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="product">
-
-                    <img src="~/img/Products/Standart.png" />
-                    <h3>Board Game Sleeves •  Standart</h3>
-                    <h4>Size: 59 x 92 mm</h4>
-                    <h4>Color: Transparent</h4>
-                    <h4>Popular for use with:</h4>
-                    <ul>
-                        <li>
-                            - A Game of Thrones LCG
-                        </li>
-                        <li>
-                            - Dominant Species
-                        </li>
-                        <li>
-                            - Race for the Galaxy
-                        </li>
-                        <li>
-                            - and many more
-                        </li>
-                    </ul>
-                    <a href="#">
-                        Select this size
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
+     </div>
 </main>
-

@@ -1,7 +1,16 @@
 ﻿var functions = (function () {
 
     function addToCart() {
-        alert("Tilføjet til indkøbskurv");
+        var id = $("#productId").val();
+        var productQuantity = $("#quantity-product").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/Product/AddToBasket",
+            data: JSON.stringify({ productId: id, quantity: productQuantity }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
     }
 
     return {

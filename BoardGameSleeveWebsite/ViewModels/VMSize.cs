@@ -5,10 +5,10 @@ using System.Web;
 
 namespace BoardGameSleeveWebsite.ViewModels
 {
-    public class VMHome
+    public class VMSize
     {
         public List<Product> Products { get; set; }
 
-        public VMHome() { }
+        public VMSize() { }
     }
 }
