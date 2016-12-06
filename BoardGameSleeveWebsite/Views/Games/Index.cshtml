@@ -1,0 +1,119 @@
+﻿@using BoardGameSleeveWebsite.Models
+@using System.Text;
+@model VMGames2
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section script
+{
+	<script src="/scripts/Games.js"></script>
+}
+
+@section css
+{
+	<style>
+		table
+		{
+			max-width:100%;
+		}
+		table, td
+		{
+			border: 1px solid black;
+			padding:5px;
+			vertical-align: baseline;
+		}
+		th
+		{
+			padding:10px;
+			font-size:1.2em;
+
+			min-width:150px;
+			width:300px;
+			max-width:100%;
+		}
+		th:hover
+		{
+			cursor:pointer;
+			background-color:forestgreen;
+		}
+		thead
+		{
+			background-color:green;
+			color:rgb(160,160,160);
+		}
+		thead th.column-active
+		{
+			color:white;
+		}
+		tbody tr:nth-child(2n+1)
+		{
+			background-color:rgb(230,230,230);
+		}
+	</style>
+}
+
+<main class="games">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>Games</h1>
+				<p>Find all the games we support here</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="GamesTable">
+					<thead>
+						<tr>
+							<th class="column-active" onclick="sortGame();">Find by Game</th>
+							<th onclick="sortSize();">Find by Size</th>
+						</tr>
+					</thead>
+					<tbody>
+						@{
+							List<VMGames2.GameItemFirst> games = Model.gameItems;
+							for (int i = 0; i < games.Count; i++)
+							{
+								<tr>
+									<td>@games[i].Name</td>
+									<td>@games[i].SizeText</td>
+								</tr>
+							}
+						}
+					</tbody>
+					<tbody style="display:none;">
+						@{
+							List<VMGames2.SizeItemFirst> sizes = Model.sizeItems;
+							for (int i = 0; i < sizes.Count; i++)
+							{
+								<tr>
+									<td>@sizes[i].Name</td>
+									<td>
+										@if (sizes[i].Games.Count == 0)
+										{
+											<span style="color:gray">None</span>
+										}
+										else
+										{
+											for (int j = 0; j < sizes[i].Games.Count; j++)
+											{
+												@sizes[i].Games[j]
+												if (j < sizes[i].Games.Count)
+												{
+													<br />
+												}
+											}
+										}
+									</td>
+								</tr>
+							}
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

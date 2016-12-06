@@ -2,35 +2,54 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Board Game Sleeves</title>
-
     <link href="/css/style.css" rel="stylesheet" />
-
+    <link href="~/css/administration.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
+    <script src="~/scripts/script.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $(".administrationsNavn").height($(document).height() - 40);
+
+            $(window).resize(function () {
+                $(".administrationsNavn").height($(document).height() - 40);
+            });
+
+        });
+    </script>
 </head>
 <body>
-   <div class="col-md-2">
-       <ul>
-           <li>
+    <div style="width: 100%;overflow: hidden;">
+        <div class="row">
+            <nav class="col-md-3 administrationsNavn">
 
-           </li>
-       </ul>
-   </div>
-    <div class="col-md-10">
-        @RenderBody()
+                <h1>CMS</h1>
+
+                <ul>
+                    <li>
+                        <a href="#">Create Product</a>
+                    </li>
+                    <li>
+                        <a href="#">Edit Product</a>
+                    </li>
+                    <li>
+                        <a href="#">See orders</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
-   
- 
 
-
-    <script src="/scripts/script.js"></script>
 </body>
 </html>
