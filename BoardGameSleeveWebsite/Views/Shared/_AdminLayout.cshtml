@@ -17,12 +17,10 @@
     <script>
 
         $(document).ready(function () {
-            $(".administrationsNavn").height($(document).height() - 40);
 
-            $(window).resize(function () {
-                $(".administrationsNavn").height($(document).height() - 40);
-            });
-
+            windowsize = 0;
+            windowsize = $(document).height() - 40;
+            $(".administrationsNavn").height(windowsize);
         });
     </script>
 </head>
@@ -35,13 +33,13 @@
 
                 <ul>
                     <li>
-                        <a href="#">Create Product</a>
+                        <a href="#">Product</a>
                     </li>
                     <li>
-                        <a href="#">Edit Product</a>
+                        <a href="#">Size</a>
                     </li>
                     <li>
-                        <a href="#">See orders</a>
+                        <a href="#">Game</a>
                     </li>
                 </ul>
             </nav>

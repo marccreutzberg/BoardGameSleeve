@@ -71,8 +71,20 @@ namespace BoardGameSleeveWebsite.services
 
             vm.Products = dbContext.Products.Include("Size").Where(x => x.SizeID == id).ToList();
 
-
             return vm;
         }
+
+        public List<Size> GetSize()
+        {
+            List<Size> Sizes = dbContext.Sizes.ToList();
+            return Sizes;
+        }
+
+        public void createSize(Size size)
+        {
+            dbContext.Sizes.Add(size);
+            dbContext.SaveChanges();
+        }
+
     }
 }

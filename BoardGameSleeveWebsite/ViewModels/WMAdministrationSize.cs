@@ -5,10 +5,8 @@ using System.Web;
 
 namespace BoardGameSleeveWebsite.ViewModels
 {
-    public class VMSize
+    public class WMAdministrationSize
     {
-        public List<Product> Products { get; set; }
-
-        public VMSize() { }
+        public List<Size> Sizes { get; set; }
     }
 }
