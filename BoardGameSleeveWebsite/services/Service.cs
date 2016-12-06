@@ -85,11 +85,11 @@ namespace BoardGameSleeveWebsite.services
             return productModel;
         }
 
-        public VMGames2 Games()
+        public VMGames Games()
         {
             List<Game> games = (from game in dbContext.Games orderby game.Name select game).ToList();
             List<Size> sizes = (from size in dbContext.Sizes select size).ToList();
-            return new VMGames2(games, sizes);
+            return new VMGames(games, sizes);
         }
     }
 }

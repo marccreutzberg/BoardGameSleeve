@@ -1,5 +1,5 @@
-﻿using BoardGameSleeveWebsite.Models;
-using BoardGameSleeveWebsite.services;
+﻿using BoardGameSleeveWebsite.services;
+using BoardGameSleeveWebsite.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace BoardGameSleeveWebsite.Controllers
         public ActionResult Index()
         {
             this.ViewData["gameTableJson"] = "Hello";
-            VMGames2 vmGames = service.Games();
+            VMGames vmGames = service.Games();
             return View(vmGames);
         }
     }

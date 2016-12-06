@@ -14,7 +14,7 @@ namespace BoardGameSleeveWebsite.Controllers
         public Service service = new Service();
 
         // GET: Product
-        public ActionResult SingleProduct(int id)
+        public ActionResult SingleProduct(int? id)
         {
             if (Session["Products"] == null)
             {
