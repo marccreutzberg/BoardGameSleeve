@@ -1,7 +1,5 @@
 ﻿var functions = (function () {
 
-	top.location.href = "/admin/size";
-
     function addToCart() {
         var id = $("#productId").val();
         var productQuantity = $("#quantity-product").val();

@@ -25,7 +25,9 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult Product()
         {
-            return View("CreateProduct");
+            List<Product> products = service.GetAlleProducts();
+
+            return View(products);
         }
 
         public ActionResult Size()
