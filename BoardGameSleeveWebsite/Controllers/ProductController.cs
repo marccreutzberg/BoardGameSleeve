@@ -54,8 +54,17 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             List<SessionProduct> products  = (List<SessionProduct>)Session["Products"];
 
-            SessionProduct product = new SessionProduct(productId, quantity);
-            products.Add(product);
+            if(products.Exists(x => x.productId == productId)){
+                SessionProduct s = products.Where(x => x.productId == productId).FirstOrDefault();
+                s.quantity += quantity;
+            }
+
+            else
+            {
+                SessionProduct product = new SessionProduct(productId, quantity);
+                products.Add(product);
+            }
+            
 
         }
     }
@@ -64,9 +73,9 @@ namespace BoardGameSleeveWebsite.Controllers
 
 public class SessionProduct
 {
-    int productId { get; set; }
-    int quantity { get; set; }
-    
+    public int productId { get; set; }
+    public int quantity { get; set; }
+
     public SessionProduct(int ProductId, int Quantity)
     {
         productId = ProductId;
