@@ -40,9 +40,9 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View();
         }
-        public ActionResult CreateGame(string name, int sizeId)
+        public ActionResult CreateGame(string name, List<int> sizeIds)
         {
-            string createGameError = service.CreateGame(name, sizeId);
+            string createGameError = service.CreateGame(name, sizeIds);
             return Content(createGameError);
         }
         public ActionResult DeleteGame(int id)
@@ -52,6 +52,7 @@ namespace BoardGameSleeveWebsite.Controllers
         }
         #endregion
 
+        #region Size Things
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
         {
@@ -89,10 +90,6 @@ namespace BoardGameSleeveWebsite.Controllers
 
             return Content("redirect");
         }
-
-        public ActionResult CreateGame()
-        {
-            return View("CreateGame");
-        }
+        #endregion
     }
 }
