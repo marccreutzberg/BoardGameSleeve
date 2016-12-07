@@ -114,9 +114,6 @@
 
     	top.location.href = "/admin/size";
     }
-    function createGame() {
-		console.log("createGame()");
-    }
 
     return {
         addToCart: addToCart,
@@ -125,8 +122,8 @@
         addQuantity: addQuantity,
         subtractQuantity: subtractQuantity,
         removeProductFromSession: removeProductFromSession,
-        editsize: editSize,
-		deleteSize:deleteSize
+        editSize: editSize,
+		deleteSize: deleteSize,
     }
 })();
 
@@ -135,8 +132,7 @@
     $("body").on("click", "#create-size-button", functions.createSize);
     $("body").on("click", "#delete-size-button", functions.deleteSize);
     $("body").on("click", "#edit-chosen-size-button", functions.editSize);
-    $("body").on("click", "#createGameBtn", functions.createGame);
-    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity)
+    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity);
     $("body").on("click", "#add-quantity", functions.addQuantity);
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
     $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
