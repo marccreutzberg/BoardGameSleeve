@@ -72,7 +72,7 @@
     }
     function removeProductFromSession() {
         var productId = $(this).attr("data-id");
-        
+
         $.ajax({
             type: "POST",
             url: "/Shop/DeleteProductFromSession",
@@ -82,37 +82,56 @@
         });
 
     }
-    function deleteSize()
-    {
-    	var id = $(this).data("id");
+    function deleteSize() {
+        var id = $(this).data("id");
 
-    	$.ajax({
-    		type: "POST",
-    		url: "/Admin/DeleteSize",
-    		data: JSON.stringify({ id: id }),
-    		contentType: "application/json; charset=utf-8",
-    		dataType: "json",
-    	});
+        $.ajax({
+            type: "POST",
+            url: "/Admin/DeleteSize",
+            data: JSON.stringify({ id: id }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
 
-    	top.location.href = "/admin/size";
+        top.location.href = "/admin/size";
     }
-    function editSize()
-    {
-    	var widthVal = $("#width-Size").val();
-    	var heightVal = $("#height-Size").val();
-    	var nameVal = $("#name-Size").val();
-    	var descriptionVal = $("#description-Size").val();
-    	var idVal = $("#id-Size").val();
+    function editSize() {
+        var widthVal = $("#width-Size").val();
+        var heightVal = $("#height-Size").val();
+        var nameVal = $("#name-Size").val();
+        var descriptionVal = $("#description-Size").val();
+        var idVal = $("#id-Size").val();
 
-    	$.ajax({
-    		type: "POST",
-    		url: "/Admin/EditChosenSize",
-    		data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
-    		contentType: "application/json; charset=utf-8",
-    		dataType: "json",
-    	});
+        $.ajax({
+            type: "POST",
+            url: "/Admin/EditChosenSize",
+            data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
 
-    	top.location.href = "/admin/size";
+        top.location.href = "/admin/size";
+    }
+
+    function saveCheckoutInfo() {
+        var fullName = $("#name-field").val();
+        var address = $("#address-field").val();
+        var zip = $("#zip-field").val();
+        var city = $("#city-field").val();
+        var country = $("#country-field").val();
+        var email = $("#email-field").val();
+        var phone = $("#phone-field").val();
+        var comment = $("#comment-field").val();
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Shop/SaveCheckoutInfo",
+            data: JSON.stringify({ fullName: fullName, address: address, zip: zip, city: city, country: country, email: email, phone: phone, comment: comment }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
     }
 
     return {
@@ -123,7 +142,8 @@
         subtractQuantity: subtractQuantity,
         removeProductFromSession: removeProductFromSession,
         editSize: editSize,
-		deleteSize: deleteSize,
+        deleteSize: deleteSize,
+        saveCheckoutInfo: saveCheckoutInfo,
     }
 })();
 
@@ -132,8 +152,11 @@
     $("body").on("click", "#create-size-button", functions.createSize);
     $("body").on("click", "#delete-size-button", functions.deleteSize);
     $("body").on("click", "#edit-chosen-size-button", functions.editSize);
-    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity);
     $("body").on("click", "#add-quantity", functions.addQuantity);
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
     $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
+    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity);
+    $("body").on("focusout", ".checkout-field", functions.saveCheckoutInfo);
+    $("body").on("focusout", ".zip", functions.saveCheckoutInfo);
+    $("body").on("focusout", ".city", functions.saveCheckoutInfo);
 })(jQuery);

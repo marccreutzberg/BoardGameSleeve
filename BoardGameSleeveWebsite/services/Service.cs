@@ -178,7 +178,7 @@ namespace BoardGameSleeveWebsite.services
         {
             List<Product> products = new List<Product>();
 
-            if(sessionProducts != null)
+            if (sessionProducts != null)
             {
                 foreach (var s in sessionProducts)
                 {
@@ -186,7 +186,7 @@ namespace BoardGameSleeveWebsite.services
                     products.Add(p);
                 }
             }
-            
+
 
             return products;
         }
@@ -194,6 +194,37 @@ namespace BoardGameSleeveWebsite.services
         public List<Product> GetAlleProducts()
         {
             return dbContext.Products.ToList();
+        }
+
+        public void CreateSale(VMCheckout vm)
+        {
+            Invoice i = new Invoice();
+            i.Date = DateTime.Now;
+
+            Customer c = new Customer();
+            c.Name = vm.CustomerInfo.FullName;
+            c.Address = vm.CustomerInfo.Address;
+            c.Country = vm.CustomerInfo.Country;
+            c.Email = vm.CustomerInfo.Email;
+            c.Phone = vm.CustomerInfo.Phone;
+            c.Zip = vm.CustomerInfo.ZipCode;
+            c.Invoice = i;
+            
+
+            foreach (var p in vm.SessionProducts)
+            {
+                Sale s = new Sale();
+                s.Product = dbContext.Products.Where(x => x.ID == p.productId).FirstOrDefault();
+                s.Quantity = p.quantity;
+
+                i.Sales.Add(s);
+            }
+
+            dbContext.Invoices.Add(i);
+            dbContext.Customers.Add(c);
+
+            dbContext.SaveChanges();
+
         }
     }
 }

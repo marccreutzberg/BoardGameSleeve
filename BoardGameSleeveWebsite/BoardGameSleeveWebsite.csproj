@@ -193,6 +193,7 @@
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="ViewModels\VMBasket.cs" />
+    <Compile Include="ViewModels\VMCheckout.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
