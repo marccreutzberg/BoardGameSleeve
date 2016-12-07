@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BoardGameSleeveWebsite.services;
 using BoardGameSleeveWebsite.ViewModels;
 using System.Web.Services;
+using Newtonsoft.Json;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -17,32 +18,29 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View();
         }
-
         public ActionResult Login()
         {
             return View("Login");
         }
-
         public ActionResult Product()
         {
-            return View("CreateProduct");
-        }
+            List<Product> products = service.GetAlleProducts();
 
-        public ActionResult Size()
-        {
-            List<Size> sizes = service.GetSize();
-
-            return View(sizes);
+            return View(products);
         }
 
         #region Game Things
         public ActionResult Game()
         {
+            List<Size> allSizes = service.GetSize();
+            string[] allSizesString = allSizes.Select(size => size.Name).ToArray();
+            this.ViewData["json_allSizes"] = JsonConvert.SerializeObject(allSizesString);
+            this.ViewData["games"] = service.GetAllGames();
             return View();
         }
-        public ActionResult CreateGame(string name, int sizeId)
+        public ActionResult CreateGame(string name, List<int> sizeIds)
         {
-            string createGameError = service.CreateGame(name, sizeId);
+            string createGameError = service.CreateGame(name, sizeIds);
             return Content(createGameError);
         }
 		public ActionResult CreateGame2(string name, List<int> sizeIds)
@@ -53,9 +51,17 @@ namespace BoardGameSleeveWebsite.Controllers
         public ActionResult DeleteGame(int id)
         {
             string deleteGameError = service.DeleteGame(id);
-            return Content(deleteGameError);
+            return this.RedirectToAction("Game");
         }
         #endregion
+
+        #region Size Things
+        public ActionResult Size()
+        {
+            List<Size> sizes = service.GetSize();
+
+            return View(sizes);
+        }
 
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
@@ -77,16 +83,14 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult EditSize(int id)
         {
-			//ON MERGE, USE YOUR OWN!
-			throw new System.ArgumentException("ASDDSASD");
-            //Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+            Size s = service.GetSize().Where(x => x.ID == id).FirstOrDefault();
 
-            //if (s == null)
-            //{
-            //    return RedirectToAction("Size");
-            //}
+            if (s == null)
+            {
+                return RedirectToAction("Size");
+            }
 
-            //return View(s);
+            return View(s);
         }
 
         [WebMethod]
@@ -97,9 +101,15 @@ namespace BoardGameSleeveWebsite.Controllers
             return Content("redirect");
         }
 
-        public ActionResult CreateGame()
+        public ActionResult CreateProduct()
         {
-            return View("CreateGame");
+            List<Size> size = service.GetSize();
+            return View(size);
         }
+
+
+
+        
+        #endregion
     }
 }

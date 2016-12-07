@@ -75,7 +75,6 @@ C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsi
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\EntityFramework.xml
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
-C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache

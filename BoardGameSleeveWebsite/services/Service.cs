@@ -103,7 +103,7 @@ namespace BoardGameSleeveWebsite.services
             dbContext.Sizes.Add(size);
             dbContext.SaveChanges();
         }
-        public string CreateGame(string name, int sizeId)
+        public string CreateGame(string name, List<int> sizeIds)
         {
             //Returns an empty string if succeeded, otherwise the string will be the error description
 
@@ -112,15 +112,19 @@ namespace BoardGameSleeveWebsite.services
                 Game newGame = new Game();
                 newGame.Name = name;
 
-                var sizes = (from x in dbContext.Sizes
-                             where x.ID == sizeId
-                             select x).ToList();
+                IQueryable<Size> query = null;
+                int sizesCount = dbContext.Sizes.Count();
 
-                //If there are none of that size
-                if (sizes.Count == 0)
-                    return "Cant add game. No sizeId of: " + sizeId + " exists";
+                for (int i = 0; i < sizesCount; i++)
+                    query = dbContext.Sizes.Where(x => sizeIds.Contains(x.ID));
 
-                newGame.Sizes.Add(sizes.First());
+                if(query.Count() != sizeIds.Count)
+                    return "Cant add game. Some of the sizeIds doesn't exist";
+
+                List<Size> sizes = query.ToList();
+                foreach (Size size in sizes)
+                    newGame.Sizes.Add(size);
+
                 dbContext.Games.Add(newGame);
                 dbContext.SaveChanges();
             }
@@ -147,6 +151,11 @@ namespace BoardGameSleeveWebsite.services
             {
                 return e.Message;
             }
+        }
+        public List<Game> GetAllGames()
+        {
+            return (from x in this.dbContext.Games
+                select x).ToList();
         }
 
         public void deleteSizeFromId(int id)
@@ -185,6 +194,11 @@ namespace BoardGameSleeveWebsite.services
             
 
             return products;
+        }
+
+        public List<Product> GetAlleProducts()
+        {
+            return dbContext.Products.ToList();
         }
     }
 }
