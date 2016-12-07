@@ -82,10 +82,6 @@ h1 {
 .listOverview img {
   margin: 0px 10px; }
 
-#delete-size-button {
-  float: right;
-  cursor: pointer; }
-
-#edit-size-button {
+#delete-size-button, #edit-product-button, #edit-size-button, #delete-product-button {
   float: right;
   cursor: pointer; }

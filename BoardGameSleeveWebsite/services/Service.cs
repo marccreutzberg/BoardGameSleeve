@@ -186,5 +186,10 @@ namespace BoardGameSleeveWebsite.services
 
             return products;
         }
+
+        public List<Product> GetAlleProducts()
+        {
+            return dbContext.Products.ToList();
+        }
     }
 }
