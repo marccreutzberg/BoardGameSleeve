@@ -843,6 +843,9 @@ footer {
   margin-top: 10px;
   text-align: center;
   border: 1px solid #f1f1f1; }
+  .shopBasket .basketQuantityCount .quantity-number {
+    width: 50px;
+    height: 50px; }
 
 .shopBasket .basketPrice {
   height: 70px;
@@ -886,7 +889,8 @@ footer {
     margin: 5px 0 0; }
 
 .basketRemoveItem {
-  padding: 60px 0 0; }
+  padding: 60px 0 0;
+  cursor: pointer; }
   .basketRemoveItem img {
     width: 100%; }
 

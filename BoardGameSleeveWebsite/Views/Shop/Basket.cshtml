@@ -1,14 +1,15 @@
-﻿
+﻿@model VMBasket
 @{
     ViewBag.Title = "Basket";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    double total = 0;
 }
 
 <main class="shopBasket">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>shopping cart</h1>
+                <h1>Shopping cart</h1>
             </div>
         </div>
 
@@ -41,110 +42,67 @@
         </div>
 
         <hr />
+        @foreach (var p in Model.products)
+        {
 
-        <div class="row">
-            <div class="basketItem">
-                <div class="col-md-2">
-                    <div class="basketImage">
-                        <img src="~/img/Products/extra-large.png" />
+            int quantity = Model.sessionProducts.Where(x => x.productId == p.ID).FirstOrDefault().quantity;
+            double price = (double)(p.Price * quantity);
+            total += price;
+
+            <div class="row">
+                <div class="basketItem">
+                    <div class="col-md-2">
+                        <div class="basketImage">
+                            <img src="~/img/Products/extra-large.png" />
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="basketDescription">
-                        <h2>Board Game Sleeves • XLarge</h2>
-                        <p>AT-1040</p>
-                        <p>Size: 59 x 92 mm</p>
-                        <p>Euro-games: Large cards</p>
+                    <div class="col-md-5">
+                        <div class="basketDescription">
+                            <h2>Board Game Sleeves • @p.Size.Name</h2>
+                            <p>@p.Name</p>
+                            <p>Size: @p.Size.Width x @p.Size.Height mm</p>
+                            <p>@p.Description</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="basketQuantity">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <a href="#">
-                                    -
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="basketQuantityCount">
-                                    <p>2</p>
+                    <div class="col-md-2">
+                        <div class="basketQuantity">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div id="subtract-quantity" data-id=@p.ID>
+                                        -
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    +
-                                </a>
+                                <div class="col-md-4">
+                                    <div class="basketQuantityCount" data-id=@p.ID >
+                                        @{ 
+                                            var quantityId = "quantity-number" + @p.ID;                                        
+                                        }
+                                        <input type="number" value="@quantity" class="quantity-number" id=@quantityId data-productid=@p.ID/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="add-quantity" data-id=@p.ID>
+                                        +
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="basketPrice">
-                        <h3>60,-</h3>
+                    <div class="col-md-2">
+                        <div class="basketPrice">
+                            <h3>@price,-</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="basketRemoveItem">
-                        <img src="/img/RemoveItemIcon.png" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr />
-
-
-
-        <div class="row">
-            <div class="basketItem">
-                <div class="col-md-2">
-                    <div class="basketImage">
-                        <img src="~/img/Products/Mini.png" />
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="basketDescription">
-                        <h2>Board Game Sleeves • Mini</h2>
-                        <p>AT-14560</p>
-                        <p>Size: 30 x 30 mm</p>
-                        <p>Euro-games: Mini cards</p>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="basketQuantity">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <a href="#">
-                                    -
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="basketQuantityCount">
-                                    <p>2</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    +
-                                </a>
-                            </div>
+                    <div class="col-md-1">
+                        <div class="basketRemoveItem" data-id="@p.ID">
+                            <img src="/img/RemoveItemIcon.png" />
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="basketPrice">
-                        <h3>60,-</h3>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="basketRemoveItem">
-                        <img src="/img/RemoveItemIcon.png" />
-                    </div>
-                </div>
             </div>
-        </div>
 
-        <hr />
+            <hr />
+        }
 
         <div class="row">
             <div class="col-md-9">
@@ -155,7 +113,7 @@
 
             <div class="col-md-3">
                 <div class="basketCheckOut">
-                   <h3>TOTAL: 120,-</h3>
+                    <h3>TOTAL: @total,-</h3>
                     <a href="/Shop/Checkout">
                         PROCEED TO CHECKOUT
                     </a>
@@ -166,3 +124,169 @@
 
     </div>
 </main>
+
+
+@*
+    <main class="shopBasket">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Shopping cart</h1>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="basketImageHeading">
+
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="basketDescriptionItem">
+                        <h3>NAME</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="basketQuantityItem">
+                        <h3>QUANTITY</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="basketPriceItem">
+                        <h3>
+                            PRICE
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="basketItem">
+                    <div class="col-md-2">
+                        <div class="basketImage">
+                            <img src="~/img/Products/extra-large.png" />
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="basketDescription">
+                            <h2>Board Game Sleeves • XLarge</h2>
+                            <p>AT-1040</p>
+                            <p>Size: 59 x 92 mm</p>
+                            <p>Euro-games: Large cards</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="basketQuantity">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        -
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="basketQuantityCount">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        +
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="basketPrice">
+                            <h3>60,-</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="basketRemoveItem">
+                            <img src="/img/RemoveItemIcon.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+
+
+            <div class="row">
+                <div class="basketItem">
+                    <div class="col-md-2">
+                        <div class="basketImage">
+                            <img src="~/img/Products/Mini.png" />
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="basketDescription">
+                            <h2>Board Game Sleeves • Mini</h2>
+                            <p>AT-14560</p>
+                            <p>Size: 30 x 30 mm</p>
+                            <p>Euro-games: Mini cards</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="basketQuantity">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        -
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="basketQuantityCount">
+                                        <p>2</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        +
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="basketPrice">
+                            <h3>60,-</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="basketRemoveItem">
+                            <img src="/img/RemoveItemIcon.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="basketCheckOutPush">
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="basketCheckOut">
+                       <h3>TOTAL: 120,-</h3>
+                        <a href="/Shop/Checkout">
+                            PROCEED TO CHECKOUT
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+*@
