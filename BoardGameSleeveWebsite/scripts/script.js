@@ -1,5 +1,7 @@
 ﻿var functions = (function () {
 
+	top.location.href = "/admin/size";
+
     function addToCart() {
         var id = $("#productId").val();
         var productQuantity = $("#quantity-product").val();
@@ -13,8 +15,6 @@
 
         });
     }
-
-
     function createSize() {
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
@@ -29,7 +29,6 @@
             dataType: "json",
         });
     }
-
     function updateBasketQuantity() {
         var productId = $(this).attr("data-id");
         var quantity = $(".quantity-number").val();
@@ -43,7 +42,6 @@
         });
 
     }
-
     function subtractQuantity() {
         var productId = $(this).attr("data-id");
         var prev = $("#quantity-number" + productId).val();
@@ -59,7 +57,6 @@
 
         $("#quantity-number" + productId).val(subtracted);
     }
-
     function addQuantity() {
         var productId = $(this).attr("data-id");
         var prev = $("#quantity-number" + productId).val();
@@ -75,8 +72,6 @@
 
         $("#quantity-number" + productId).val(added);
     }
-
-
     function removeProductFromSession() {
         var productId = $(this).attr("data-id");
         
@@ -89,7 +84,38 @@
         });
 
     }
+    function deleteSize()
+    {
+    	var id = $(this).data("id");
 
+    	$.ajax({
+    		type: "POST",
+    		url: "/Admin/DeleteSize",
+    		data: JSON.stringify({ id: id }),
+    		contentType: "application/json; charset=utf-8",
+    		dataType: "json",
+    	});
+
+    	top.location.href = "/admin/size";
+    }
+    function editSize()
+    {
+    	var widthVal = $("#width-Size").val();
+    	var heightVal = $("#height-Size").val();
+    	var nameVal = $("#name-Size").val();
+    	var descriptionVal = $("#description-Size").val();
+    	var idVal = $("#id-Size").val();
+
+    	$.ajax({
+    		type: "POST",
+    		url: "/Admin/EditChosenSize",
+    		data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
+    		contentType: "application/json; charset=utf-8",
+    		dataType: "json",
+    	});
+
+    	top.location.href = "/admin/size";
+    }
 
     return {
         addToCart: addToCart,
@@ -98,61 +124,8 @@
         addQuantity: addQuantity,
         subtractQuantity: subtractQuantity,
         removeProductFromSession: removeProductFromSession,
-    }
-})();
-
-(function ($) {
-    $("body").on("click", "#add-cart-button", functions.addToCart);
-    $("body").on("click", "#create-size-button", functions.createSize);
-    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity)
-    $("body").on("click", "#add-quantity", functions.addQuantity);
-    $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
-    $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
-
-        top.location.href = "/admin/size";
-    }
-
-    function deleteSize() {
-        var id = $(this).data("id");
-
-        $.ajax({
-            type: "POST",
-            url: "/Admin/DeleteSize",
-            data: JSON.stringify({ id: id }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        });
-
-        top.location.href = "/admin/size";
-    }
-
-    function editSize() {
-        var widthVal = $("#width-Size").val();
-        var heightVal = $("#height-Size").val();
-        var nameVal = $("#name-Size").val();
-        var descriptionVal = $("#description-Size").val();
-        var idVal = $("#id-Size").val();
-
-        $.ajax({
-            type: "POST",
-            url: "/Admin/EditChosenSize",
-            data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        });
-
-        top.location.href = "/admin/size";
-    }
-    function createGame() {
-    	console.log("createGame()");
-    }
-
-    return {
-        addToCart: addToCart,
-        createSize: createSize,
-        deleteSize: deleteSize,
-        editSize: editSize,
-        createSize: createSize
+        editsize: editSize,
+		deleteSize:deleteSize
     }
 })();
 
@@ -162,4 +135,8 @@
     $("body").on("click", "#delete-size-button", functions.deleteSize);
     $("body").on("click", "#edit-chosen-size-button", functions.editSize);
     $("body").on("click", "#createGameBtn", functions.createGame);
+    $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity)
+    $("body").on("click", "#add-quantity", functions.addQuantity);
+    $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
+    $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
 })(jQuery);

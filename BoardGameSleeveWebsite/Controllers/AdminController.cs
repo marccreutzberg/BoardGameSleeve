@@ -72,7 +72,7 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult EditSize(int id)
         {
-            Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+            Size s = service.GetSize().Where(x => x.ID == id).FirstOrDefault();
 
             if (s == null)
             {
