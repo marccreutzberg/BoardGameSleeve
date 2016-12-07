@@ -130,6 +130,10 @@ namespace BoardGameSleeveWebsite.services
             }
             return "";
         }
+        public string CreateGame2(string name, List<int> sizeIds)
+        {
+            return "hmm";
+        }
         public string DeleteGame(int id)
         {
             try

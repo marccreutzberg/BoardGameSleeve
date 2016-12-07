@@ -72,14 +72,8 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult EditSize(int id)
         {
-            Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
-
-            //if(s == null)
-            //{
-            //    return RedirectToAction("Size");
-            //}
-
-            return View(s);
+            //ON MERGE: BRUG DIN!!
+            throw new System.ArgumentException("");
         }
 
         [WebMethod]

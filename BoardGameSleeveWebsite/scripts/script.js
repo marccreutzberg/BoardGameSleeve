@@ -29,8 +29,8 @@
 
         top.location.href = "/admin/size";
     }
-
-    function deleteSize() {
+    function deleteSize()
+	{
         var id = $(this).data("id");
 
         $.ajax({
@@ -43,7 +43,6 @@
 
         top.location.href = "/admin/size";
     }
-
     function editSize() {
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
@@ -62,7 +61,7 @@
         top.location.href = "/admin/size";
     }
     function createGame() {
-    	console.log("createGame()");
+		console.log("createGame()");
     }
 
     return {
@@ -70,7 +69,7 @@
         createSize: createSize,
         deleteSize: deleteSize,
         editSize: editSize,
-        createSize: createSize
+        createGame: createGame
     }
 })();
 
