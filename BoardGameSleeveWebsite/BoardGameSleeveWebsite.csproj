@@ -260,6 +260,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\EditSize.cshtml" />
     <Content Include="Views\Admin\index.cshtml" />
+    <Content Include="Views\Admin\CreateProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -273,6 +274,7 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="scripts\admingame.ts" />
     <TypeScriptCompile Include="scripts\file1.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>

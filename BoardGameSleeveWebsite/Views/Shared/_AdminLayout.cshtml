@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -9,15 +8,14 @@
     <title>@ViewBag.Title - Board Game Sleeves</title>
     <link href="/css/style.css" rel="stylesheet" />
     <link href="~/css/administration.css" rel="stylesheet" />
+	@RenderSection("css", false)
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     
-
+	
     <script>
-
         $(document).ready(function () {
-
             windowsize = 0;
             windowsize = $(document).height() - 40;
             $(".administrationsNavn").height(windowsize);
@@ -28,9 +26,7 @@
     <div style="width: 100%;overflow: hidden;">
         <div class="row">
             <nav class="col-md-3 administrationsNavn">
-
                 <h1>CMS</h1>
-
                 <ul>
                     <li>
                         <a href="/admin/produt">Product</a>
@@ -48,8 +44,7 @@
             </div>
         </div>
     </div>
-
     <script src="~/scripts/script.js"></script>
-
+	@RenderSection("script", false)
 </body>
 </html>

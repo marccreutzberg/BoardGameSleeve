@@ -1,7 +1,107 @@
-﻿@{
-    ViewBag.Title = "CreateGame";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+﻿@using System.Text
+
+@{
+	ViewBag.Title = "CreateGame";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	string json_allSizes = (string)this.ViewData["json_allSizes"];
+	List<Game> games = (List<Game>)this.ViewData["games"];
 }
 
-<h2>CreateGame</h2>
-<button id="#createGameBtn">Test</button>
+@section script
+{
+	<script src="~/scripts/admingame.js"></script>
+}
+@section css
+{
+	<style>
+		#gameAdmin table
+		{
+			width: 100%;
+			text-align: left;
+		}
+		#gameAdmin th
+		{
+			vertical-align:baseline;
+		}
+		#gameAdmin tbody tr:nth-child(2n+1)
+		{
+			background-color:rgb(220, 220, 220);
+		}
+
+		#editForm table td
+		{
+			width:50%;
+		}
+	</style>
+}
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Administrate Game</h2>
+		</div>
+	</div>
+
+<div class="row" id="gameAdmin" data-json_allSizes="@json_allSizes">
+	<div class="col-md-12">
+		<h3>Game Overview</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Size Relations</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (int i = 0; i < games.Count; i++)
+				{
+					Game game = games[i];
+					<tr>
+						<td data-id="@game.ID">@game.Name</td>
+						<td>
+							@{
+								List<Size> sizes = game.Sizes.ToList();
+								StringBuilder sText = new StringBuilder();
+								for (var j = 0; j < sizes.Count; j++)
+								{
+									sText.Append(sizes[j].Name + ", ");
+								}
+								sText.Remove(sText.Length - 2, 2);
+							}
+							@sText.ToString()
+						</td>
+						@{
+							string deleteGameUrl = "/admin/deletegame?id=" + game.ID;
+						}
+						<td><a href="#" onclick="return false" class="editGameLink">Edit</a></td>
+						<td><a href="@deleteGameUrl">Delete</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<hr />
+		<div id="editForm" style="display:none;">
+			<h3>Editing <span id="editForm_headlineName"></span></h3>
+			<strong>Name</strong><br />
+			<input type="text" id="editForm_nameInput"/><br /> <br />
+			<hr />
+			<strong>Sizes</strong> <br />
+			<table id="editForm_table">
+				<tbody>
+				@*<tr>
+					<td>Mini</td>
+					<td><a href="#" onclick="return false">Remove</a></td>
+				</tr>*@
+				</tbody>
+			</table>
+			<select id="editForm_selectToAdd">
+				<option disabled>Select size to add</option>
+			</select>
+			<button id="editForm_addButton">Add</button>
+			<br />
+			<button id="editForm_acceptButton">Accept</button> 
+			<button id="editForm_cancelButton">Cancel</button>
+		</div>
+	</div>
+</div>
