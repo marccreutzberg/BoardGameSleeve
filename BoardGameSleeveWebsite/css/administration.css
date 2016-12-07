@@ -53,7 +53,7 @@ h1 {
     border: 1px solid #3d3d3d;
     box-sizing: border-box; }
 
-#create-size-button, #edit-chosen-size-button {
+#create-size-button, #edit-chosen-size-button, #product-Create-Button {
   cursor: pointer;
   background-color: #3d3d3d;
   -moz-border-radius: 8px;
@@ -65,7 +65,8 @@ h1 {
   color: #fff;
   width: 100%;
   box-sizing: border-box;
-  text-align: center; }
+  text-align: center;
+  border: none; }
 
 .listOverview ul {
   margin: 0;
@@ -82,10 +83,21 @@ h1 {
 .listOverview img {
   margin: 0px 10px; }
 
-#delete-size-button {
+#delete-size-button, #edit-product-button, #edit-size-button, #delete-product-button {
   float: right;
   cursor: pointer; }
 
-#edit-size-button {
-  float: right;
-  cursor: pointer; }
+.createProduct input {
+  width: 100%;
+  height: 40px; }
+
+.createProduct textarea {
+  width: 100%;
+  height: 120px; }
+
+.createProduct select {
+  width: 100%;
+  height: 140px; }
+
+.createProduct p {
+  margin: 20px 0 0 0; }
