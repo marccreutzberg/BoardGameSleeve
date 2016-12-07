@@ -134,10 +134,6 @@ namespace BoardGameSleeveWebsite.services
             }
             return "";
         }
-        public string CreateGame2(string name, List<int> sizeIds)
-        {
-            return "hmm";
-        }
         public string DeleteGame(int id)
         {
             try
@@ -155,6 +151,11 @@ namespace BoardGameSleeveWebsite.services
             {
                 return e.Message;
             }
+        }
+        public List<Game> GetAllGames()
+        {
+            return (from x in this.dbContext.Games
+                select x).ToList();
         }
 
         public void deleteSizeFromId(int id)

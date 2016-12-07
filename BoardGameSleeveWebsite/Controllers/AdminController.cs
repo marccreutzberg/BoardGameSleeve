@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BoardGameSleeveWebsite.services;
 using BoardGameSleeveWebsite.ViewModels;
 using System.Web.Services;
+using Newtonsoft.Json;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -17,12 +18,10 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View();
         }
-
         public ActionResult Login()
         {
             return View("Login");
         }
-
         public ActionResult Product()
         {
             List<Product> products = service.GetAlleProducts();
@@ -30,16 +29,13 @@ namespace BoardGameSleeveWebsite.Controllers
             return View(products);
         }
 
-        public ActionResult Size()
-        {
-            List<Size> sizes = service.GetSize();
-
-            return View(sizes);
-        }
-
         #region Game Things
         public ActionResult Game()
         {
+            List<Size> allSizes = service.GetSize();
+            string[] allSizesString = allSizes.Select(size => size.Name).ToArray();
+            this.ViewData["json_allSizes"] = JsonConvert.SerializeObject(allSizesString);
+            this.ViewData["games"] = service.GetAllGames();
             return View();
         }
         public ActionResult CreateGame(string name, List<int> sizeIds)
@@ -50,11 +46,18 @@ namespace BoardGameSleeveWebsite.Controllers
         public ActionResult DeleteGame(int id)
         {
             string deleteGameError = service.DeleteGame(id);
-            return Content(deleteGameError);
+            return this.RedirectToAction("Game");
         }
         #endregion
 
         #region Size Things
+        public ActionResult Size()
+        {
+            List<Size> sizes = service.GetSize();
+
+            return View(sizes);
+        }
+
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
         {
@@ -92,9 +95,6 @@ namespace BoardGameSleeveWebsite.Controllers
 
             return Content("redirect");
         }
-
-       
-
 
         public ActionResult CreateProduct()
         {
