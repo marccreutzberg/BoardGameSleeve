@@ -118,6 +118,36 @@
 		console.log("createGame()");
     }
 
+    function createProduct() {
+        var name = $("#product-Name").val();
+        var desc = $("#product-desc").val();
+        var color = $("#product-Color").val();
+        var price = $("#product-Price").val();
+        var SleeveCountInProduct = $("#product-SleeveCountInProduct").val();
+        var InStock = $("#product-InStock").val();
+
+        var sizes = $('#product-size').val();
+
+        console.log(name);
+        console.log(desc);
+        console.log(color);
+        console.log(price);
+        console.log(SleeveCountInProduct);
+        console.log(InStock);
+        console.log(sizes);
+
+        //$.ajax({
+        //    type: "POST",
+        //    url: "/Admin/EditChosenSize",
+        //    data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "json",
+        //});
+
+        //top.location.href = "/admin/size";
+    }
+
+
     return {
         addToCart: addToCart,
         createSize: createSize,
@@ -125,8 +155,9 @@
         addQuantity: addQuantity,
         subtractQuantity: subtractQuantity,
         removeProductFromSession: removeProductFromSession,
-        editsize: editSize,
-		deleteSize:deleteSize
+        editSize: editSize,
+        deleteSize: deleteSize,
+        createProduct: createProduct
     }
 })();
 
@@ -140,4 +171,7 @@
     $("body").on("click", "#add-quantity", functions.addQuantity);
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
     $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
+    $("body").on("click", "#product-Create-Button", functions.createProduct);
+
+    
 })(jQuery);

@@ -259,6 +259,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\EditSize.cshtml" />
     <Content Include="Views\Admin\index.cshtml" />
+    <Content Include="Views\Admin\CreateProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

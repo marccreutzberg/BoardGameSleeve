@@ -96,5 +96,16 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View("CreateGame");
         }
+
+
+        public ActionResult CreateProduct()
+        {
+            List<Size> size = service.GetSize();
+            return View(size);
+        }
+
+
+
+        
     }
 }
