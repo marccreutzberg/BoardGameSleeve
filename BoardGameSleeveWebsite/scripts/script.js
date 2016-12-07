@@ -116,6 +116,9 @@
 
     	top.location.href = "/admin/size";
     }
+    function createGame() {
+		console.log("createGame()");
+    }
 
     return {
         addToCart: addToCart,
