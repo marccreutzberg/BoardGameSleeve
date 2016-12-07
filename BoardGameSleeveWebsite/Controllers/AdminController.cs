@@ -45,6 +45,11 @@ namespace BoardGameSleeveWebsite.Controllers
             string createGameError = service.CreateGame(name, sizeId);
             return Content(createGameError);
         }
+		public ActionResult CreateGame2(string name, List<int> sizeIds)
+		{
+			return Content("Name:" + name + ", ids count: " + sizeIds.Count);
+		}
+
         public ActionResult DeleteGame(int id)
         {
             string deleteGameError = service.DeleteGame(id);
