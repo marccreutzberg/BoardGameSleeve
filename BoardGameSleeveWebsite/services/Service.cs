@@ -195,6 +195,11 @@ namespace BoardGameSleeveWebsite.services
             dbContext.SaveChanges();
         }
 
+        public Size getSizeFromId(int id)
+        {
+            return dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+        }
+
         public List<Product> GetProductsBasedOnIds(List<SessionProduct> sessionProducts)
         {
             List<Product> products = new List<Product>();
@@ -258,6 +263,17 @@ namespace BoardGameSleeveWebsite.services
 
             dbContext.SaveChanges();
 
+        }
+
+        public List<Game> getAllGames()
+        {
+            return dbContext.Games.ToList();
+        }
+
+        public void addProduct(Product produt)
+        {
+            dbContext.Products.Add(produt);
+            dbContext.SaveChanges();
         }
     }
 }

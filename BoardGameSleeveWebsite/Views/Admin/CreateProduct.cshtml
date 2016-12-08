@@ -1,4 +1,6 @@
-﻿@model List<Size>
+﻿@using BoardGameSleeveWebsite.ViewModels
+@model VMCreateProduct
+
 @{
     ViewBag.Title = "CreateProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,35 +10,46 @@
     <div class="createProduct">
         <div class="col-md-4">
             <h2>Create Product</h2>
-            <p>Name</p>
-            <input type="text" id="product-Name" name="Product-Name" value="" />
-
-            <p>Description</p>
-            <textarea id="product-desc"></textarea>
-
-            <p>Color</p>
-            <input type="text" id="product-Color" name="Product-Color" value="" />
-
-            <p>Price</p>
-            <input type="text" id="product-Price" name="Product-Price" value="" />
-
-            <p>Product in pack</p>
-            <input type="number" id="product-SleeveCountInProduct" name="Product-SleeveCountInProduct" value="" />
-
-            <p>In Stock</p>
-            <input type="number" id="product-InStock" name="Product-InStock" value="" />
-
-            <p>Chose Sizes</p>
-            <select name="product-size" id="product-size" multiple="multiple">
-                @foreach (var item in @Model)
+          
+            @using (Html.BeginForm("FileUpload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                    <option value="@item.ID">Nr: @item.Name - @item.Width x @item.Height mm</option>
-                }
-            </select>
+                <p>Name</p>
+                <input type="text" id="product-Name" name="Product-Name" value="" />
 
-            <input type="hidden" id="product-size-values" name="product-size-values" value="" />
+                <p>Description</p>
+                <textarea id="product-desc"></textarea>
 
-            <input type="Submit" id="product-Create-Button" name="name" value="Create Product" />
+                <p>Color</p>
+                <input type="text" id="product-Color" name="Product-Color" value="" />
+
+                <p>Price</p>
+                <input type="text" id="product-Price" name="Product-Price" value="" />
+
+                <p>Product in pack</p>
+                <input type="number" id="product-SleeveCountInProduct" name="Product-SleeveCountInProduct" value="" />
+
+                <p>In Stock</p>
+                <input type="number" id="product-InStock" name="Product-InStock" value="" />
+
+                <p>Chose Sizes</p>
+                @*<select name="product-size" id="product-size" multiple="multiple">
+                    @foreach (var item in @Model)
+                    {
+                        <option value="@item.ID">Nr: @item.Name - @item.Width x @item.Height mm</option>
+                    }
+                </select>*@
+
+                @Html.ListBoxFor(m => m.SelectedGames, new SelectList(Model.Games, "Id", "Make"))
+
+                <input type="hidden" id="product-size-values" name="product-size-values" value="" />
+
+
+                <label for="file">Upload Image:</label>
+                <input type="file" name="file" id="file" style="width: 100%;" /> 
+
+
+                <input type="submit" value="UploadBillede" class="submit" />
+            }
         </div>
     </div>
 </div>
