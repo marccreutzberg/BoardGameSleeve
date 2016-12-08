@@ -17,7 +17,7 @@
                 @{
                     foreach (var product in Model)
                     {
-                        <li>
+                        <li class="@product.ID">
                             Navn: @product.Name - Color: @product.Color - SizeName: @product.Size.Name - Pris: @product.Price
 
                             <div data-id="@product.ID" id="delete-product-button" title="Delete Product">

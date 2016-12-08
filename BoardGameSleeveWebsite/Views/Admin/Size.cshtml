@@ -21,7 +21,7 @@
                     @{
                         foreach (var size in Model)
                         {
-                            <li>
+                            <li class="@size.ID">
                                 <strong>Name:</strong> @size.Name - <strong>Width:</strong> @size.Width - <strong>Height:</strong>                                 @size.Height
 
                                 <div data-id="@size.ID" id="delete-size-button" title="Delete Product">
@@ -54,4 +54,8 @@
             <div id="create-size-button">CREATE SIZE</div>
         </div>
     </div>
+</div>
+
+<div class="delete-popup">
+    <h2>The command is succeeded</h2>
 </div>

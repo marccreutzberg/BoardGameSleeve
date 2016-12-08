@@ -34,7 +34,12 @@
             dataType: "json",
         });
 
-        top.location.href = "/admin/size";
+        $('.delete-popup').fadeIn();
+        setTimeout(function () {
+            top.location.href = "/admin/index";
+        }, 3000);
+
+   
     }
     function updateBasketQuantity() {
         var productId = $(this).attr("data-id");
@@ -102,7 +107,11 @@
             dataType: "json",
         });
 
-        top.location.href = "/admin/size";
+        $('.delete-popup').fadeIn();
+        $('.' + id).hide();
+        setTimeout(function () {
+            $('.delete-popup').fadeOut();
+        }, 3000);
     }
 
     function deleteProduct() {
@@ -117,14 +126,12 @@
         });
 
         $('.delete-popup').fadeIn();
-        console.log('fade ud');
-
+        $('.' + id).hide();
         setTimeout(function () {
-            console.log('redirrect');
-            top.location.href = "/admin/index";
+            $('.delete-popup').fadeOut();
         }, 3000);
 
-       
+
     }
 
     function editSize() {
@@ -166,10 +173,10 @@
 
     }
 
-  
+
     function inputNumber() {
         var id = $(this).attr("id");
-        var number = $("#"+id).val();
+        var number = $("#" + id).val();
 
         number = Math.abs(number);
         $("#" + id).val(number);
@@ -210,5 +217,5 @@
     $("body").on("focusout", ".city", functions.saveCheckoutInfo);
     $("body").on("focusout", ':input[type="number"]', functions.inputNumber);
 
-    
+
 })(jQuery);
