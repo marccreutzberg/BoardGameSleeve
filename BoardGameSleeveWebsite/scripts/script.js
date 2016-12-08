@@ -99,6 +99,7 @@
     function deleteSize() {
         var id = $(this).data("id");
 
+
         $.ajax({
             type: "POST",
             url: "/Admin/DeleteSize",
