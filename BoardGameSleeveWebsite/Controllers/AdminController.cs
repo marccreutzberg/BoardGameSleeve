@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BoardGameSleeveWebsite.services;
 using BoardGameSleeveWebsite.ViewModels;
 using System.Web.Services;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace BoardGameSleeveWebsite.Controllers
@@ -18,12 +19,10 @@ namespace BoardGameSleeveWebsite.Controllers
         {
             return View();
         }
-
         public ActionResult Login()
         {
             return View("Login");
         }
-
         public ActionResult Product()
         {
             List<Product> products = service.GetAlleProducts();
@@ -31,29 +30,40 @@ namespace BoardGameSleeveWebsite.Controllers
             return View(products);
         }
 
+        #region Game Things
+        public ActionResult Game()
+        {
+            List<Size> allSizes = service.GetSize();
+            string[] allSizesString = allSizes.Select(size => size.Name).ToArray();
+            this.ViewData["json_allSizes"] = JsonConvert.SerializeObject(allSizesString);
+            this.ViewData["games"] = service.GetAllGames();
+            return View();
+        }
+        public ActionResult CreateGame(string name, List<string> sizeNames)
+        {
+            string createGameError = service.CreateGame(name, sizeNames);
+            return RedirectToAction("Game");
+        }
+
+        public ActionResult DeleteGame(int id)
+        {
+            string deleteGameError = service.DeleteGame(id);
+            return this.RedirectToAction("Game");
+        }
+		public ActionResult EditGame(int gameId, string newName, List<string> sizeNames)
+		{
+			service.UpdateGame(gameId, newName, sizeNames);
+			return RedirectToAction("Game");
+		}
+        #endregion
+
+        #region Size Things
         public ActionResult Size()
         {
             List<Size> sizes = service.GetSize();
 
             return View(sizes);
         }
-
-        #region Game Things
-        public ActionResult Game()
-        {
-            return View();
-        }
-        public ActionResult CreateGame(string name, int sizeId)
-        {
-            string createGameError = service.CreateGame(name, sizeId);
-            return Content(createGameError);
-        }
-        public ActionResult DeleteGame(int id)
-        {
-            string deleteGameError = service.DeleteGame(id);
-            return Content(deleteGameError);
-        }
-        #endregion
 
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
@@ -92,12 +102,6 @@ namespace BoardGameSleeveWebsite.Controllers
 
             return Content("redirect");
         }
-
-        public ActionResult CreateGame()
-        {
-            return View("CreateGame");
-        }
-
 
         public ActionResult CreateProduct()
         {
@@ -171,7 +175,7 @@ namespace BoardGameSleeveWebsite.Controllers
 
 
 
-
-
+        
+        #endregion
     }
 }

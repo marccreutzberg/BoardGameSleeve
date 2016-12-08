@@ -92,18 +92,19 @@ namespace BoardGameSleeveWebsite.services
             return new VMGames(games, sizes);
         }
 
-        public List<Size> GetSize()
-        {
-            List<Size> Sizes = dbContext.Sizes.ToList();
-            return Sizes;
-        }
+		public List<Size> GetSize()
+		{
+			List<Size> Sizes = dbContext.Sizes.ToList();
+			return Sizes;
+		}
+
 
         public void createSize(Size size)
         {
             dbContext.Sizes.Add(size);
             dbContext.SaveChanges();
         }
-        public string CreateGame(string name, int sizeId)
+        public string CreateGame(string name, List<string> sizeNames)
         {
             //Returns an empty string if succeeded, otherwise the string will be the error description
 
@@ -112,15 +113,17 @@ namespace BoardGameSleeveWebsite.services
                 Game newGame = new Game();
                 newGame.Name = name;
 
-                var sizes = (from x in dbContext.Sizes
-                             where x.ID == sizeId
-                             select x).ToList();
+                IQueryable<Size> query = null;
+                int sizesCount = dbContext.Sizes.Count();
+                query = dbContext.Sizes.Where(x => sizeNames.Contains(x.Name));
 
-                //If there are none of that size
-                if (sizes.Count == 0)
-                    return "Cant add game. No sizeId of: " + sizeId + " exists";
+                if(query.Count() != sizeNames.Count)
+                    return "Cant add game. Some of the sizeIds doesn't exist";
 
-                newGame.Sizes.Add(sizes.First());
+                List<Size> sizes = query.ToList();
+                foreach (Size size in sizes)
+                    newGame.Sizes.Add(size);
+
                 dbContext.Games.Add(newGame);
                 dbContext.SaveChanges();
             }
@@ -129,10 +132,6 @@ namespace BoardGameSleeveWebsite.services
                 return e.Message;
             }
             return "";
-        }
-        public string CreateGame2(string name, List<int> sizeIds)
-        {
-            return "hmm";
         }
         public string DeleteGame(int id)
         {
@@ -152,6 +151,29 @@ namespace BoardGameSleeveWebsite.services
                 return e.Message;
             }
         }
+        public List<Game> GetAllGames()
+        {
+            return (from x in this.dbContext.Games
+                select x).ToList();
+        }
+		public void UpdateGame(int gameId, string gameName, List<string> sizeNames)
+		{
+			Game game = (from x in this.dbContext.Games
+						where x.ID == gameId
+						select x).FirstOrDefault();
+			if (game == null)
+				return;
+			game.Name = gameName;
+			game.Sizes.Clear();
+
+			IQueryable<Size> query = dbContext.Sizes.Where(x => sizeNames.Contains(x.Name));
+
+			List<Size> sizes = query.ToList();
+			foreach (Size size in sizes)
+				game.Sizes.Add(size);
+
+			dbContext.SaveChanges();
+		}
 
         public void deleteSizeFromId(int id)
         {
@@ -183,7 +205,7 @@ namespace BoardGameSleeveWebsite.services
         {
             List<Product> products = new List<Product>();
 
-            if(sessionProducts != null)
+            if (sessionProducts != null)
             {
                 foreach (var s in sessionProducts)
                 {
@@ -191,7 +213,7 @@ namespace BoardGameSleeveWebsite.services
                     products.Add(p);
                 }
             }
-            
+
 
             return products;
         }
@@ -199,6 +221,37 @@ namespace BoardGameSleeveWebsite.services
         public List<Product> GetAlleProducts()
         {
             return dbContext.Products.ToList();
+        }
+
+        public void CreateSale(VMCheckout vm)
+        {
+            Invoice i = new Invoice();
+            i.Date = DateTime.Now;
+
+            Customer c = new Customer();
+            c.Name = vm.CustomerInfo.FullName;
+            c.Address = vm.CustomerInfo.Address;
+            c.Country = vm.CustomerInfo.Country;
+            c.Email = vm.CustomerInfo.Email;
+            c.Phone = vm.CustomerInfo.Phone;
+            c.Zip = vm.CustomerInfo.ZipCode;
+            c.Invoice = i;
+            
+
+            foreach (var p in vm.SessionProducts)
+            {
+                Sale s = new Sale();
+                s.Product = dbContext.Products.Where(x => x.ID == p.productId).FirstOrDefault();
+                s.Quantity = p.quantity;
+
+                i.Sales.Add(s);
+            }
+
+            dbContext.Invoices.Add(i);
+            dbContext.Customers.Add(c);
+
+            dbContext.SaveChanges();
+
         }
 
         public List<Game> getAllGames()
