@@ -179,8 +179,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="DataModels\Admin.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -193,6 +193,9 @@
     </Compile>
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
+    <Compile Include="DataModels\Product.cs" />
+    <Compile Include="DataModels\Sale.cs" />
+    <Compile Include="DataModels\Size.cs" />
     <Compile Include="ViewModels\VMBasket.cs" />
     <Compile Include="ViewModels\VMCheckout.cs" />
     <Compile Include="ViewModels\VMCreateProduct.cs" />
@@ -200,9 +203,6 @@
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
     <Compile Include="ViewModels\VMHome.cs" />
-    <Compile Include="DataModels\Product.cs" />
-    <Compile Include="DataModels\Sale.cs" />
-    <Compile Include="DataModels\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\Service.cs" />
     <Compile Include="ViewModels\VMSize.cs" />
