@@ -171,6 +171,7 @@
     <Content Include="img\RemoveItemIcon.png" />
     <Content Include="img\RemoveItemIcon2.png" />
     <Content Include="img\Search-icon.png" />
+    <Content Include="img\test\Standart.png" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\Games.js" />
@@ -194,6 +195,7 @@
     <Compile Include="ModelContext.cs" />
     <Compile Include="ViewModels\VMBasket.cs" />
     <Compile Include="ViewModels\VMCheckout.cs" />
+    <Compile Include="ViewModels\VMCreateProduct.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
@@ -274,8 +276,6 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="scripts\login.ts" />
-    <TypeScriptCompile Include="scripts\admingame.ts" />
     <TypeScriptCompile Include="scripts\file1.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>

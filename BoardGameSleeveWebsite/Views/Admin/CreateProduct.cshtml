@@ -11,44 +11,42 @@
         <div class="col-md-4">
             <h2>Create Product</h2>
           
-            @using (Html.BeginForm("FileUpload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("CreateProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <p>Name</p>
-                <input type="text" id="product-Name" name="Product-Name" value="" />
+                @Html.TextBoxFor(m => m.Name)
 
                 <p>Description</p>
-                <textarea id="product-desc"></textarea>
+                @Html.TextAreaFor(m => m.Description)
 
                 <p>Color</p>
-                <input type="text" id="product-Color" name="Product-Color" value="" />
+                @Html.TextBoxFor(m => m.Color)
 
                 <p>Price</p>
-                <input type="text" id="product-Price" name="Product-Price" value="" />
+                @Html.TextBoxFor(m => m.Price)
 
                 <p>Product in pack</p>
-                <input type="number" id="product-SleeveCountInProduct" name="Product-SleeveCountInProduct" value="" />
+                @Html.TextBoxFor(m => m.SleeveCountInProduct)
 
                 <p>In Stock</p>
-                <input type="number" id="product-InStock" name="Product-InStock" value="" />
+                @Html.TextBoxFor(m => m.InStock)
 
-                <p>Chose Sizes</p>
-                @*<select name="product-size" id="product-size" multiple="multiple">
-                    @foreach (var item in @Model)
-                    {
-                        <option value="@item.ID">Nr: @item.Name - @item.Width x @item.Height mm</option>
-                    }
-                </select>*@
+                <p>Chose Size</p>
+                foreach (var item in Model.Size)
+                {
+                    @Html.RadioButtonFor(m => m.selectedSize, item.ID)
+                    @Html.Label(item.Name)
+                    <br />
+                }
+                // @Html.ListBoxFor(m => m.SelectedGames, new SelectList(Model.Games, "Id", "Name"))
 
-                @Html.ListBoxFor(m => m.SelectedGames, new SelectList(Model.Games, "Id", "Make"))
-
-                <input type="hidden" id="product-size-values" name="product-size-values" value="" />
-
-
+                <p></p>
+             
                 <label for="file">Upload Image:</label>
                 <input type="file" name="file" id="file" style="width: 100%;" /> 
 
 
-                <input type="submit" value="UploadBillede" class="submit" />
+                <input type="submit" value="Create Product" class="submit" />
             }
         </div>
     </div>

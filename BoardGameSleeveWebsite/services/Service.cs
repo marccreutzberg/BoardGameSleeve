@@ -183,6 +183,15 @@ namespace BoardGameSleeveWebsite.services
             dbContext.SaveChanges();
         }
 
+        public void deleteProductFromID(int id)
+        {
+            Product p = dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
+            dbContext.Products.Remove(p);
+
+            dbContext.SaveChanges();
+        }
+
+
         public void editSize(int width, int height, string name, string description, int id)
         {
             Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
@@ -270,10 +279,11 @@ namespace BoardGameSleeveWebsite.services
             return dbContext.Games.ToList();
         }
 
-        public void addProduct(Product produt)
+        public void CreateProduct(Product produt)
         {
             dbContext.Products.Add(produt);
             dbContext.SaveChanges();
         }
+
     }
 }
