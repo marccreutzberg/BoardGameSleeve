@@ -171,6 +171,7 @@
     <Content Include="img\RemoveItemIcon.png" />
     <Content Include="img\RemoveItemIcon2.png" />
     <Content Include="img\Search-icon.png" />
+    <Content Include="img\test\Standart.png" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\Games.js" />
@@ -193,6 +194,7 @@
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="ViewModels\VMBasket.cs" />
+    <Compile Include="ViewModels\VMCheckout.cs" />
     <Compile Include="ViewModels\VMCreateProduct.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
@@ -270,7 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\test\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
