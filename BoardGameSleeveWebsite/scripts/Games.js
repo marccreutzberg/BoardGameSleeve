@@ -6,6 +6,8 @@ function sortGame() {
     $(".GamesTable tbody").eq(0).css("display", "table-row-group");
 }
 function sortSize() {
+
+
     var $tHeads = $(".GamesTable th");
     $tHeads.eq(0).removeClass("column-active");
     $tHeads.eq(1).addClass("column-active");
