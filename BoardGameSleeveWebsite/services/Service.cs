@@ -98,7 +98,6 @@ namespace BoardGameSleeveWebsite.services
 			return Sizes;
 		}
 
-
         public void createSize(Size size)
         {
             dbContext.Sizes.Add(size);
@@ -231,6 +230,18 @@ namespace BoardGameSleeveWebsite.services
         {
             return dbContext.Products.ToList();
         }
+		public bool IsLoginCredentialsCorrect(string username, string password)
+		{
+			var admin = (from x in this.dbContext.Admins
+						 where x.Username == username
+						 select x).FirstOrDefault();
+			if (admin == null)
+				return false;
+
+			if (admin.Password == password)
+				return true;
+			return false;
+		}
 
         public void CreateSale(VMCheckout vm)
         {
