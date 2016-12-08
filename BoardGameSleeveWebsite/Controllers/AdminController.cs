@@ -38,21 +38,22 @@ namespace BoardGameSleeveWebsite.Controllers
             this.ViewData["games"] = service.GetAllGames();
             return View();
         }
-        public ActionResult CreateGame(string name, List<int> sizeIds)
+        public ActionResult CreateGame(string name, List<string> sizeNames)
         {
-            string createGameError = service.CreateGame(name, sizeIds);
-            return Content(createGameError);
+            string createGameError = service.CreateGame(name, sizeNames);
+            return RedirectToAction("Game");
         }
-		public ActionResult CreateGame2(string name, List<int> sizeIds)
-		{
-			return Content("Name:" + name + ", ids count: " + sizeIds.Count);
-		}
 
         public ActionResult DeleteGame(int id)
         {
             string deleteGameError = service.DeleteGame(id);
             return this.RedirectToAction("Game");
         }
+		public ActionResult EditGame(int gameId, string newName, List<string> sizeNames)
+		{
+			service.UpdateGame(gameId, newName, sizeNames);
+			return RedirectToAction("Game");
+		}
         #endregion
 
         #region Size Things
