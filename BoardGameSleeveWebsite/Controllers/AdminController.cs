@@ -16,15 +16,40 @@ namespace BoardGameSleeveWebsite.Controllers
         // GET: Admin
         public ActionResult index()
         {
+			if (this.HasLoginCredentialsInCookies() == false)
+				this.RedirectToAction("Login");
+
             return View();
         }
-        public ActionResult Login()
+		bool HasLoginCredentialsInCookies()
+		{
+			string[] allKeys = this.Request.Cookies.AllKeys;
+			if (!allKeys.Contains("username") || !allKeys.Contains("password"))
+				return false;
+
+			string username = this.Request.Cookies["username"].Value;
+			string password = this.Request.Cookies["password"].Value;
+
+			if (service.IsLoginCredentialsCorrect(username, password))
+				return true;
+			return false;
+		}
+		public ActionResult Login()
         {
-            return View("Login");
+			return View("Login");
         }
+		public ActionResult TryLogin(string username, string password)
+		{
+			if (service.IsLoginCredentialsCorrect(username, password) == false)
+				return this.RedirectToAction("Login");
+			return this.View("index");
+		}
+
         public ActionResult Product()
         {
-            List<Product> products = service.GetAlleProducts();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			List<Product> products = service.GetAlleProducts();
 
             return View(products);
         }
@@ -32,7 +57,9 @@ namespace BoardGameSleeveWebsite.Controllers
         #region Game Things
         public ActionResult Game()
         {
-            List<Size> allSizes = service.GetSize();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			List<Size> allSizes = service.GetSize();
             string[] allSizesString = allSizes.Select(size => size.Name).ToArray();
             this.ViewData["json_allSizes"] = JsonConvert.SerializeObject(allSizesString);
             this.ViewData["games"] = service.GetAllGames();
@@ -40,17 +67,23 @@ namespace BoardGameSleeveWebsite.Controllers
         }
         public ActionResult CreateGame(string name, List<string> sizeNames)
         {
-            string createGameError = service.CreateGame(name, sizeNames);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			string createGameError = service.CreateGame(name, sizeNames);
             return RedirectToAction("Game");
         }
 
         public ActionResult DeleteGame(int id)
         {
-            string deleteGameError = service.DeleteGame(id);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			string deleteGameError = service.DeleteGame(id);
             return this.RedirectToAction("Game");
         }
 		public ActionResult EditGame(int gameId, string newName, List<string> sizeNames)
 		{
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
 			service.UpdateGame(gameId, newName, sizeNames);
 			return RedirectToAction("Game");
 		}
@@ -59,7 +92,10 @@ namespace BoardGameSleeveWebsite.Controllers
         #region Size Things
         public ActionResult Size()
         {
-            List<Size> sizes = service.GetSize();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			List<Size> sizes = service.GetSize();
 
             return View(sizes);
         }
@@ -67,7 +103,10 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
         {
-            Size s = new Size();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return;
+
+			Size s = new Size();
             s.Height = height;
             s.Width = width;
             s.Name = name;
@@ -79,12 +118,18 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public void DeleteSize(int id)
         {
-            service.deleteSizeFromId(id);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return;
+
+			service.deleteSizeFromId(id);
         }
 
         public ActionResult EditSize(int id)
         {
-            Size s = service.GetSize().Where(x => x.ID == id).FirstOrDefault();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			Size s = service.GetSize().Where(x => x.ID == id).FirstOrDefault();
 
             if (s == null)
             {
@@ -97,14 +142,20 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public ActionResult EditChosenSize(int width, int height, string name, string description, int id)
         {
-            service.editSize(width, height, name, description, id);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			service.editSize(width, height, name, description, id);
 
             return Content("redirect");
         }
 
         public ActionResult CreateProduct()
         {
-            List<Size> size = service.GetSize();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			List<Size> size = service.GetSize();
             return View(size);
         }
 
