@@ -39,6 +39,8 @@
             top.location.href = "/admin/index";
         }, 3000);
 
+
+
    
     }
     function updateBasketQuantity() {
