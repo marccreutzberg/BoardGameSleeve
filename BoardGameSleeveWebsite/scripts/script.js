@@ -1,6 +1,13 @@
 ﻿var functions = (function () {
 
     function addToCart() {
+
+        $('.basket img').addClass("clicked");
+
+        setTimeout(function () {
+            $(".basket img").removeClass('clicked');
+        }, 500);
+
         var id = $("#productId").val();
         var productQuantity = $("#quantity-product").val();
 

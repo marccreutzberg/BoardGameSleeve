@@ -154,6 +154,9 @@ namespace BoardGameSleeveWebsite.Controllers
         [HttpGet]
         public ActionResult CreateProduct()
         {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return this.RedirectToAction("Login");
+
             VMCreateProduct VMC = new VMCreateProduct();
 
             List<Size> sizes = service.GetSize();
@@ -165,6 +168,9 @@ namespace BoardGameSleeveWebsite.Controllers
         [HttpPost]
         public ActionResult CreateProduct(VMCreateProduct vm, HttpPostedFileBase file)
         {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return this.RedirectToAction("Login");
+
             Product p1 = new Product();
             p1.Name = vm.Name;
             p1.Description = vm.Description;
@@ -177,9 +183,9 @@ namespace BoardGameSleeveWebsite.Controllers
             if (file != null)
             {
                 string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine( Server.MapPath("~/img/test"), pic);
+                string path = System.IO.Path.Combine( Server.MapPath("~/img/Products"), pic);
 
-                // p1.img = pic;
+                p1.Img = pic;
 
                 file.SaveAs(path);
             }
@@ -192,6 +198,9 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public void DeleteProduct(int id)
         {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return;
+
             service.deleteProductFromID(id);
         }
 

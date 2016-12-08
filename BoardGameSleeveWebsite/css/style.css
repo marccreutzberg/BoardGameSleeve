@@ -650,6 +650,14 @@ th {
 body {
   font-family: Mission Gothic Regular; }
 
+.basket img {
+  -webkit-transition: transform 0.8s;
+  transition: transform 0.8s; }
+
+.basket img.clicked {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg); }
+
 /*Frontpage and layout*/
 header {
   border-bottom: 1px solid #dcdcdc;

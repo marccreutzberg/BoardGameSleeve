@@ -10,6 +10,16 @@ $backColor: #01020a;
 $textBlue: #8cc1e3;
 
 
+.basket img {
+    -webkit-transition: transform 0.8s;
+    transition: transform 0.8s;
+}
+
+.basket img.clicked {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
 /*Frontpage and layout*/
 header {
     border-bottom: 1px solid $borderGray;
@@ -283,15 +293,15 @@ footer {
     .basketQuantityCount {
         margin-top: 10px;
         text-align: center;
-        border: 1px solid $backgroundGray;   
-        
+        border: 1px solid $backgroundGray;
+
         .quantity-number {
             width: 50px;
             height: 50px;
-        }  
+        }
     }
 
-    
+
 
     .basketPrice {
         height: 70px;
@@ -354,7 +364,8 @@ footer {
 
 .basketRemoveItem {
     padding: 60px 0 0;
-    cursor:pointer;
+    cursor: pointer;
+
     img {
         width: 100%;
     }
@@ -394,11 +405,11 @@ footer {
         margin: 0 0 20px;
     }
 
-    .validation-error{
+    .validation-error {
         color: #cc0000;
     }
 
-    .total{
+    .total {
         font-weight: bold;
     }
 }
