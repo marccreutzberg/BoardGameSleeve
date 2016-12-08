@@ -63,7 +63,52 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult Checkout()
         {
-            return View();
+            VMCheckout vm = new VMCheckout();
+
+            if(Session["CustomerInformation"] == null)
+            {
+                Session["CustomerInformation"] = new CustomerInformation();
+            }
+            
+            List<SessionProduct> SessionProducts = (List<SessionProduct>)Session["Products"];
+            vm.CustomerInfo = (CustomerInformation)Session["CustomerInformation"];
+            vm.Products = service.GetProductsBasedOnIds(SessionProducts);
+            vm.SessionProducts = SessionProducts;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreateSale(VMCheckout vm)
+        {
+            List<SessionProduct> SessionProducts = (List<SessionProduct>)Session["Products"];
+            vm.Products = service.GetProductsBasedOnIds(SessionProducts);
+            vm.SessionProducts = SessionProducts;
+
+            if (ModelState.IsValid)
+            {
+                service.CreateSale(vm);
+
+                return null;
+            }
+          
+            return View("Checkout", vm);
+           
+        }
+
+        [WebMethod]
+        public void SaveCheckoutInfo(string fullName, string address, string zip, string city, string country, string email, string phone, string comment)
+        {
+            CustomerInformation c = (CustomerInformation)Session["CustomerInformation"];
+            c.FullName = fullName;
+            c.Address = address;
+            c.ZipCode = zip;
+            c.City = city;
+            c.Country = country;
+            c.Email = email;
+            c.Phone = phone;
+            c.Comment = comment;
+            
         }
     }
 }
