@@ -92,18 +92,18 @@ namespace BoardGameSleeveWebsite.services
             return new VMGames(games, sizes);
         }
 
-        public List<Size> GetSize()
-        {
-            List<Size> Sizes = dbContext.Sizes.ToList();
-            return Sizes;
-        }
+		public List<Size> GetSize()
+		{
+			List<Size> Sizes = dbContext.Sizes.ToList();
+			return Sizes;
+		}
 
         public void createSize(Size size)
         {
             dbContext.Sizes.Add(size);
             dbContext.SaveChanges();
         }
-        public string CreateGame(string name, List<int> sizeIds)
+        public string CreateGame(string name, List<string> sizeNames)
         {
             //Returns an empty string if succeeded, otherwise the string will be the error description
 
@@ -114,11 +114,9 @@ namespace BoardGameSleeveWebsite.services
 
                 IQueryable<Size> query = null;
                 int sizesCount = dbContext.Sizes.Count();
+                query = dbContext.Sizes.Where(x => sizeNames.Contains(x.Name));
 
-                for (int i = 0; i < sizesCount; i++)
-                    query = dbContext.Sizes.Where(x => sizeIds.Contains(x.ID));
-
-                if(query.Count() != sizeIds.Count)
+                if(query.Count() != sizeNames.Count)
                     return "Cant add game. Some of the sizeIds doesn't exist";
 
                 List<Size> sizes = query.ToList();
@@ -157,6 +155,24 @@ namespace BoardGameSleeveWebsite.services
             return (from x in this.dbContext.Games
                 select x).ToList();
         }
+		public void UpdateGame(int gameId, string gameName, List<string> sizeNames)
+		{
+			Game game = (from x in this.dbContext.Games
+						where x.ID == gameId
+						select x).FirstOrDefault();
+			if (game == null)
+				return;
+			game.Name = gameName;
+			game.Sizes.Clear();
+
+			IQueryable<Size> query = dbContext.Sizes.Where(x => sizeNames.Contains(x.Name));
+
+			List<Size> sizes = query.ToList();
+			foreach (Size size in sizes)
+				game.Sizes.Add(size);
+
+			dbContext.SaveChanges();
+		}
 
         public void deleteSizeFromId(int id)
         {
@@ -177,6 +193,11 @@ namespace BoardGameSleeveWebsite.services
             s.SizeDescription = description;
 
             dbContext.SaveChanges();
+        }
+
+        public Size getSizeFromId(int id)
+        {
+            return dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
         }
 
         public List<Product> GetProductsBasedOnIds(List<SessionProduct> sessionProducts)
@@ -200,6 +221,18 @@ namespace BoardGameSleeveWebsite.services
         {
             return dbContext.Products.ToList();
         }
+		public bool IsLoginCredentialsCorrect(string username, string password)
+		{
+			var admin = (from x in this.dbContext.Admins
+						 where x.Username == username
+						 select x).FirstOrDefault();
+			if (admin == null)
+				return false;
+
+			if (admin.Password == password)
+				return true;
+			return false;
+		}
 
         public void CreateSale(VMCheckout vm)
         {
@@ -230,6 +263,17 @@ namespace BoardGameSleeveWebsite.services
 
             dbContext.SaveChanges();
 
+        }
+
+        public List<Game> getAllGames()
+        {
+            return dbContext.Games.ToList();
+        }
+
+        public void addProduct(Product produt)
+        {
+            dbContext.Products.Add(produt);
+            dbContext.SaveChanges();
         }
     }
 }

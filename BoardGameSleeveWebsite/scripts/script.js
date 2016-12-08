@@ -152,15 +152,15 @@
         console.log(InStock);
         console.log(sizes);
 
-        //$.ajax({
-        //    type: "POST",
-        //    url: "/Admin/EditChosenSize",
-        //    data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
-        //    contentType: "application/json; charset=utf-8",
-        //    dataType: "json",
-        //});
+        $.ajax({
+            type: "POST",
+            url: "/Admin/CreateSingelProduct",
+            data: JSON.stringify({ name: name, desc: desc, color: color, price: price, SleeveCountInProduct: SleeveCountInProduct, InStock: InStock, sizes: sizes }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
 
-        //top.location.href = "/admin/size";
+        top.location.href = "/admin/size";
     }
 
 

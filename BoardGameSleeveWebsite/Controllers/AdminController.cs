@@ -7,6 +7,7 @@ using BoardGameSleeveWebsite.services;
 using BoardGameSleeveWebsite.ViewModels;
 using System.Web.Services;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -16,15 +17,40 @@ namespace BoardGameSleeveWebsite.Controllers
         // GET: Admin
         public ActionResult index()
         {
+			if (this.HasLoginCredentialsInCookies() == false)
+				this.RedirectToAction("Login");
+
             return View();
         }
-        public ActionResult Login()
+		bool HasLoginCredentialsInCookies()
+		{
+			string[] allKeys = this.Request.Cookies.AllKeys;
+			if (!allKeys.Contains("username") || !allKeys.Contains("password"))
+				return false;
+
+			string username = this.Request.Cookies["username"].Value;
+			string password = this.Request.Cookies["password"].Value;
+
+			if (service.IsLoginCredentialsCorrect(username, password))
+				return true;
+			return false;
+		}
+		public ActionResult Login()
         {
-            return View("Login");
+			return View("Login");
         }
+		public ActionResult TryLogin(string username, string password)
+		{
+			if (service.IsLoginCredentialsCorrect(username, password) == false)
+				return this.RedirectToAction("Login");
+			return this.View("index");
+		}
+
         public ActionResult Product()
         {
-            List<Product> products = service.GetAlleProducts();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			List<Product> products = service.GetAlleProducts();
 
             return View(products);
         }
@@ -32,33 +58,45 @@ namespace BoardGameSleeveWebsite.Controllers
         #region Game Things
         public ActionResult Game()
         {
-            List<Size> allSizes = service.GetSize();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			List<Size> allSizes = service.GetSize();
             string[] allSizesString = allSizes.Select(size => size.Name).ToArray();
             this.ViewData["json_allSizes"] = JsonConvert.SerializeObject(allSizesString);
             this.ViewData["games"] = service.GetAllGames();
             return View();
         }
-        public ActionResult CreateGame(string name, List<int> sizeIds)
+        public ActionResult CreateGame(string name, List<string> sizeNames)
         {
-            string createGameError = service.CreateGame(name, sizeIds);
-            return Content(createGameError);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			string createGameError = service.CreateGame(name, sizeNames);
+            return RedirectToAction("Game");
         }
-		public ActionResult CreateGame2(string name, List<int> sizeIds)
-		{
-			return Content("Name:" + name + ", ids count: " + sizeIds.Count);
-		}
 
         public ActionResult DeleteGame(int id)
         {
-            string deleteGameError = service.DeleteGame(id);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			string deleteGameError = service.DeleteGame(id);
             return this.RedirectToAction("Game");
         }
+		public ActionResult EditGame(int gameId, string newName, List<string> sizeNames)
+		{
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+			service.UpdateGame(gameId, newName, sizeNames);
+			return RedirectToAction("Game");
+		}
         #endregion
 
         #region Size Things
         public ActionResult Size()
         {
-            List<Size> sizes = service.GetSize();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			List<Size> sizes = service.GetSize();
 
             return View(sizes);
         }
@@ -66,7 +104,10 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public void CreateSize(int width, int height, string name, string description)
         {
-            Size s = new Size();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return;
+
+			Size s = new Size();
             s.Height = height;
             s.Width = width;
             s.Name = name;
@@ -78,12 +119,18 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public void DeleteSize(int id)
         {
-            service.deleteSizeFromId(id);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return;
+
+			service.deleteSizeFromId(id);
         }
 
         public ActionResult EditSize(int id)
         {
-            Size s = service.GetSize().Where(x => x.ID == id).FirstOrDefault();
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			Size s = service.GetSize().Where(x => x.ID == id).FirstOrDefault();
 
             if (s == null)
             {
@@ -96,15 +143,82 @@ namespace BoardGameSleeveWebsite.Controllers
         [WebMethod]
         public ActionResult EditChosenSize(int width, int height, string name, string description, int id)
         {
-            service.editSize(width, height, name, description, id);
+			if (this.HasLoginCredentialsInCookies() == false)
+				return this.RedirectToAction("Login");
+
+			service.editSize(width, height, name, description, id);
 
             return Content("redirect");
         }
 
         public ActionResult CreateProduct()
         {
-            List<Size> size = service.GetSize();
-            return View(size);
+            VMCreateProduct VMC = new VMCreateProduct();
+
+            List<Game> games = service.getAllGames();
+
+            VMC.Games = games;
+
+            return View(games);
+        }
+
+        [WebMethod]
+        public ActionResult CreateSingelProduct(string name, string desc, string color, decimal price, int SleeveCountInProduct, int InStock, string[] sizes)
+        {
+            Product p = new Product();
+            p.Name = name;
+            p.Description = desc;
+            p.Color = color;
+            p.Price = price;
+            p.SleeveCountInProduct = SleeveCountInProduct;
+            p.InStock = InStock;
+
+            List<Size> size = new List<Size>();
+
+
+
+            if (size != null)
+            {
+                for (int i = 0; i < sizes.Length; i++)
+                {
+                    size.Add(service.getSizeFromId(Convert.ToInt32(sizes[i])));
+                    p.Size = service.getSizeFromId(Convert.ToInt32(sizes[i]));
+                }
+            }
+
+            //TODO
+            // SKAL OGSÅ SMIDE SIZE MED
+            //MEN DER SKAL VÆRE EN MANGE TIL MANGE RELATION I KLASSEN 
+            //AKA VI SKAL OPDATERE ENTITY ! :D 
+            //
+
+            service.addProduct(p);
+
+            return Content("success");
+        }
+
+
+        public ActionResult FileUpload(HttpPostedFileBase file)
+        {
+            if (file != null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine( Server.MapPath("~/img/test"), pic);
+                // file is uploaded
+                file.SaveAs(path);
+
+                // save the image path path to the database or you can send image 
+                // directly to database
+                // in-case if you want to store byte[] ie. for DB
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+
+            }
+            // after successfully uploading redirect the user
+            return RedirectToAction("createProduct", "Admin");
         }
 
 

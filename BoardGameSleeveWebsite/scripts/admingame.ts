@@ -1,11 +1,17 @@
 ﻿class GameAdmin
 {
-    editForm: GameAdmin_EditForm;
+    $tableBlocker: JQuery;
+    editForm: GameAdmin_EditAddForm;
+	$addNewGameButton: JQuery;
+
     constructor()
     {
         var allSizes: string[] = JSON.parse($("#gameAdmin").attr("data-json_allSizes"));
-        console.log(allSizes);
-        this.editForm = new GameAdmin_EditForm(allSizes);
+        this.$tableBlocker = $("#tableBlocker");
+		this.$addNewGameButton = $("#addNewGameButton");
+        this.editForm = new GameAdmin_EditAddForm(this, allSizes);
+
+
         $(".editGameLink").on("click", (eObj: JQueryEventObject) =>
         {
             var $element = $(eObj.target);
@@ -16,13 +22,17 @@
             var textSizesArray: string[] = textSizes.split(",");
             for (var i = 0; i < textSizesArray.length; i++)
                 textSizesArray[i] = textSizesArray[i].trim();
-            this.editForm.showAndEdit(gameId, gameName, textSizesArray);
+            this.editForm.showAndEdit(gameId, gameName, textSizesArray[0] == "" ? [] : textSizesArray);
         });
+
+		this.$addNewGameButton.on("click", () => { this.editForm.showAndAdd(); });
     }
 }
 
-class GameAdmin_EditForm
+class GameAdmin_EditAddForm
 {
+    gameAdmin: GameAdmin;
+
     $element: JQuery;
     $headlineName: JQuery;
     $nameInput: JQuery;
@@ -33,28 +43,35 @@ class GameAdmin_EditForm
     $cancelButton: JQuery;
 
     allSizeNames: string[];
-
     curEdit_gameId: number;
 
-    constructor(allSizeNames: string[])
+	isEditMode: boolean;
+
+    constructor(gameAdmin: GameAdmin, allSizeNames: string[])
     {
-        this.$element = $("#editForm");
-        this.$headlineName = $("#editForm_headlineName");
-        this.$nameInput = $("#editForm_nameInput");
-        this.$table = $("#editForm_table");
-        this.$selectToAdd = $("#editForm_selectToAdd");
-        this.$addButton = $("#editForm_addButton");
-        this.$acceptButton = $("#editForm_acceptButton");
-        this.$cancelButton = $("#editForm_cancelButton");
+        this.gameAdmin = gameAdmin;
+
+        this.$element = $("#editAddForm");
+        this.$headlineName = $("#editAddForm_headlineName");
+        this.$nameInput = $("#editAddForm_nameInput");
+        this.$table = $("#editAddForm_table");
+        this.$selectToAdd = $("#editAddForm_selectToAdd");
+        this.$addButton = $("#editAddForm_addButton");
+        this.$acceptButton = $("#editAddForm_acceptButton");
+        this.$cancelButton = $("#editAddForm_cancelButton");
 
         this.allSizeNames = allSizeNames;
 
         this.$addButton.on("click", () => { this.onclick_addSize(); });
+        this.$cancelButton.on("click", () => { this.onclick_cancel(); });
+        this.$acceptButton.on("click", () => { this.onclick_accept(); });
     }
 
     showAndEdit(gameId: number, gameName: string, sizes: string[]): void
     {
+		this.isEditMode = true;
         this.$element.show();
+        this.gameAdmin.$tableBlocker.css("display", "block");
         this.curEdit_gameId = gameId;
         this.$headlineName.text(gameName);
         this.$nameInput.val(gameName);
@@ -69,6 +86,14 @@ class GameAdmin_EditForm
 
         for (var i = 0; i < optionSizes.length; i++)
             this.addOption(optionSizes[i]);
+    }
+    showAndAdd(): void
+    {
+		this.isEditMode = false;
+		this.$element.show();
+		this.gameAdmin.$tableBlocker.css("display", "block");
+		for (var i = 0; i < this.allSizeNames.length; i++)
+			this.addOption(this.allSizeNames[i]);
     }
     onclick_addSize()
     {
@@ -97,6 +122,46 @@ class GameAdmin_EditForm
     addOption(sizeName: string)
     {
         this.$selectToAdd.append($("<option value='" + sizeName + "'>" + sizeName + "</option>"));
+    }
+
+    onclick_accept()
+    {
+        var newGameName: string = this.$nameInput.val();
+
+		if (newGameName == "")
+			return;
+
+        var sizes: string[] = [];
+        var $trSizes: JQuery = this.$table.children().children();
+        for (var i = 0; i < $trSizes.length; ++i)
+            sizes.push($trSizes.eq(i).children().eq(0).text());
+
+        //console.log("gameId: " + gameId);
+        //console.log("newGameName: " + newGameName);
+        //console.log("sizes: ");
+        //console.log(sizes);
+		
+		var href;
+		if (this.isEditMode == true)
+		{
+			var gameId: number = this.curEdit_gameId;
+			href = "/admin/editgame?gameid=" + gameId + "&newname=" + newGameName;
+		}
+		else
+			href = "/admin/creategame?name=" + newGameName;
+
+        for (var i = 0; i < sizes.length; i++)
+            href += "&sizeNames=" + sizes[i];
+
+        window.location.href = href;
+    }
+    onclick_cancel()
+    {
+        this.$element.css("display", "none");
+        this.gameAdmin.$tableBlocker.css("display", "none");
+		this.$nameInput.text("");
+        this.$selectToAdd.empty();
+        this.$table.children().empty();
     }
 }
 
