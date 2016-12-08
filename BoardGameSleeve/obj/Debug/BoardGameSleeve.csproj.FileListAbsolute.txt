@@ -51,3 +51,4 @@ C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardG
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache

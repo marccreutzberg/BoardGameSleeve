@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BoardGameSleeveWebsite.services;
 using BoardGameSleeveWebsite.ViewModels;
 using System.Web.Services;
+using System.IO;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -100,12 +101,77 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult CreateProduct()
         {
-            List<Size> size = service.GetSize();
-            return View(size);
+            VMCreateProduct VMC = new VMCreateProduct();
+
+            List<Game> games = service.getAllGames();
+
+            VMC.Games = games;
+
+            return View(games);
+        }
+
+        [WebMethod]
+        public ActionResult CreateSingelProduct(string name, string desc, string color, decimal price, int SleeveCountInProduct, int InStock, string[] sizes)
+        {
+            Product p = new Product();
+            p.Name = name;
+            p.Description = desc;
+            p.Color = color;
+            p.Price = price;
+            p.SleeveCountInProduct = SleeveCountInProduct;
+            p.InStock = InStock;
+
+            List<Size> size = new List<Size>();
+
+
+
+            if (size != null)
+            {
+                for (int i = 0; i < sizes.Length; i++)
+                {
+                    size.Add(service.getSizeFromId(Convert.ToInt32(sizes[i])));
+                    p.Size = service.getSizeFromId(Convert.ToInt32(sizes[i]));
+                }
+            }
+
+            //TODO
+            // SKAL OGSÅ SMIDE SIZE MED
+            //MEN DER SKAL VÆRE EN MANGE TIL MANGE RELATION I KLASSEN 
+            //AKA VI SKAL OPDATERE ENTITY ! :D 
+            //
+
+            service.addProduct(p);
+
+            return Content("success");
+        }
+
+
+        public ActionResult FileUpload(HttpPostedFileBase file)
+        {
+            if (file != null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine( Server.MapPath("~/img/test"), pic);
+                // file is uploaded
+                file.SaveAs(path);
+
+                // save the image path path to the database or you can send image 
+                // directly to database
+                // in-case if you want to store byte[] ie. for DB
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+
+            }
+            // after successfully uploading redirect the user
+            return RedirectToAction("createProduct", "Admin");
         }
 
 
 
-        
+
+
     }
 }

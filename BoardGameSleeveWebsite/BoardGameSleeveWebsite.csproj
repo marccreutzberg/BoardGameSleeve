@@ -193,6 +193,7 @@
     <Compile Include="DataModels\Invoice.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="ViewModels\VMBasket.cs" />
+    <Compile Include="ViewModels\VMCreateProduct.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
@@ -269,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\test\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>

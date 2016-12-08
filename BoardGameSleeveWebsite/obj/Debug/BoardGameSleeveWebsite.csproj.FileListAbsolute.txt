@@ -103,3 +103,4 @@ C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Syste
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.xml
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
