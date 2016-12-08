@@ -104,3 +104,15 @@ h1 {
 
 .createProduct p {
   margin: 20px 0 0 0; }
+
+.delete-popup {
+  display: none;
+  text-align: center;
+  width: 200px;
+  height: 120px;
+  padding: 20px;
+  position: fixed;
+  left: 45%;
+  top: 20%;
+  background-color: #fff;
+  border: 1px solid #3d3d3d; }

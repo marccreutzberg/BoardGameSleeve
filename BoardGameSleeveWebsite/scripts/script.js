@@ -33,6 +33,8 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
         });
+
+        top.location.href = "/admin/size";
     }
     function updateBasketQuantity() {
         var productId = $(this).attr("data-id");
@@ -102,6 +104,29 @@
 
         top.location.href = "/admin/size";
     }
+
+    function deleteProduct() {
+        var id = $(this).data("id");
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/DeleteProduct",
+            data: JSON.stringify({ id: id }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
+        $('.delete-popup').fadeIn();
+        console.log('fade ud');
+
+        setTimeout(function () {
+            console.log('redirrect');
+            top.location.href = "/admin/index";
+        }, 3000);
+
+       
+    }
+
     function editSize() {
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
@@ -141,36 +166,7 @@
 
     }
 
-    function createProduct() {
-        var name = $("#product-Name").val();
-        var desc = $("#product-desc").val();
-        var color = $("#product-Color").val();
-        var price = $("#product-Price").val();
-        var SleeveCountInProduct = $("#product-SleeveCountInProduct").val();
-        var InStock = $("#product-InStock").val();
-
-        var sizes = $('#product-size').val();
-
-        console.log(name);
-        console.log(desc);
-        console.log(color);
-        console.log(price);
-        console.log(SleeveCountInProduct);
-        console.log(InStock);
-        console.log(sizes);
-
-        $.ajax({
-            type: "POST",
-            url: "/Admin/CreateSingelProduct",
-            data: JSON.stringify({ name: name, desc: desc, color: color, price: price, SleeveCountInProduct: SleeveCountInProduct, InStock: InStock, sizes: sizes }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        });
-
-        top.location.href = "/admin/size";
-    }
-
-
+  
     function inputNumber() {
         var id = $(this).attr("id");
         var number = $("#"+id).val();
@@ -193,8 +189,8 @@
         removeProductFromSession: removeProductFromSession,
         editSize: editSize,
         deleteSize: deleteSize,
+        deleteProduct: deleteProduct,
         saveCheckoutInfo: saveCheckoutInfo,
-        createProduct: createProduct,
         inputNumber: inputNumber,
     }
 })();
@@ -203,6 +199,7 @@
     $("body").on("click", "#add-cart-button", functions.addToCart);
     $("body").on("click", "#create-size-button", functions.createSize);
     $("body").on("click", "#delete-size-button", functions.deleteSize);
+    $("body").on("click", "#delete-product-button", functions.deleteProduct);
     $("body").on("click", "#edit-chosen-size-button", functions.editSize);
     $("body").on("click", "#add-quantity", functions.addQuantity);
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
@@ -211,8 +208,6 @@
     $("body").on("focusout", ".checkout-field", functions.saveCheckoutInfo);
     $("body").on("focusout", ".zip", functions.saveCheckoutInfo);
     $("body").on("focusout", ".city", functions.saveCheckoutInfo);
-    $("body").on("click", "#product-Create-Button", functions.createProduct);
-
     $("body").on("focusout", ':input[type="number"]', functions.inputNumber);
 
     

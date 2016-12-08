@@ -145,3 +145,16 @@ h1 {
     }
 
 }
+
+.delete-popup{
+    display: none;
+    text-align: center;
+    width: 200px; 
+    height: 120px;
+    padding: 20px;
+    position: fixed; 
+    left: 45%;
+    top: 20%;
+    background-color: $WhiteColor;
+    border: 1px solid $blackcolor;
+}
