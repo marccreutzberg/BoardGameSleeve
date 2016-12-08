@@ -174,9 +174,12 @@
     <Content Include="img\Search-icon.png" />
     <Content Include="img\test\Mini.png" />
     <Content Include="img\test\Standart.png" />
+    <Content Include="scripts\admingame.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\file1.js" />
     <Content Include="scripts\Games.js" />
+    <Content Include="scripts\login.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -265,6 +268,10 @@
     <Content Include="Views\Admin\EditSize.cshtml" />
     <Content Include="Views\Admin\index.cshtml" />
     <Content Include="Views\Admin\CreateProduct.cshtml" />
+    <Content Include="scripts\login.js.map" />
+    <Content Include="scripts\admingame.js.map" />
+    <Content Include="scripts\file1.js.map" />
+    <Content Include="Views\Shop\OrderConfirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -278,7 +285,9 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="scripts\admingame.ts" />
     <TypeScriptCompile Include="scripts\file1.ts" />
+    <TypeScriptCompile Include="scripts\login.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -45,6 +45,7 @@ $backColor: #01020a;
 
     #add-to-cart {
         margin-top: 50px;
+
         p {
             float: left;
             margin-right: 15px;
@@ -57,18 +58,20 @@ $backColor: #01020a;
 }
 
 @mixin productHeaders {
-    .product-header {       
+    .product-header {
         margin: -78px 0px 0px -1px;
         border: 2px solid $borderGray;
         height: 75px;
         width: 50%;
-        
     }
-    h2{
+
+    h2 {
         text-align: center;
     }
+
     margin-top: 200px;
-    p{
+
+    p {
         margin: 15px;
     }
 }
@@ -78,25 +81,22 @@ $backColor: #01020a;
     @include productHeaders;
     margin-top: 150px;
     width: 100%;
-    ul{
+
+    ul {
         list-style-type: none;
         margin-left: -20px;
     }
-
-    
-
 }
 
 #product-description {
     @extend .product-box;
     @include productHeaders;
-
     margin-top: 150px;
     width: 100%;
     margin-bottom: 20px;
 }
 
-#add-cart-button{
+.button{
     background-color: deepskyblue;
     -moz-border-radius: 35px;
     -webkit-border-radius: 35px;
@@ -108,7 +108,28 @@ $backColor: #01020a;
     cursor: pointer;
     color: white;
 
-    &:hover{
+    &:hover {
         background-color: black;
+    }
+}
+
+
+#add-cart-button {
+    @extend .button;
+}
+
+#print-receipt{
+    @extend .button;
+}
+
+/*Confirmation Order*/
+#confirmation-items {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
     }
 }

@@ -41,7 +41,7 @@
 
 
 
-   
+
     }
     function updateBasketQuantity() {
         var productId = $(this).attr("data-id");
@@ -189,6 +189,18 @@
         }
     }
 
+    function printReceipt() {
+        w = window.open();
+        jQuery.get('/css/style.css', function (data) {
+            w.document.write('<html><head><title>Order confirmation</title><style>');
+            w.document.write(data);
+            w.document.write('</style></head><body>');
+            w.document.write($('#order-receipt').html());
+            w.document.write('</body></html>');
+            w.print();
+            w.close();
+        });
+    }
 
     return {
         addToCart: addToCart,
@@ -202,10 +214,12 @@
         deleteProduct: deleteProduct,
         saveCheckoutInfo: saveCheckoutInfo,
         inputNumber: inputNumber,
+        printReceipt: printReceipt,
     }
 })();
 
 (function ($) {
+    $("body").on("click", "#print-receipt", functions.printReceipt);
     $("body").on("click", "#add-cart-button", functions.addToCart);
     $("body").on("click", "#create-size-button", functions.createSize);
     $("body").on("click", "#delete-size-button", functions.deleteSize);

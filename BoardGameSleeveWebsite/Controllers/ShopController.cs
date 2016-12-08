@@ -1,6 +1,7 @@
 ﻿using BoardGameSleeveWebsite.services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -71,18 +72,29 @@ namespace BoardGameSleeveWebsite.Controllers
 
             VMCheckout vm = new VMCheckout();
 
-            if(Session["CustomerInformation"] == null)
+            if (Session["CustomerInformation"] == null)
             {
                 Session["CustomerInformation"] = new CustomerInformation();
             }
-            
-            
+
+
             vm.CustomerInfo = (CustomerInformation)Session["CustomerInformation"];
             vm.Products = service.GetProductsBasedOnIds(SessionProducts);
             vm.SessionProducts = SessionProducts;
 
             return View(vm);
         }
+
+        public ActionResult OrderConfirmation()
+        {
+            VMCheckout vm = (VMCheckout)TempData["checkout"];
+            Session["Products"] = new List<SessionProduct>();
+            Session["CustomerInformation"] = new CustomerInformation();
+            
+
+            return View(vm);
+        }
+
 
         [HttpPost]
         public ActionResult CreateSale(VMCheckout vm)
@@ -94,13 +106,13 @@ namespace BoardGameSleeveWebsite.Controllers
             if (ModelState.IsValid)
             {
                 service.CreateSale(vm);
-                SessionProducts.Clear();
 
-                return null;
+                TempData["checkout"] = vm;
+
+                return RedirectToAction("OrderConfirmation");
             }
-          
+
             return View("Checkout", vm);
-           
         }
 
         [WebMethod]
@@ -115,7 +127,7 @@ namespace BoardGameSleeveWebsite.Controllers
             c.Email = email;
             c.Phone = phone;
             c.Comment = comment;
-            
+
         }
     }
 }

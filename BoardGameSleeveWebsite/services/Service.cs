@@ -32,7 +32,7 @@ namespace BoardGameSleeveWebsite.services
 
             vm.Products = new List<CommonProduct>();
 
-            foreach (var p in dbContext.Products.Include("Size").GroupBy(x => new { x.Size.ID, x.Size.Name, x.Size.Width, x.Size.Height, x.Img }))
+            foreach (var p in dbContext.Products.Include("Size").GroupBy(x => new { x.Size.ID, x.Size.Name, x.Size.Width, x.Size.Height }))
             {
                 CommonProduct c = new CommonProduct();
                 c.SizeID = p.Key.ID;
@@ -40,7 +40,7 @@ namespace BoardGameSleeveWebsite.services
                 c.Width = (int)p.Key.Width;
                 c.Height = (int)p.Key.Height;
                 c.Colors = new List<string>();
-                c.Img = p.Key.Img;
+                c.Img = dbContext.Products.Where(y => y.SizeID == p.Key.ID).FirstOrDefault().Img;
 
                 foreach (var s in dbContext.Products.Include("Size").Where(y => y.Size.Name == c.SizeName))
                 {
