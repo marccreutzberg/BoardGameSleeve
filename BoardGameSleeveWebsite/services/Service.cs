@@ -248,6 +248,7 @@ namespace BoardGameSleeveWebsite.services
         {
             Invoice i = new Invoice();
             i.Date = DateTime.Now;
+            i.Comment = vm.CustomerInfo.Comment;
 
             Customer c = new Customer();
             c.Name = vm.CustomerInfo.FullName;
