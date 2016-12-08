@@ -63,6 +63,12 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult Checkout()
         {
+            List<SessionProduct> SessionProducts = (List<SessionProduct>)Session["Products"];
+            if (SessionProducts.Count() < 1)
+            {
+                return RedirectToAction("Products", "Product");
+            }
+
             VMCheckout vm = new VMCheckout();
 
             if(Session["CustomerInformation"] == null)
@@ -70,7 +76,7 @@ namespace BoardGameSleeveWebsite.Controllers
                 Session["CustomerInformation"] = new CustomerInformation();
             }
             
-            List<SessionProduct> SessionProducts = (List<SessionProduct>)Session["Products"];
+            
             vm.CustomerInfo = (CustomerInformation)Session["CustomerInformation"];
             vm.Products = service.GetProductsBasedOnIds(SessionProducts);
             vm.SessionProducts = SessionProducts;
@@ -88,6 +94,7 @@ namespace BoardGameSleeveWebsite.Controllers
             if (ModelState.IsValid)
             {
                 service.CreateSale(vm);
+                SessionProducts.Clear();
 
                 return null;
             }

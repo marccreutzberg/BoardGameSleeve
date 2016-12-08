@@ -164,6 +164,19 @@
     }
 
 
+    function inputNumber() {
+        var id = $(this).attr("id");
+        var number = $("#"+id).val();
+
+        number = Math.abs(number);
+        $("#" + id).val(number);
+
+        if ($("#" + id).val() <= 0) {
+            $("#" + id).val(1)
+        }
+    }
+
+
     return {
         addToCart: addToCart,
         createSize: createSize,
@@ -174,7 +187,8 @@
         editSize: editSize,
         deleteSize: deleteSize,
         saveCheckoutInfo: saveCheckoutInfo,
-        createProduct: createProduct
+        createProduct: createProduct,
+        inputNumber: inputNumber,
     }
 })();
 
@@ -191,6 +205,8 @@
     $("body").on("focusout", ".zip", functions.saveCheckoutInfo);
     $("body").on("focusout", ".city", functions.saveCheckoutInfo);
     $("body").on("click", "#product-Create-Button", functions.createProduct);
+
+    $("body").on("focusout", ':input[type="number"]', functions.inputNumber);
 
     
 })(jQuery);
