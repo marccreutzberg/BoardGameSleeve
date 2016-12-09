@@ -5,6 +5,9 @@ h1 {
   background-color: #3d3d3d;
   height: 100%;
   padding: 20px 40px; }
+  .administrationsNavn h1 a {
+    text-decoration: none;
+    color: #fff; }
   .administrationsNavn ul {
     margin: 0;
     padding: 0;
@@ -53,7 +56,7 @@ h1 {
     border: 1px solid #3d3d3d;
     box-sizing: border-box; }
 
-#create-size-button, #edit-chosen-size-button, #product-Create-Button {
+#create-size-button, #edit-chosen-size-button, #product-Create-Button, .createProductButton {
   cursor: pointer;
   background-color: #3d3d3d;
   -moz-border-radius: 8px;
@@ -87,23 +90,37 @@ h1 {
   float: right;
   cursor: pointer; }
 
-.createProduct input[type="text"] {
+.createProduct input[type="text"], .editProduct input[type="text"] {
   width: 100%;
   height: 40px; }
 
-.createProduct input[type="radio"] {
+.createProduct input[type="radio"], .editProduct input[type="radio"] {
   margin: 5px 10px 5px 0; }
 
-.createProduct textarea {
+.createProduct textarea, .editProduct textarea {
   width: 100%;
   height: 120px; }
 
-.createProduct select {
+.createProduct select, .editProduct select {
   width: 100%;
   height: 140px; }
 
-.createProduct p {
+.createProduct p, .editProduct p {
   margin: 20px 0 0 0; }
+
+.createProduct input[type="submit"], .editProduct input[type="submit"] {
+  cursor: pointer;
+  background-color: #3d3d3d;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  width: 200px;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  border: none; }
 
 .delete-popup {
   display: none;
@@ -116,3 +133,23 @@ h1 {
   top: 20%;
   background-color: #fff;
   border: 1px solid #3d3d3d; }
+
+.createProductButton {
+  text-decoration: none; }
+
+.editProduct img {
+  width: 50%; }
+
+.editProduct input[type="submit"] {
+  cursor: pointer;
+  background-color: #3d3d3d;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  width: 200px;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  border: none; }
