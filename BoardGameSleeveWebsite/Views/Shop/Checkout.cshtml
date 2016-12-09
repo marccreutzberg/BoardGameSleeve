@@ -24,10 +24,10 @@
                             <div style="border-right: 1px solid gray" class="col-md-6">
                                 <div class="checkoutLeft">
                                     <p>First* & Last name*  </p> <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.FullName)</p>
-                                    @Html.TextBoxFor(m => m.CustomerInfo.FullName, new {@class = "checkout-field", id="name-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.FullName, new { @class = "checkout-field", id = "name-field" })
 
                                     <p>Address * </p> <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.Address) </p>
-                                    @Html.TextBoxFor(m => m.CustomerInfo.Address, new { @class = "checkout-field", id="address-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Address, new { @class = "checkout-field", id = "address-field" })
 
 
                                     <p>Zipcode* & City</p>
@@ -38,21 +38,21 @@
                                         @Html.ValidationMessageFor(m => m.CustomerInfo.City)
 
                                     </p>
-                                    @Html.TextBoxFor(m => m.CustomerInfo.ZipCode, new { @class = "zip", id="zip-field" })
-                                    @Html.TextBoxFor(m => m.CustomerInfo.City, new { @class = "city", id="city-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.ZipCode, new { @class = "zip", id = "zip-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.City, new { @class = "city", id = "city-field" })
 
                                     <p> Country * </p>
                                     <p class="validation-error">
                                         @Html.ValidationMessageFor(m => m.CustomerInfo.Country)
                                     </p>
-                                    @Html.TextBoxFor(m => m.CustomerInfo.Country, new { @class = "checkout-field", id="country-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Country, new { @class = "checkout-field", id = "country-field" })
 
                                     <p>Email* </p>
                                     <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.Email)</p>
-                                    @Html.TextBoxFor(m => m.CustomerInfo.Email, new { @class = "checkout-field", id="email-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Email, new { @class = "checkout-field", id = "email-field" })
 
                                     <p>Phone</p>
-                                    @Html.TextBoxFor(m => m.CustomerInfo.Phone, new { @class = "checkout-field", id="phone-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Phone, new { @class = "checkout-field", id = "phone-field" })
 
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                     <div class="clear"></div>
 
                                     <h4>Comment</h4>
-                                    <textarea class="checkout-field" id="comment-field"> @Model.CustomerInfo.Comment</textarea>
+                                    @Html.TextAreaFor(x => x.CustomerInfo.Comment, new { @class="checkout-field", id="comment-field"})
 
                                     <input type="submit" value="Complete order" />
                                 </div>

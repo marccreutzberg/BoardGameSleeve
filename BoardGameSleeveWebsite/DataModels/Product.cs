@@ -31,6 +31,9 @@ namespace BoardGameSleeveWebsite
 
         public int? SleeveCountInProduct { get; set; }
 
+        [StringLength(300)]
+        public string Img { get; set; }
+
         public int SizeID { get; set; }
 
         public virtual Size Size { get; set; }

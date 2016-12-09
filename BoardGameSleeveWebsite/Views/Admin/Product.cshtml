@@ -17,7 +17,7 @@
                 @{
                     foreach (var product in Model)
                     {
-                        <li>
+                        <li class="@product.ID">
                             Navn: @product.Name - Color: @product.Color - SizeName: @product.Size.Name - Pris: @product.Price
 
                             <div data-id="@product.ID" id="delete-product-button" title="Delete Product">
@@ -33,7 +33,7 @@
                 }
             </ul>
 
-
+         
 
         </div>
     </div>
@@ -42,4 +42,8 @@
         <h3>Create a New Product</h3>
         <a href="/admin/createproduct">Create Product</a>
     </div>
+</div>
+
+<div class="delete-popup">
+    <h2>The command Delete a product is succeeded</h2>
 </div>

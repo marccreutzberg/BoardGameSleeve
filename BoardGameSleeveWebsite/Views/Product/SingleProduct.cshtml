@@ -12,6 +12,7 @@
 	string color = product.Color;
 	string width = product.Size.Width.ToString() + "mm";
 	string height = product.Size.Height.ToString() + "mm";
+    string img = product.Img;
     int productId = product.ID;
 }
 
@@ -35,7 +36,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div id="product-image">
-                    <img src="http://www.arcanetinmen.dk/images/board-game-sleeves-large-1024-14.jpg" alt="image-product">
+                    <img src="~/img/products/@img" alt="image-product">
                 </div>
             </div>
             <div class="col-md-6">
@@ -51,7 +52,7 @@
                     <p>Dispatch: Ships within 7-10 days</p>
                     <div id="add-to-cart">
                         <p>Quantity </p>
-                        <input type="number" name="quantity" min="1" id="quantity-product">
+                        <input type="number" name="quantity" min="1" id="quantity-product" data-id="quantity-product">
                         <input type="hidden" name="productId" id="productId" value="@productId"/>
                         <div id="add-cart-button">Add to Cart</div>
                     </div>

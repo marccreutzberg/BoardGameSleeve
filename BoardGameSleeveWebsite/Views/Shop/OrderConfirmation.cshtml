@@ -1,0 +1,83 @@
+﻿@model VMCheckout
+
+@{
+    ViewBag.Title = "OrderConfirmation";
+    decimal Total = 0;
+    string FullName = Model.CustomerInfo.FullName;
+    string Address = Model.CustomerInfo.Address;
+    string ZipCode = Model.CustomerInfo.ZipCode;
+    string City = Model.CustomerInfo.City;
+    string Country = Model.CustomerInfo.Country;
+    string Email = Model.CustomerInfo.Email;
+    string Phone = Model.CustomerInfo.Phone;
+    string Comment = Model.CustomerInfo.Comment;
+}
+
+
+<div class="container">
+    <div id="order-receipt">
+        <h2>Hello, @FullName</h2>
+        <p>
+            Thank you for ordering from Board Game Sleeves. If you have any questions about your order, please contact us at <a href="mailto:support@boardgamesleeves.com">support@boardgamesleeves.com</a> or call us at 0045 8676 5636.
+            See your order confirmation below. Thank you again for your purchase.
+        </p>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Billing information:</h3>
+                <p>@FullName</p>
+                <p>@Address</p>
+                <p>@ZipCode - @City</p>
+                <p>@Country</p>
+                <p>Email: @Email</p>
+
+                @if (!string.IsNullOrEmpty(Phone))
+            {
+                    <p>Phone: @Phone</p>
+                }
+            </div>
+
+            @if (!string.IsNullOrEmpty(Comment))
+            {
+                <div class="col-md-6">
+                    <h3>Comment:</h3>
+                    <p>@Html.Raw(Html.Encode(Comment).Replace("\n", "<br />"))</p>
+                </div>
+            }
+
+            <hr />
+        </div>
+
+        <h3>Items</h3>
+        <table id="confirmation-items">
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Qty</th>
+                <th>Price</th>
+            </tr>
+
+            @foreach (var p in Model.Products)
+            {
+                Total += (decimal)p.Price * Model.SessionProducts.Where(x => x.productId == p.ID).FirstOrDefault().quantity;
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Color</td>
+                    <td>@p.Size.Width x @p.Size.Height mm</td>
+                    <td>@Model.SessionProducts.Where(x => x.productId == p.ID).FirstOrDefault().quantity</td>
+                    <td>@p.Price</td>
+                </tr>
+            }
+        </table>
+
+        <hr />
+        <p>Total: @Total</p>
+
+    </div>
+    <input type="button" value="Print" id="print-receipt" />
+
+</div>
+
+
+

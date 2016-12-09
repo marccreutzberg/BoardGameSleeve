@@ -1,6 +1,13 @@
 ﻿var functions = (function () {
 
     function addToCart() {
+
+        $('.basket img').addClass("clicked");
+
+        setTimeout(function () {
+            $(".basket img").removeClass('clicked');
+        }, 500);
+
         var id = $("#productId").val();
         var productQuantity = $("#quantity-product").val();
 
@@ -26,6 +33,15 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
         });
+
+        $('.delete-popup').fadeIn();
+        setTimeout(function () {
+            top.location.href = "/admin/index";
+        }, 3000);
+
+
+
+
     }
     function updateBasketQuantity() {
         var productId = $(this).attr("data-id");
@@ -85,6 +101,7 @@
     function deleteSize() {
         var id = $(this).data("id");
 
+
         $.ajax({
             type: "POST",
             url: "/Admin/DeleteSize",
@@ -93,8 +110,33 @@
             dataType: "json",
         });
 
-        top.location.href = "/admin/size";
+        $('.delete-popup').fadeIn();
+        $('.' + id).hide();
+        setTimeout(function () {
+            $('.delete-popup').fadeOut();
+        }, 3000);
     }
+
+    function deleteProduct() {
+        var id = $(this).data("id");
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/DeleteProduct",
+            data: JSON.stringify({ id: id }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+
+        $('.delete-popup').fadeIn();
+        $('.' + id).hide();
+        setTimeout(function () {
+            $('.delete-popup').fadeOut();
+        }, 3000);
+
+
+    }
+
     function editSize() {
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
@@ -134,35 +176,31 @@
 
     }
 
-    function createProduct() {
-        var name = $("#product-Name").val();
-        var desc = $("#product-desc").val();
-        var color = $("#product-Color").val();
-        var price = $("#product-Price").val();
-        var SleeveCountInProduct = $("#product-SleeveCountInProduct").val();
-        var InStock = $("#product-InStock").val();
 
-        var sizes = $('#product-size').val();
+    function inputNumber() {
+        var id = $(this).attr("id");
+        var number = $("#" + id).val();
 
-        console.log(name);
-        console.log(desc);
-        console.log(color);
-        console.log(price);
-        console.log(SleeveCountInProduct);
-        console.log(InStock);
-        console.log(sizes);
+        number = Math.abs(number);
+        $("#" + id).val(number);
 
-        $.ajax({
-            type: "POST",
-            url: "/Admin/CreateSingelProduct",
-            data: JSON.stringify({ name: name, desc: desc, color: color, price: price, SleeveCountInProduct: SleeveCountInProduct, InStock: InStock, sizes: sizes }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        });
-
-        top.location.href = "/admin/size";
+        if ($("#" + id).val() <= 0) {
+            $("#" + id).val(1)
+        }
     }
 
+    function printReceipt() {
+        w = window.open();
+        jQuery.get('/css/style.css', function (data) {
+            w.document.write('<html><head><title>Order confirmation</title><style>');
+            w.document.write(data);
+            w.document.write('</style></head><body>');
+            w.document.write($('#order-receipt').html());
+            w.document.write('</body></html>');
+            w.print();
+            w.close();
+        });
+    }
 
     return {
         addToCart: addToCart,
@@ -173,15 +211,19 @@
         removeProductFromSession: removeProductFromSession,
         editSize: editSize,
         deleteSize: deleteSize,
+        deleteProduct: deleteProduct,
         saveCheckoutInfo: saveCheckoutInfo,
-        createProduct: createProduct
+        inputNumber: inputNumber,
+        printReceipt: printReceipt,
     }
 })();
 
 (function ($) {
+    $("body").on("click", "#print-receipt", functions.printReceipt);
     $("body").on("click", "#add-cart-button", functions.addToCart);
     $("body").on("click", "#create-size-button", functions.createSize);
     $("body").on("click", "#delete-size-button", functions.deleteSize);
+    $("body").on("click", "#delete-product-button", functions.deleteProduct);
     $("body").on("click", "#edit-chosen-size-button", functions.editSize);
     $("body").on("click", "#add-quantity", functions.addQuantity);
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
@@ -190,7 +232,7 @@
     $("body").on("focusout", ".checkout-field", functions.saveCheckoutInfo);
     $("body").on("focusout", ".zip", functions.saveCheckoutInfo);
     $("body").on("focusout", ".city", functions.saveCheckoutInfo);
-    $("body").on("click", "#product-Create-Button", functions.createProduct);
+    $("body").on("focusout", ':input[type="number"]', functions.inputNumber);
 
-    
+
 })(jQuery);

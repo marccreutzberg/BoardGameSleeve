@@ -650,6 +650,14 @@ th {
 body {
   font-family: Mission Gothic Regular; }
 
+.basket img {
+  -webkit-transition: transform 0.8s;
+  transition: transform 0.8s; }
+
+.basket img.clicked {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg); }
+
 /*Frontpage and layout*/
 header {
   border-bottom: 1px solid #dcdcdc;
@@ -1123,7 +1131,7 @@ footer {
   #product-description p {
     margin: 15px; }
 
-#add-cart-button {
+.button, #add-cart-button, #print-receipt {
   background-color: deepskyblue;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
@@ -1134,5 +1142,14 @@ footer {
   margin-right: 20px;
   cursor: pointer;
   color: white; }
-  #add-cart-button:hover {
+  .button:hover, #add-cart-button:hover, #print-receipt:hover {
     background-color: black; }
+
+/*Confirmation Order*/
+#confirmation-items {
+  border-collapse: collapse;
+  width: 100%; }
+  #confirmation-items td, #confirmation-items th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px; }

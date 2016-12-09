@@ -40,6 +40,7 @@ namespace BoardGameSleeveWebsite.services
                 c.Width = (int)p.Key.Width;
                 c.Height = (int)p.Key.Height;
                 c.Colors = new List<string>();
+                c.Img = dbContext.Products.Where(y => y.SizeID == p.Key.ID).FirstOrDefault().Img;
 
                 foreach (var s in dbContext.Products.Include("Size").Where(y => y.Size.Name == c.SizeName))
                 {
@@ -183,6 +184,15 @@ namespace BoardGameSleeveWebsite.services
             dbContext.SaveChanges();
         }
 
+        public void deleteProductFromID(int id)
+        {
+            Product p = dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
+            dbContext.Products.Remove(p);
+
+            dbContext.SaveChanges();
+        }
+
+
         public void editSize(int width, int height, string name, string description, int id)
         {
             Size s = dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
@@ -238,6 +248,7 @@ namespace BoardGameSleeveWebsite.services
         {
             Invoice i = new Invoice();
             i.Date = DateTime.Now;
+            i.Comment = vm.CustomerInfo.Comment;
 
             Customer c = new Customer();
             c.Name = vm.CustomerInfo.FullName;
@@ -270,10 +281,11 @@ namespace BoardGameSleeveWebsite.services
             return dbContext.Games.ToList();
         }
 
-        public void addProduct(Product produt)
+        public void CreateProduct(Product produt)
         {
             dbContext.Products.Add(produt);
             dbContext.SaveChanges();
         }
+
     }
 }

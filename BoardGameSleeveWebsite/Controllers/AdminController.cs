@@ -150,80 +150,63 @@ namespace BoardGameSleeveWebsite.Controllers
 
             return Content("redirect");
         }
-
+        
+        [HttpGet]
         public ActionResult CreateProduct()
         {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return this.RedirectToAction("Login");
+
             VMCreateProduct VMC = new VMCreateProduct();
 
-            List<Game> games = service.getAllGames();
+            List<Size> sizes = service.GetSize();
+            VMC.Size = sizes;
 
-            VMC.Games = games;
-
-            return View(games);
+            return View(VMC);
         }
 
-        [WebMethod]
-        public ActionResult CreateSingelProduct(string name, string desc, string color, decimal price, int SleeveCountInProduct, int InStock, string[] sizes)
+        [HttpPost]
+        public ActionResult CreateProduct(VMCreateProduct vm, HttpPostedFileBase file)
         {
-            Product p = new Product();
-            p.Name = name;
-            p.Description = desc;
-            p.Color = color;
-            p.Price = price;
-            p.SleeveCountInProduct = SleeveCountInProduct;
-            p.InStock = InStock;
+            if (this.HasLoginCredentialsInCookies() == false)
+                return this.RedirectToAction("Login");
 
-            List<Size> size = new List<Size>();
+            Product p1 = new Product();
+            p1.Name = vm.Name;
+            p1.Description = vm.Description;
+            p1.Color = vm.Color;
+            p1.Price = vm.Price;
+            p1.SleeveCountInProduct = vm.SleeveCountInProduct;
+            p1.InStock = vm.InStock;
+            p1.Size = service.getSizeFromId(Convert.ToInt32(vm.selectedSize));
 
-
-
-            if (size != null)
-            {
-                for (int i = 0; i < sizes.Length; i++)
-                {
-                    size.Add(service.getSizeFromId(Convert.ToInt32(sizes[i])));
-                    p.Size = service.getSizeFromId(Convert.ToInt32(sizes[i]));
-                }
-            }
-
-            //TODO
-            // SKAL OGSÅ SMIDE SIZE MED
-            //MEN DER SKAL VÆRE EN MANGE TIL MANGE RELATION I KLASSEN 
-            //AKA VI SKAL OPDATERE ENTITY ! :D 
-            //
-
-            service.addProduct(p);
-
-            return Content("success");
-        }
-
-
-        public ActionResult FileUpload(HttpPostedFileBase file)
-        {
             if (file != null)
             {
                 string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine( Server.MapPath("~/img/test"), pic);
-                // file is uploaded
+                string path = System.IO.Path.Combine( Server.MapPath("~/img/Products"), pic);
+
+                p1.Img = pic;
+
                 file.SaveAs(path);
-
-                // save the image path path to the database or you can send image 
-                // directly to database
-                // in-case if you want to store byte[] ie. for DB
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    file.InputStream.CopyTo(ms);
-                    byte[] array = ms.GetBuffer();
-                }
-
             }
-            // after successfully uploading redirect the user
+
+            service.CreateProduct(p1);
+            
             return RedirectToAction("createProduct", "Admin");
+        }
+
+        [WebMethod]
+        public void DeleteProduct(int id)
+        {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return;
+
+            service.deleteProductFromID(id);
         }
 
 
 
-        
+  
         #endregion
     }
 }
