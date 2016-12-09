@@ -53,6 +53,18 @@ header {
     }
 }
 
+.productLink {
+    background-color: $backColor;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    border-radius: 35px;
+    text-align: center;
+    padding: 5px 35px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+}
+
 .basket {
     margin-top: 75px;
 }
@@ -98,18 +110,6 @@ header {
         border-right: none;
     }
 
-    a {
-        background-color: $backColor;
-        -moz-border-radius: 35px;
-        -webkit-border-radius: 35px;
-        border-radius: 35px;
-        text-align: center;
-        padding: 5px 35px;
-        color: #fff;
-        font-size: 15px;
-        text-decoration: none;
-    }
-
     a:hover {
         color: $textBlue;
     }
@@ -134,9 +134,6 @@ header {
     }
 }
 
-
-.frontpageProduct {
-}
 
 .textCenter {
     text-align: center;
@@ -242,16 +239,7 @@ footer {
             }
         }
 
-        a {
-            background-color: $backColor;
-            -moz-border-radius: 35px;
-            -webkit-border-radius: 35px;
-            border-radius: 35px;
-            text-align: center;
-            padding: 8px 50px;
-            color: #fff;
-            font-size: 15px;
-            text-decoration: none;
+        .productLink {
             line-height: 450%;
         }
 
@@ -275,11 +263,12 @@ footer {
     }
 
     .basketQuantity {
+        text-align: center;
         height: 70px;
         padding: 45px 0;
         border-right: 1px solid $borderGray;
 
-        a {
+        #subtract-quantity, #add-quantity {
             line-height: 300%;
             color: $backColor;
             text-decoration: none;
@@ -291,13 +280,12 @@ footer {
     }
 
     .basketQuantityCount {
-        margin-top: 10px;
+        margin-top: 23px;
         text-align: center;
         border: 1px solid $backgroundGray;
 
         .quantity-number {
-            width: 50px;
-            height: 50px;
+            width: 100%;
         }
     }
 

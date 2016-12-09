@@ -154,6 +154,7 @@
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="img\arrow.png" />
+    <Content Include="img\arrowpopup.png" />
     <Content Include="img\at-logo.jpg" />
     <Content Include="img\basket.png" />
     <Content Include="img\bglogin.png" />

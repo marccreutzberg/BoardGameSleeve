@@ -51,29 +51,33 @@
     <hr />
 
     <div class="frontpageProduct">
+
+
         <div class="container">
             <div class="row">
                 <h2>Top sellers</h2>
+            </div>
+        </div>
+
+        <hr />
+        <div class="container">
+            <div class="row">
                 @foreach (var p in Model.Products)
                 {
-
-
                     <div class="col-md-4">
-                        <h3>Board Game Sleeves • @p.Size.Name</h3>
-                        <h4>Size @p.Size.Width x @p.Size.Height mm</h4>
                         @{
-                        string href = "href=/product/singleproduct/" + p.ID;
+                            string href = "href=/product/singleproduct/" + p.ID;
                         }
 
-                        <a @href><img width="60%" src="~/img/products/@p.Img" /></a>                        
-                        <h3>@p.Name</h3>
-                        <h4>@p.Color</h4>
+                        <a @href><img width="60%" src="~/img/products/@p.Img" /></a>
+                        <h3>Board Game Sleeves • @p.Name</h3>
+                        <h4>Color: @p.Color</h4>
                         <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
                         <h4>Price: @p.Price</h4>
-                        
-                        <a @href>Add to cart</a>
+
+                        <a class="productLink" @href>Add to cart</a>
                     </div>
-                 }
+                            }
             </div>
         </div>
     </div>

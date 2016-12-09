@@ -18,27 +18,29 @@
         @if (Model.products.Count() > 0)
         {
             <div class="row">
-                <div class="col-md-2">
-                    <div class="basketImageHeading">
+                <div class="shopBasketDescription">
+                    <div class="col-md-2">
+                        <div class="basketImageHeading">
 
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-5">
-                    <div class="basketDescriptionItem">
-                        <h3>NAME</h3>
+                    <div class="col-md-5">
+                        <div class="basketDescriptionItem">
+                            <h3>NAME</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="basketQuantityItem">
-                        <h3>QUANTITY</h3>
+                    <div class="col-md-2">
+                        <div class="basketQuantityItem">
+                            <h3>QUANTITY</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="basketPriceItem">
-                        <h3>
-                            PRICE
-                        </h3>
+                    <div class="col-md-2">
+                        <div class="basketPriceItem">
+                            <h3>
+                                PRICE
+                            </h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,83 +54,85 @@
                 total += price;
 
                 <div class="row">
-                    <div class="basketItem">
-                        <div class="col-md-2">
-                            <div class="basketImage">
-                                <img src="~/img/Products/@p.Img" />
+                    <div class="shopBasketItems">
+                        <div class="basketItem">
+                            <div class="col-md-2 col-xs-4">
+                                <div class="basketImage">
+                                    <img src="~/img/Products/@p.Img" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="basketDescription">
-                                <h2>Board Game Sleeves • @p.Size.Name</h2>
-                                <p>@p.Name</p>
-                                <p>Size: @p.Size.Width x @p.Size.Height mm</p>
-                                <p>@p.Description</p>
+                            <div class="col-md-5 col-xs-8">
+                                <div class="basketDescription">
+                                    <h2>Board Game Sleeves • @p.Size.Name</h2>
+                                    <p>@p.Name</p>
+                                    <p>Size: @p.Size.Width x @p.Size.Height mm</p>
+                                    <p>@p.Description</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="basketQuantity">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div id="subtract-quantity" data-id=@p.ID>
-                                            -
+                            <div class="col-md-2 col-md-offset-0 col-xs-10 col-xs-offset-1">
+                                <div class="basketQuantity">
+                                    <div class="row">
+                                        <div class="col-md-3 col-xs-4">
+                                            <div id="subtract-quantity" data-id=@p.ID>
+                                                -
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="basketQuantityCount" data-id=@p.ID>
-                                            @{
-                                                var quantityId = "quantity-number" + @p.ID;
-                                            }
-                                            <input type="number" value="@quantity" class="quantity-number" id=@quantityId data-productid=@p.ID min="1"/>
+                                        <div class="col-md-4 col-xs-4">
+                                            <div class="basketQuantityCount" data-id=@p.ID>
+                                                @{
+                                                    var quantityId = "quantity-number" + @p.ID;
+                                                }
+                                                <input type="number" value="@quantity" class="quantity-number" id=@quantityId data-productid=@p.ID min="1" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div id="add-quantity" data-id=@p.ID>
-                                            +
+                                        <div class="col-md-3 col-xs-4">
+                                            <div id="add-quantity" data-id=@p.ID>
+                                                +
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="basketPrice">
-                                <h3>@price,-</h3>
+                            <div class="col-md-2 col-xs-10">
+                                <div class="basketPrice">
+                                    <h3>@price,-</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-1">
-                            <div class="basketRemoveItem" data-id="@p.ID">
-                                <img src="/img/RemoveItemIcon.png" />
+                            <div class="col-md-1 col-xs-2">
+                                <div class="basketRemoveItem" data-id="@p.ID">
+                                    <img src="/img/RemoveItemIcon.png" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <hr />
-                                                }
+                }
 
-                                                <div class="row">
-                                                    <div class="col-md-9">
-                                                        <div class="basketCheckOutPush">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="basketCheckOutPush">
 
-                                                        </div>
-                                                    </div>
+                        </div>
+                    </div>
 
-                                                    <div class="col-md-3">
-                                                        <div class="basketCheckOut">
-                                                            <h3>TOTAL: @total,-</h3>
-                                                            <a href="/Shop/Checkout">
-                                                                PROCEED TO CHECKOUT
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                }
-                                                else
-                                                {
-                                                    <h3>No items in shopping cart</h3>
+                    <div class="col-md-3">
+                        <div class="basketCheckOut">
+                            <h3>TOTAL: @total,-</h3>
+                            <a href="/Shop/Checkout">
+                                PROCEED TO CHECKOUT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                }
+                else
+                {
+                    <h3>No items in shopping cart</h3>
 
-                                                }
+                }
 
-       
+
     </div>
 </main>

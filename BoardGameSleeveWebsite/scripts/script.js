@@ -3,10 +3,18 @@
     function addToCart() {
 
         $('.basket img').addClass("clicked");
+        $('.basketPopup').slideDown( "slow" );
+
 
         setTimeout(function () {
             $(".basket img").removeClass('clicked');
+          
         }, 500);
+
+        setTimeout(function () {
+            $(".basket img").removeClass('clicked');
+            $('.basketPopup').slideUp("slow");
+        }, 5000);
 
         var id = $("#productId").val();
         var productQuantity = $("#quantity-product").val();
