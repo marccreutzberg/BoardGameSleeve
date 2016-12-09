@@ -53,16 +53,26 @@
     <div class="frontpageProduct">
         <div class="container">
             <div class="row">
+                <h2>Top sellers</h2>
                 @foreach (var p in Model.Products)
                 {
+
+
                     <div class="col-md-4">
-                        <img width="60%" src="~/img/products/@p.Img" />
+                        <img src="~/img/products/@p.Img" height="200" width="200" />
                         <h3>Board Game Sleeves • @p.Size.Name</h3>
                         <h4>Size @p.Size.Width x @p.Size.Height mm</h4>
                         @{
-                            string href = "href=/product/singleproduct/" + p.ID;
+                        string href = "href=/product/singleproduct/" + p.ID;
                         }
-                        <a @href>Select this size</a>
+
+                        <a @href><img width="60%" src="~/img/products/@p.Img" /></a>                        
+                        <h3>@p.Name</h3>
+                        <h4>@p.Color</h4>
+                        <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
+                        <h4>Price: @p.Price</h4>
+                        
+                        <a @href>Add to cart</a>
                     </div>
                  }
             </div>

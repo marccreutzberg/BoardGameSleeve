@@ -22,7 +22,11 @@
                 count++;
                 <div class="col-md-4">
                     <div class="product">
-                        <img src="~/img/Products/@p.Img" />
+                        @{
+                            string href = "/product/size/" + p.SizeID;
+                        }
+                        <a href=@href><img src="~/img/Products/@p.Img" /></a>                          
+                        
                         <h3>Board Game Sleeves •  @p.SizeName</h3>
                         <h4>Size: @p.Width x @p.Height mm</h4>
                         <h4>
@@ -52,9 +56,7 @@
                                 </li>
                             </ul>
                         }
-                        @{
-                            string href = "/product/size/" + p.SizeID;
-                        }
+                        
                         <a href=@href>
                             Select this size
                         </a>
