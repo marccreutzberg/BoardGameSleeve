@@ -18,14 +18,18 @@
             {
                 <div class="col-md-4">
                     <div class="product">
-                        <img src="~/img/Products/@p.Img" />
+                        @{
+                            string href = "href=/product/singleproduct/" + p.ID;
+                        }
+                        <a @href>
+                            <img src="~/img/Products/@p.Img" />
+                        </a>
                         <h3>Board Game Sleeves •  @p.Size.Name</h3>
                         <h4>@p.Name</h4>
                         <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
                         <h4>Color: @p.Color</h4>
-                        @{
-                            string href = "href=/product/singleproduct/" + p.ID;
-                        }
+                        <h4>Price: @p.Price</h4>
+                        
                         <p>@(!String.IsNullOrWhiteSpace(p.Description) && p.Description.Length >= 25 ? p.Description.Substring(0, 25) + "...." : p.Description).</p>
                         <a @href>
                             Add to cart
