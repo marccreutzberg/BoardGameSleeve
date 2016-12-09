@@ -1,23 +1,26 @@
 ﻿@using BoardGameSleeveWebsite.ViewModels
-@model VMCreateProduct
-
+@model VMEditProduct
 @{
-    ViewBag.Title = "CreateProduct";
+    ViewBag.Title = "EditProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-<div class="createProduct">
+<div class="editProduct">
     <div class="row">
         <div class="col-md-12">
-            <h2>Create Product</h2>
+            <h2>Edit Product</h2>
         </div>
     </div>
-    @using (Html.BeginForm("CreateProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    <div class="row">
+
+        @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-        <div class="row">
             <div class="col-md-4">
+
                 <p>Name</p>
+                @Html.HiddenFor(m => m.ID)
+                @Html.HiddenFor(m => m.Img)
+
                 @Html.TextBoxFor(m => m.Name)
 
                 <p>Description</p>
@@ -38,7 +41,8 @@
             </div>
             <div class="col-md-4">
                 <p>Chose Size</p>
-                @foreach (var item in Model.Size)
+
+                @foreach (var item in Model.Sizes)
                 {
                     @Html.RadioButtonFor(m => m.selectedSize, item.ID)
                     @Html.Label(item.Name)
@@ -46,17 +50,17 @@
                 }
 
 
-                <p></p>
+                <p>Current Image</p>
 
-                <label for="file">Upload Image:</label>
+                <img src="~/img/Products/@Model.Img" />
+
+                <p>Upload New Image:</p>
                 <input type="file" name="file" id="file" style="width: 100%;" />
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-12">
-                <input type="submit" value="Create Product" class="submit" />
+                <input type="submit" value="Edit Product" class="submit" />
             </div>
+        }
 
-        </div>
-    }
+    </div>
 </div>

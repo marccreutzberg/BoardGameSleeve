@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Board Game Sleeves</title>
     <link href="/css/style.css" rel="stylesheet" />
-	@RenderSection("css", false);
+	@RenderSection("css", false)
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
@@ -15,12 +15,12 @@
     <header>
         <div class="container">
             <div class="row">
-                <div style="text-align: center;" class="col-md-2 col-md-offset-5">
+                <div style="text-align: center;" class="col-md-2 col-md-offset-5 col-xs-8 col-xs-offset-2">
                     <a href="/">
                         <img width="65%" src="~/img/logo.png" />
                     </a>
                 </div>
-                <div class="col-md-1 col-md-offset-4">
+                <div class="col-md-1 col-md-offset-4 col-xs-2 col-xs-offset-5">
                     <div class="basket">
                         <a href="/Shop/Basket">
                             <img src="/img/basket.png" />
@@ -42,13 +42,14 @@
                     <li>
                         <a href="/Home/Contact">CONTACT</a>
                     </li>
+           
                 </ul>
             </nav>
         </div>
     </header>
     @RenderBody()
     <script src="/scripts/script.js"></script>
-	@RenderSection("script", false);
+	@RenderSection("script", false)
     <footer>
         <p>Arcane Tinmen ApS • Bjoernholms Allé 4-6 • DK-8260 Viby J • Denmark • Phone: 0045 8676 5636</p>
     </footer>

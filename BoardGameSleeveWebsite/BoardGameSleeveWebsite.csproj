@@ -201,6 +201,7 @@
     <Compile Include="ViewModels\VMBasket.cs" />
     <Compile Include="ViewModels\VMCheckout.cs" />
     <Compile Include="ViewModels\VMCreateProduct.cs" />
+    <Compile Include="ViewModels\VMEditProduct.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
@@ -265,6 +266,7 @@
     <Content Include="Views\Admin\EditSize.cshtml" />
     <Content Include="Views\Admin\index.cshtml" />
     <Content Include="Views\Admin\CreateProduct.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

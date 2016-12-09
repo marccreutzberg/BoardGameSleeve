@@ -286,5 +286,27 @@ namespace BoardGameSleeveWebsite.services
             dbContext.SaveChanges();
         }
 
+
+        public void EditProduct(int ID, string Name, string Description, string Color, decimal Price, int InStock, int SleeveCountInProduct, Size size, string Img)
+        {
+            Product p = dbContext.Products.Where(x => x.ID == ID).FirstOrDefault();
+            p.Name = Name;
+            p.Description = Description;
+            p.Color = Color;
+            p.Price = Price;
+            p.InStock = InStock;
+            p.SleeveCountInProduct = SleeveCountInProduct;
+            p.Size = size;
+            p.Img = Img;
+
+            dbContext.SaveChanges();
+
+        }
+
+        public Product getProductFromID(int id)
+        {
+            return dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
+        }
+
     }
 }

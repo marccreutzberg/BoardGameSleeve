@@ -1144,3 +1144,19 @@ footer {
   color: white; }
   #add-cart-button:hover {
     background-color: black; }
+
+@media (max-width: 768px) {
+  .basket {
+    margin-top: 0; }
+  .frontpage .browse {
+    width: 48%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-sizing: border-box; }
+  .frontpage .frontpageTop img {
+    display: none; }
+  .frontpage .frontpageTop h1 {
+    margin-top: 0;
+    margin: 0; }
+  .searchBoardGame {
+    margin-bottom: 20px; } }
