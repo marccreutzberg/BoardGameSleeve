@@ -10,6 +10,7 @@ namespace BoardGameSleeveWebsite
         public ModelContext()
             : base("name=Model1")
         {
+
         }
 
         public virtual DbSet<Admin> Admins { get; set; }

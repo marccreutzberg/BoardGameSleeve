@@ -104,3 +104,29 @@ C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Entit
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
 C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\ApplicationInsights.config
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\csc.exe
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\vbc.exe
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll.config
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.pdb
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\EntityFramework.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\System.Web.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\EntityFramework.xml
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
