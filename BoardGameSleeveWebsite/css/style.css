@@ -1070,14 +1070,14 @@ footer {
 
 .product-box, #product-image, #product-info, #product-games, #product-description {
   height: 380px;
-  border: 2px solid #dcdcdc; }
+  border: 1px solid #dcdcdc; }
 
 #product-image {
   text-align: center;
   padding: 20px;
   box-sizing: border-box; }
   #product-image img {
-    width: 40%; }
+    width: 65%; }
 
 #product-info {
   padding: 20px;
@@ -1131,7 +1131,7 @@ footer {
   #product-description p {
     margin: 15px; }
 
-#add-cart-button {
+.button, #add-cart-button, #print-receipt {
   background-color: deepskyblue;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
@@ -1142,8 +1142,17 @@ footer {
   margin-right: 20px;
   cursor: pointer;
   color: white; }
-  #add-cart-button:hover {
+  .button:hover, #add-cart-button:hover, #print-receipt:hover {
     background-color: black; }
+
+/*Confirmation Order*/
+#confirmation-items {
+  border-collapse: collapse;
+  width: 100%; }
+  #confirmation-items td, #confirmation-items th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px; }
 
 @media (max-width: 768px) {
   .basket {
@@ -1159,4 +1168,18 @@ footer {
     margin-top: 0;
     margin: 0; }
   .searchBoardGame {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px; }
+  footer {
+    padding: 10px 20px;
+    box-sizing: border-box; }
+  .products hr {
+    display: none; }
+  .products hr:first-child {
+    display: block; }
+  .products .product {
+    border-bottom: 1px solid #f1f1f1; }
+  .productPage #product-image {
+    height: auto;
     margin-bottom: 20px; } }

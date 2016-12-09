@@ -9,7 +9,7 @@ $backColor: #01020a;
 
 .product-box {
     height: 380px;
-    border: 2px solid $borderGray;
+    border: 1px solid $borderGray;
 }
 
 #product-image {
@@ -19,7 +19,7 @@ $backColor: #01020a;
     box-sizing: border-box;
 
     img {
-        width: 40%;
+        width: 65%;
     }
 }
 
