@@ -6,6 +6,8 @@
 @import "base/eyun";
 
 
+$backgroundGray: #f1f1f1;
+
 @media (max-width: 768px ) {
 
     .basket {
@@ -32,14 +34,48 @@
         }
     }
 
-
-
     .searchBoardGame {
+        width: 100%;
+        box-sizing: border-box;
         margin-bottom: 20px;
     }
 
     .frontpageTop {
     }
+
+    footer {
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+
+    .products {
+        hr {
+            display: none;
+        }
+
+        hr:first-child {
+            display: block;
+        }
+
+        .product {
+            border-bottom: 1px solid $backgroundGray;
+        }
+    }
+
+    .productPage {
+        #product-image {
+            height: auto;
+            margin-bottom: 20px;
+        }
+    }
+
+    #product-games {
+        height: auto;
+    }
+
+    #product-description{
+        height: auto;
+    }   
 }
 
 @media (min-width: 768px ) {
