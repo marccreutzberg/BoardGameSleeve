@@ -161,6 +161,7 @@
     <Content Include="img\edit-icon.png" />
     <Content Include="img\frontpageSpot.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\maps.PNG" />
     <Content Include="img\product.png" />
     <Content Include="img\Products\extra-large.png" />
     <Content Include="img\Products\Large.png" />
