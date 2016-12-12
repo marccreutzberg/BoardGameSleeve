@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>@Model.Products.FirstOrDefault().Size.Name.ToUpper() SLEEVES</h1>
+                <h2>@Model.Products.FirstOrDefault().Size.Name.ToUpper() SLEEVES</h2>
             </div>
         </div>
         <hr />
@@ -27,17 +27,10 @@
                         </a>
                         <h3>Board Game Sleeves •  @p.Size.Name</h3>
                         <h4>@p.Name</h4>
+                        <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
 
-                        <ul>
-                            <li>
-                                Size: @p.Size.Width x @p.Size.Height mm
-                            </li>
-                            <li>
-                                Color: @p.Color
-                            </li>
-
-                            <li>@(!String.IsNullOrWhiteSpace(p.Description) && p.Description.Length >= 25 ? p.Description.Substring(0, 25) + "...." : p.Description).</li>
-                        </ul>
+                        <h4>Color: @p.Color</h4>
+                        <h4>  @(!String.IsNullOrWhiteSpace(p.Description) && p.Description.Length >= 25 ? p.Description.Substring(0, 25) + "...." : p.Description).</h4>
 
                         <h4>Price: @p.Price</h4>
                         <a class="productLink" @href>
