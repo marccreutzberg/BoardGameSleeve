@@ -2,32 +2,31 @@
 @model VMProductSingle
 
 @{
-	ViewBag.Title = "SingleProduct";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	Product product = Model.Product;
+    ViewBag.Title = "SingleProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Product product = Model.Product;
 
-	string productName = product.Name;
-	string title = product.Size.Name;
-	string price = product.Price.ToString() + " kr.";
-	string color = product.Color;
-	string width = product.Size.Width.ToString() + "mm";
-	string height = product.Size.Height.ToString() + "mm";
+    string productName = product.Name;
+    string title = product.Size.Name;
+    string price = product.Price.ToString() + " kr.";
+    string color = product.Color;
+    string width = product.Size.Width.ToString() + "mm";
+    string height = product.Size.Height.ToString() + "mm";
     string img = product.Img;
     int productId = product.ID;
 }
 
 @section css{
-	<style>
-		#ps-productname
-		{
-			margin-bottom: 0;
-			margin-top: 5px;
-		}
-		#ps-title
-		{
-			margin-top: 5px;
-		}
-	</style>
+    <style>
+        #ps-productname {
+            margin-bottom: 0;
+            margin-top: 5px;
+        }
+
+        #ps-title {
+            margin-top: 5px;
+        }
+    </style>
 }
 
 
@@ -41,7 +40,7 @@
             </div>
             <div class="col-md-6">
                 <div id="product-info">
-					<h2 id="ps-productname">@productName</h2>
+                    <h2 id="ps-productname">@productName</h2>
                     <h3 id="ps-title">@title</h3>
                     <p>Price: @price</p>
                     <hr>
@@ -60,7 +59,7 @@
                     <div id="add-to-cart">
                         <p>Quantity </p>
                         <input type="number" name="quantity" min="1" id="quantity-product" data-id="quantity-product">
-                        <input type="hidden" name="productId" id="productId" value="@productId"/>
+                        <input type="hidden" name="productId" id="productId" value="@productId" />
                         <div id="add-cart-button">Add to Cart</div>
                     </div>
                 </div>
@@ -79,13 +78,12 @@
                             </div>
                         </div>
                     </div>
-                    <ul>
-                        <li><a>A Game of Thrones LCG™</a></li>
-                        <li>Dominant Species™</li>
-                        <li>Eaten by Zombies!™</li>
-                        <li>Race for the Galaxy™</li>
-                        <li>Call of Cthulhu LCG™</li>
-                    </ul>
+                    @foreach (var g in Model.Product.Size.Games)
+                    {
+                        <ul>
+                            <li>@g.Name</li>
+                        </ul>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
@@ -99,7 +97,7 @@
                         </div>
                     </div>
 
-                    <p>Card Game Card Sleeves <br />Expertly engineered to fit all of your favorite games with cards sized 63.5x88mm!</p>
+                    <p>@Model.Product.Description</p>
                 </div>
             </div>
         </div>

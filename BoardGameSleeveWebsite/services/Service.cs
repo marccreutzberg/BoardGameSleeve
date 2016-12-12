@@ -13,7 +13,10 @@ namespace BoardGameSleeveWebsite.services
         public VMHome HomeModel()
         {
             VMHome home = new VMHome();
-            home.Products = new List<Product>();
+            home.TopProducts = new List<Product>();
+            home.DropDownProducts = dbContext.Products.ToList();
+            home.DropDownSizes = dbContext.Sizes.ToList();
+
 
             var products = from p in dbContext.Products
                            join s in dbContext.Sales on p.ID equals s.ProductID
@@ -53,7 +56,7 @@ namespace BoardGameSleeveWebsite.services
                 product.Img = (string)p.Img;
                 product.Price = (decimal)p.Price;
 
-                home.Products.Add(product);
+                home.TopProducts.Add(product);
             }
 
             return home;
@@ -340,6 +343,11 @@ namespace BoardGameSleeveWebsite.services
         public Product getProductFromID(int id)
         {
             return dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
+        }
+
+        public List<Game>GetGamesOfProduct(int productId)
+        {
+            return dbContext.Products.Where(x => x.ID == productId).Select(y => y.Size).SelectMany(z => z.Games).ToList();
         }
 
     }
