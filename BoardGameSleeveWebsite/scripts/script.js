@@ -1,4 +1,5 @@
 ﻿var functions = (function () {
+    var gameSizeDropdown = 0;
 
     function addToCart() {
 
@@ -202,6 +203,183 @@
         });
     }
 
+    function searchGames() {
+        var searchInput = this.value;
+        var searchToUpperCase = searchInput.toUpperCase();
+        $("#game-dropdown").css("display", "block");
+        $("#game-dropdown").children("option").hide();
+        gameSizeDropdown = 0;
+
+
+        if (searchToUpperCase != "") {
+            $("#game-dropdown option").each(function (i) {
+                var games = "";
+                var optionValue = this.value;
+                var text = this.text;
+
+                if (optionValue != 0 && optionValue != "empty") {
+                    $.ajax({
+                        type: "POST",
+                        url: "product/GetGamesOfProduct",
+                        data: JSON.stringify({ productId: optionValue }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (dbdata) {
+                            games = dbdata;
+                            var showOption = new Boolean(false);
+
+                            if (games != "") {
+                                $.each(games, function (key, value) {
+                                    if (value.toUpperCase().indexOf(searchToUpperCase) >= 0) {
+                                        showOption = true;
+                                    }
+                                })
+
+                                if (showOption === true) {
+                                    $("#game-dropdown").children("option[value^=" + optionValue + "]").show();
+                                    gameSizeDropdown += 1;
+                                }
+
+                                else {
+                                    $("#game-dropdown").children("option[value^=" + optionValue + "]").hide();
+                                }
+                            }
+
+                            else {
+                                $("#game-dropdown").children("option[value^=" + optionValue + "]").hide();
+                            }
+                        }
+                    })
+
+                }
+                //Magic alert
+                //alert("");
+
+            })
+        }
+
+        if (gameSizeDropdown === 0) {
+            $("#game-dropdown").children("option[value^=" + 0 + "]").show();
+            $("#game-dropdown").children("option[value^=" + "empty" + "]").hide();
+            gameSizeDropdown += 2;
+        }
+        $("#game-dropdown").attr("size", gameSizeDropdown);
+    }
+
+
+    function hideSearchResults() {
+        var id = $(this).attr("data-id");
+
+        if (id === "size") {
+
+            $("#size-dropdown").css("display", "none");
+            $("#size-dropdown").children().hide();
+
+            $("#searchBoardGame").val("");
+        }
+
+        else {
+            $("#game-dropdown").css("display", "none");
+            $("#game-dropdown").children().hide();
+            $("#searchWidth").val("");
+            $("#searchHeight").val("");
+        }
+
+    }
+
+    function gameSearchToProduct() {
+        var productId = $(this).val();
+
+        window.location.href = "/Product/SingleProduct/" + productId;
+    }
+
+    function sizeSearchToProduct() {
+        var sizeId = $(this).val();
+
+        window.location.href = "/Product/Size/" + sizeId;
+    }
+
+    function showHideSearchInputs() {
+        var id = $(this).attr("data-id");
+
+        if (id === "game") {
+            $(".search-game").css("display", "block");
+            $("#game-browse").removeClass("highlight-browse");
+            $("#size-browse").addClass("highlight-browse");
+            $(".search-size").css("display", "none");
+        }
+        else {
+            $(".search-size").css("display", "block");
+            $(".search-game").css("display", "none");
+            $("#size-browse").removeClass("highlight-browse");
+            $("#game-browse").addClass("highlight-browse");
+        }
+
+    }
+
+    function searchSizes() {
+        var widthInput = parseInt($("#searchWidth").val());
+        var heightInput = parseInt($("#searchHeight").val());
+        var size = 0;
+
+
+        $("#size-dropdown").css("display", "block");
+        $("#size-dropdown").children("option").hide();
+
+        $("#size-dropdown option").each(function () {
+            var value = this.value;
+
+            if (value != 0 && value != "empty") {
+                var sizeHeight = parseInt($(this).attr("data-height"));
+                var sizeWidth = parseInt($(this).attr("data-width"));
+
+                if (sizeHeight === heightInput || sizeWidth === widthInput) {
+                    $("#size-dropdown").children("option[value^=" + $(this).val() + "]").show();
+                    size += 1;
+                }
+
+                else {
+                    $("#size-dropdown").children("option[value^=" + $(this).val() + "]").hide();
+                }
+            }
+        })
+
+
+        if (size === 0) {
+            $("#size-dropdown").children("option[value^=" + 0 + "]").show();
+            $("#size-dropdown").children("option[value^=" + "empty" + "]").hide();
+            size += 1;
+        }
+
+        if (size != 0) {
+            size += 1;
+            $("#size-dropdown").children("option[value^=" + "empty" + "]").show();
+        }
+
+
+        $("#size-dropdown").attr('size', size);
+    }
+
+    function gameSearchEnter(e) {
+        if (e.which == 13) { //Enter key pressed
+            var exists = false;
+            var searchInput = $("#searchBoardGame").val();
+
+            $("#game-dropdown option").each(function () {
+                var text = this.text;
+
+                if (text.indexOf(searchInput.toUpperCase()) >= 0) {
+                    exists = true;
+                }
+            })
+
+            if (exists === true) {
+                //window.location.href = "/Product/Size/" + sizeId;
+            }
+
+        }
+    }
+
     return {
         addToCart: addToCart,
         createSize: createSize,
@@ -215,10 +393,19 @@
         saveCheckoutInfo: saveCheckoutInfo,
         inputNumber: inputNumber,
         printReceipt: printReceipt,
+        searchGames: searchGames,
+        hideSearchResults: hideSearchResults,
+        showHideSearchInputs: showHideSearchInputs,
+        gameSearchToProduct: gameSearchToProduct,
+        sizeSearchToProduct: sizeSearchToProduct,
+        searchSizes: searchSizes,
+        gameSearchEnter: gameSearchEnter,
+        gameSizeDropdown: gameSizeDropdown,
     }
 })();
 
 (function ($) {
+
     $("body").on("click", "#print-receipt", functions.printReceipt);
     $("body").on("click", "#add-cart-button", functions.addToCart);
     $("body").on("click", "#create-size-button", functions.createSize);
@@ -228,11 +415,25 @@
     $("body").on("click", "#add-quantity", functions.addQuantity);
     $("body").on("click", "#subtract-quantity", functions.subtractQuantity);
     $("body").on("click", ".basketRemoveItem", functions.removeProductFromSession);
+    $("body").on("click", ".browse", functions.showHideSearchInputs);
+    $("body").on("change", "#game-dropdown", functions.gameSearchToProduct);
+    $("body").on("change", "#size-dropdown", functions.sizeSearchToProduct);
+
     $("body").on("focusout", ".basketQuantityCount", functions.updateBasketQuantity);
     $("body").on("focusout", ".checkout-field", functions.saveCheckoutInfo);
     $("body").on("focusout", ".zip", functions.saveCheckoutInfo);
     $("body").on("focusout", ".city", functions.saveCheckoutInfo);
     $("body").on("focusout", ':input[type="number"]', functions.inputNumber);
+    $("body").on("focusout", "#game-dropdown", functions.hideSearchResults);
+    $("body").on("focusout", "#size-dropdown", functions.hideSearchResults);
+
+
+    $("body").on("input", "#searchBoardGame", functions.searchGames);
+    $("body").on("input", "#searchWidth", functions.searchSizes);
+    $("body").on("input", "#searchHeight", functions.searchSizes);
+
+    $("body").on("keypress", "#searchBoardGame", function (e) { functions.gameSearchEnter(e) });
+
 
 
 })(jQuery);

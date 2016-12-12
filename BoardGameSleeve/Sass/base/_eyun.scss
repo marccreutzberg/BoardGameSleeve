@@ -96,7 +96,7 @@ $backColor: #01020a;
     margin-bottom: 20px;
 }
 
-.button{
+.button {
     background-color: deepskyblue;
     -moz-border-radius: 35px;
     -webkit-border-radius: 35px;
@@ -118,7 +118,7 @@ $backColor: #01020a;
     @extend .button;
 }
 
-#print-receipt{
+#print-receipt {
     @extend .button;
 }
 
@@ -133,3 +133,65 @@ $backColor: #01020a;
         padding: 8px;
     }
 }
+
+/*Index search*/
+
+#game-dropdown {
+    width: 500px;
+    display: none;
+}
+
+.product-option {
+    height: 100px;
+    background-size: 100px 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin: 10px;
+}
+
+#game-dropdown option:hover {
+    background-color: #f2f6fa;
+    cursor: pointer;
+}
+
+#size-dropdown option:hover {
+    background-color: #f2f6fa;
+    cursor: pointer;
+}
+
+#size-dropdown {
+    width: 600px;
+    display: none;
+}
+
+.size-option{
+    height: 50px;
+    margin: 10px;
+}
+
+.search-size {
+    display: none;
+}
+
+.searchWidthHeight {
+    border: 1px solid $borderGray;
+    color: $borderGray;
+    padding-left: 50px;
+    background-image: url('/img/Search-icon.png');
+    background-repeat: no-repeat;
+    background-position: 15px, center;
+    height: 50px;
+    width: 235px;
+    margin-right: 10px;
+    margin-top: 40px;
+}
+
+.highlight-browse{
+    opacity: 0.5;
+
+    &:hover{
+        opacity: 1.0;
+    }
+}
+
+
