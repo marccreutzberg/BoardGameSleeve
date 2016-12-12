@@ -170,6 +170,7 @@
     <Content Include="img\Products\Small.png" />
     <Content Include="img\Products\Square.png" />
     <Content Include="img\Products\Standard.png" />
+    <Content Include="img\progress.gif" />
     <Content Include="img\RemoveItemIcon.png" />
     <Content Include="img\RemoveItemIcon2.png" />
     <Content Include="img\Search-icon.png" />

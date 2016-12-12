@@ -4,12 +4,12 @@
     function addToCart() {
 
         $('.basket img').addClass("clicked");
-        $('.basketPopup').slideDown( "slow" );
+        $('.basketPopup').slideDown("slow");
 
 
         setTimeout(function () {
             $(".basket img").removeClass('clicked');
-          
+
         }, 500);
 
         setTimeout(function () {
@@ -48,9 +48,6 @@
             top.location.href = "/admin/index";
         }, 3000);
 
-
-
-
     }
     function updateBasketQuantity() {
         var productId = $(this).attr("data-id");
@@ -63,6 +60,17 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
         });
+
+        setTimeout(function () {
+            $("#progress").css("display", "block");
+
+            $(".shopBasket").css("opacity", "0.2");
+        }, 1000);
+
+        setTimeout(function () {
+            location.reload();
+            $(".shopBasket").css("opacity", "1");
+        }, 2000);
 
     }
     function subtractQuantity() {
@@ -78,7 +86,18 @@
             dataType: "json",
         });
 
+        setTimeout(function () {
+            $("#progress").css("display", "block");
+            $(".shopBasket").css("opacity", "0.2");
+        }, 2000);
+
+        setTimeout(function () {
+            location.reload();
+            $(".shopBasket").css("opacity", "1");
+        }, 4500);
+
         $("#quantity-number" + productId).val(subtracted);
+
     }
     function addQuantity() {
         var productId = $(this).attr("data-id");
@@ -91,13 +110,27 @@
             data: JSON.stringify({ productId: productId }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-        });
+        })
+
+        setTimeout(function () {
+            $("#progress").css("display", "block");
+
+            $(".shopBasket").css("opacity", "0.2");
+        }, 2000);
+
+        setTimeout(function () {
+            location.reload();
+            $(".shopBasket").css("opacity", "1");
+        }, 4500);
+
+
 
         $("#quantity-number" + productId).val(added);
+
+
     }
     function removeProductFromSession() {
         var productId = $(this).attr("data-id");
-
         $.ajax({
             type: "POST",
             url: "/Shop/DeleteProductFromSession",
@@ -105,6 +138,17 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
         });
+
+        setTimeout(function () {
+            $("#progress").css("display", "block");
+
+            $(".shopBasket").css("opacity", "0.2");
+        }, 1000);
+
+        setTimeout(function () {
+            location.reload();
+            $(".shopBasket").css("opacity", "1");
+        }, 2000);
 
     }
     function deleteSize() {
@@ -368,25 +412,8 @@
         $("#size-dropdown").attr('size', size);
     }
 
-    function gameSearchEnter(e) {
-        if (e.which == 13) { //Enter key pressed
-            var exists = false;
-            var searchInput = $("#searchBoardGame").val();
 
-            $("#game-dropdown option").each(function () {
-                var text = this.text;
 
-                if (text.indexOf(searchInput.toUpperCase()) >= 0) {
-                    exists = true;
-                }
-            })
-
-            if (exists === true) {
-                //window.location.href = "/Product/Size/" + sizeId;
-            }
-
-        }
-    }
 
     return {
         addToCart: addToCart,
@@ -407,7 +434,6 @@
         gameSearchToProduct: gameSearchToProduct,
         sizeSearchToProduct: sizeSearchToProduct,
         searchSizes: searchSizes,
-        gameSearchEnter: gameSearchEnter,
         gameSizeDropdown: gameSizeDropdown,
     }
 })();
@@ -435,12 +461,10 @@
     $("body").on("focusout", "#game-dropdown", functions.hideSearchResults);
     $("body").on("focusout", "#size-dropdown", functions.hideSearchResults);
 
-
     $("body").on("input", "#searchBoardGame", functions.searchGames);
     $("body").on("input", "#searchWidth", functions.searchSizes);
     $("body").on("input", "#searchHeight", functions.searchSizes);
 
-    $("body").on("keypress", "#searchBoardGame", function (e) { functions.gameSearchEnter(e) });
 
 
 

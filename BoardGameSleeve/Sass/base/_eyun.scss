@@ -32,24 +32,23 @@ $backColor: #01020a;
 
     .basketPopup {
         display: none;
-        bottom: 65px; 
+        bottom: 65px;
         right: 60px;
         text-align: center;
         width: 165px;
         height: 50px;
-        padding: 10px; 
+        padding: 10px;
         border: 1px solid $borderGray;
         position: absolute;
         background-size: 20px;
         background-color: #fff;
         padding-bottom: 18px;
 
-        .basketPopupcontent{
-            margin-bottom:7px;
+        .basketPopupcontent {
+            margin-bottom: 7px;
         }
 
-        img{
-
+        img {
         }
 
         h4 {
@@ -201,7 +200,7 @@ $backColor: #01020a;
     display: none;
 }
 
-.size-option{
+.size-option {
     height: 50px;
     margin: 10px;
 }
@@ -223,12 +222,41 @@ $backColor: #01020a;
     margin-top: 40px;
 }
 
-.highlight-browse{
+.highlight-browse {
     opacity: 0.5;
 
-    &:hover{
+    &:hover {
         opacity: 1.0;
     }
 }
 
 
+/*Basket*/
+#add-quantity, #subtract-quantity {
+    cursor: pointer;
+}
+
+
+#add-quantity:hover, #subtract-quantity:hover {
+    box-shadow: 2px 2px 2px 2px grey;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#progress {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    z-index: 5000;
+    display: none;
+}

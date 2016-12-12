@@ -6,7 +6,9 @@
 }
 
 <main class="shopBasket">
+
     <div class="container">
+
         <div class="row">
             <div class="col-md-12">
                 <h1>Shopping cart</h1>
@@ -14,6 +16,8 @@
         </div>
 
         <hr />
+
+
 
         @if (Model.products.Count() > 0)
         {
@@ -108,30 +112,30 @@
                 </div>
 
                 <hr />
-                }
+                                                    }
 
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="basketCheckOutPush">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="basketCheckOutPush">
 
-                        </div>
-                    </div>
+                                                            </div>
+                                                        </div>
 
-                    <div class="col-md-3">
-                        <div class="basketCheckOut">
-                            <h3>TOTAL: @total,-</h3>
-                            <a href="/Shop/Checkout">
-                                PROCEED TO CHECKOUT
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                }
-                else
-                {
-                    <h3>No items in shopping cart</h3>
+                                                        <div class="col-md-3">
+                                                            <div class="basketCheckOut">
+                                                                <h3>TOTAL: @total,-</h3>
+                                                                <a href="/Shop/Checkout">
+                                                                    PROCEED TO CHECKOUT
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h3>No items in shopping cart</h3>
 
-                }
+                                                    }
 
 
     </div>
