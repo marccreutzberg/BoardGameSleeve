@@ -1,0 +1,66 @@
+﻿@using BoardGameSleeveWebsite.ViewModels
+@model VMEditProduct
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="editProduct">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Edit Product</h2>
+        </div>
+    </div>
+    <div class="row">
+
+        @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+            <div class="col-md-4">
+
+                <p>Name</p>
+                @Html.HiddenFor(m => m.ID)
+                @Html.HiddenFor(m => m.Img)
+
+                @Html.TextBoxFor(m => m.Name)
+
+                <p>Description</p>
+                @Html.TextAreaFor(m => m.Description)
+
+                <p>Color</p>
+                @Html.TextBoxFor(m => m.Color)
+
+                <p>Price</p>
+                @Html.TextBoxFor(m => m.Price)
+
+                <p>Product in pack</p>
+                @Html.TextBoxFor(m => m.SleeveCountInProduct)
+
+                <p>In Stock</p>
+                @Html.TextBoxFor(m => m.InStock)
+
+            </div>
+            <div class="col-md-4">
+                <p>Chose Size</p>
+
+                @foreach (var item in Model.Sizes)
+                {
+                    @Html.RadioButtonFor(m => m.selectedSize, item.ID)
+                    @Html.Label(item.Name)
+                    <br />
+                }
+
+
+                <p>Current Image</p>
+
+                <img src="~/img/Products/@Model.Img" />
+
+                <p>Upload New Image:</p>
+                <input type="file" name="file" id="file" style="width: 100%;" />
+            </div>
+            <div class="col-md-12">
+                <input type="submit" value="Edit Product" class="submit" />
+            </div>
+        }
+
+    </div>
+</div>

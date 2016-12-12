@@ -8,8 +8,9 @@ namespace BoardGameSleeveWebsite
     public partial class ModelContext : DbContext
     {
         public ModelContext()
-            : base("name=ModelContext")
+            : base("name=Model1")
         {
+
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
@@ -72,6 +73,10 @@ namespace BoardGameSleeveWebsite
                 .Map(m => m.ToTable("GameSizeRelation").MapLeftKey("GameID").MapRightKey("SizeID"));
 
             modelBuilder.Entity<Invoice>()
+                .Property(e => e.Comment)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Invoice>()
                 .HasMany(e => e.Customers)
                 .WithOptional(e => e.Invoice)
                 .WillCascadeOnDelete();
@@ -96,6 +101,10 @@ namespace BoardGameSleeveWebsite
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
                 .HasPrecision(6, 2);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Img)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Size>()
                 .Property(e => e.Name)

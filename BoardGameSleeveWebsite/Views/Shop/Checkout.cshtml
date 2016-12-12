@@ -1,9 +1,9 @@
-﻿
+﻿@model VMCheckout
+
 @{
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <main class="checkOut">
     <div class="container">
@@ -16,64 +16,84 @@
                         <h1>Customer Information</h1>
                     </div>
                 </div>
+                @using (Html.BeginForm("CreateSale", "Shop", FormMethod.Post))
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="row">
+                        <div class="checkoutForm">
+                            <div style="border-right: 1px solid gray" class="col-md-6">
+                                <div class="checkoutLeft">
+                                    <p>First* & Last name*  </p> 
+                                    @Html.TextBoxFor(m => m.CustomerInfo.FullName, new { @class = "checkout-field", id = "name-field" })
+                                    <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.FullName)</p>
 
-                <div class="row">
-                    <div class="checkoutForm">
-                        <div style="border-right: 1px solid gray" class="col-md-6">
-                            <div class="checkoutLeft">
-                                <p>First* & Last name*</p>
-                                <input type="Text" value="" />
+                                    <p>Address * </p> 
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Address, new { @class = "checkout-field", id = "address-field" })
+                                    <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.Address) </p>
 
-                                <p>Address *</p>
-                                <input type="Text" value="" />
 
-                                <p>Zipcode* & City</p>
-                                <input type="Text" class="zip" value="" />
-                                <input type="Text" class="city" value="" />
+                                    <p>Zipcode* & City</p>
+                  
+                                    @Html.TextBoxFor(m => m.CustomerInfo.ZipCode, new { @class = "zip", id = "zip-field" })
+                                    @Html.TextBoxFor(m => m.CustomerInfo.City, new { @class = "city", id = "city-field" })
+                                    <p class="validation-error">
+                                        @Html.ValidationMessageFor(m => m.CustomerInfo.ZipCode)
+                                        @Html.ValidationMessageFor(m => m.CustomerInfo.City)
 
-                                <p>Country*</p>
-                                <input type="Text" value="" />
+                                    </p>
 
-                                <p>Email*</p>
-                                <input type="Text" value="" />
+                                    <p>Country * </p>
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Country, new { @class = "checkout-field", id = "country-field" })
+                                    <p class="validation-error">
+                                        @Html.ValidationMessageFor(m => m.CustomerInfo.Country)
+                                    </p>
 
-                                <p>Phone*</p>
-                                <input type="Text" value="" />
+                                    <p>Email* </p>
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Email, new { @class = "checkout-field", id = "email-field" })
+                                    <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.Email)</p>
+
+                                    <p>Phone</p>
+                                    @Html.TextBoxFor(m => m.CustomerInfo.Phone, new { @class = "checkout-field", id = "phone-field" })
+
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="checkoutRight">
-                                <h4>Summary</h4>
-                                <hr />
+                            <div class="col-md-6">
+                                <div class="checkoutRight">
+                                    <h4>Summary</h4>
+                                    <hr />
+                                    @{
+                                        decimal total = 0;
+                                    }
 
-                                <p>Subtotal</p>
-                                <span>$20</span>
+                                    @foreach (var p in Model.Products)
+                                    {
+                                        var quantity = Model.SessionProducts.Where(x => x.productId == p.ID).FirstOrDefault().quantity;
+                                        <p>@p.Name x @quantity</p>
+                                        <span>@(p.Price * quantity) DKK</span>
+                                        <hr />
+                                        total += (decimal)(p.Price * quantity);
+                                    }
+                                    <div class="total">
+                                        <p>Total</p>
+                                        <span>@total DKK</span>
+                                    </div>
 
-                                <hr />
-                                <p>Shipping</p>
-                                <span>$5</span>
 
-                                <hr />
+                                    <div class="clear"></div>
 
-                                <p>Total</p>
-                                <span>$25</span>
+                                    <h4>Comment</h4>
+                                    @Html.TextAreaFor(x => x.CustomerInfo.Comment, new { @class="checkout-field", id="comment-field"})
 
-                                <div class="clear"></div>
-
-                                <h4>Comment</h4>
-                                <textarea></textarea>
-
-                                <a href="#">
-                                    Complete Order
-                                </a>
+                                    <input type="submit" value="Complete order" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                                        }
             </div>
+
         </div>
     </div>
 
 </main>
-

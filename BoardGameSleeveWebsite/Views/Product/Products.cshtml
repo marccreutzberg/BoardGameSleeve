@@ -11,18 +11,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>SEE OUR SELECTION OF BOARD GAME SLEEVES HERE</h1>
+                <h2>SEE OUR SELECTION OF BOARD GAME SLEEVES HERE</h2>
             </div>
         </div>
         <hr />
         <div class="row">
-
             @foreach (var p in Model.Products)
             {
                 count++;
                 <div class="col-md-4">
                     <div class="product">
-                        <img src="~/img/Products/extra-large.png" />
+                        @{
+                            string href = "/product/size/" + p.SizeID;
+                        }
+                        <a href=@href><img src="~/img/Products/@p.Img" /></a>                          
+                        
                         <h3>Board Game Sleeves •  @p.SizeName</h3>
                         <h4>Size: @p.Width x @p.Height mm</h4>
                         <h4>
@@ -52,10 +55,8 @@
                                 </li>
                             </ul>
                         }
-                        @{
-                            string href = "/product/size/" + p.SizeID;
-                        }
-                        <a href=@href>
+                        
+                        <a class="productLink" href=@href>
                             Select this size
                         </a>
                     </div>

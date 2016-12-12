@@ -2,8 +2,8 @@
 @model VMHome
 
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <main class="frontpage">
     <div class="frontpageTop">
@@ -16,19 +16,66 @@
                             <h2>PROTECT YOUR CARDS</h2>
                             <p>Let the cards last as long as the game, Avoid bended <br /> corners, scratches and natural tearing with a transparent<br> sleeve.</p>
 
-                            <div class="browse">
+                            <div class="browse" data-id="game" id="game-browse">
                                 <p>BROWSE BY GAME</p>
                             </div>
-                            <div class="browse">
+                            <div class="browse highlight-browse" data-id="size" id="size-browse">
                                 <p>BROWSE BY SIZE</p>
                             </div>
 
-                            <input class="searchBoardGame" type="text" name="name" value="" placeholder="Enter the name of the board game" />
+                            <div class="search-game" data-id="game">
+                                <input id="searchBoardGame" class="searchBoardGame" type="text" name="name" value="" placeholder="Enter the name of the board game" />
+
+                                <div>
+                                    <select id="game-dropdown">
+                                        <option value="0" disabled="disabled">No matching results</option>
+                                        <option value="empty" disabled="disabled" selected="selected"></option>
+                                        @foreach (var p in Model.DropDownProducts)
+                                        {
+
+                                            List<string> stringGames = new List<string>();
+
+                                            foreach(var g in p.Size.Games)
+                                            {
+                                                stringGames.Add(g.Name);
+                                            }
+
+                                            <option style="background-image:url('/img/Products/@p.Img');" value="@p.ID" class="product-option">@p.Name @foreach (var s in stringGames)
+                                            {
+                                                @s
+                                            }
+                                        </option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="search-size" data-id="size">
+
+                                <input id="searchWidth" class="searchWidthHeight" type="text" name="name" value="" placeholder="Enter the width of the size in mm" />
+                                <input id="searchHeight" class="searchWidthHeight" type="text" name="name" value="" placeholder="Enter the height of the size in mm" />
+
+                                <div>
+                                    <select id="size-dropdown">
+                                        <option value="0" disabled="disabled">No matching results</option>
+                                        <option value="empty" disabled="disabled" selected="selected"></option>
+                                        @foreach (var s in Model.DropDownSizes)
+                                        {
+                                            <option value="@s.ID" class="size-option" data-width="@s.Width" data-height="@s.Height">@s.Name @s.Width x @s.Height mm</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <img width="100%" src="/img/frontpageSpot.png" />
+                    <img src="/img/frontpageSpot.png" />
                 </div>
             </div>
         </div>
@@ -51,24 +98,33 @@
     <hr />
 
     <div class="frontpageProduct">
+
+
         <div class="container">
             <div class="row">
-                @foreach (var p in Model.Products)
-                {
-                    
+                <h2>Top sellers</h2>
+            </div>
+        </div>
 
+        <hr />
+        <div class="container">
+            <div class="row">
+                @foreach (var p in Model.TopProducts)
+                {
                     <div class="col-md-4">
-                        <img src="~/img/product.png" />
-                        <h3>Board Game Sleeves • @p.Size.Name</h3>
-                        <h4>Size @p.Size.Width x @p.Size.Height mm</h4>
-                        @{ 
+                        @{
                             string href = "href=/product/singleproduct/" + p.ID;
                         }
-                        <a @href>Select this size</a>
+
+                        <a @href><img width="60%" src="~/img/products/@p.Img" /></a>
+                        <h3>Board Game Sleeves • @p.Name</h3>
+                        <h4>Color: @p.Color</h4>
+                        <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
+                        <h4>Price: @p.Price</h4>
+
+                        <a class="productLink" @href>Add to cart</a>
                     </div>
-                 }
-                
-         
+                            }
             </div>
         </div>
     </div>

@@ -6,22 +6,58 @@ using BoardGameSleeveWebsite.ViewModels;
 
 namespace BoardGameSleeveWebsite.services
 {
-    public interface IService
-    {
-        VMHome HomeModel();
-        VMProducts ProductsModel();
-        VMSize SizeModel(int id);
-        VMProductSingle ProductSingleModel(int id);
-    }
-
-    public class Service : IService
+    public class Service
     {
         private ModelContext dbContext = new ModelContext();
 
         public VMHome HomeModel()
         {
             VMHome home = new VMHome();
-            home.Products = dbContext.Products.Include("Size").Take(3).ToList();
+            home.TopProducts = new List<Product>();
+            home.DropDownProducts = dbContext.Products.ToList();
+            home.DropDownSizes = dbContext.Sizes.ToList();
+
+
+            var products = from p in dbContext.Products
+                           join s in dbContext.Sales on p.ID equals s.ProductID
+                           where p.ID == s.ProductID
+                           group p by new
+                           {
+                               Id = p.ID,
+                               Name = p.Name,
+                               Height = p.Size.Height,
+                               Width = p.Size.Width,
+                               Img = p.Img,
+                               Color = p.Color,
+                               Price = p.Price,
+                           } into gro
+
+                           select new
+                           {
+                               Id = gro.Key.Id,
+                               Name = gro.Key.Name,
+                               Height = gro.Key.Height,
+                               Width = gro.Key.Width,
+                               Img = gro.Key.Img,
+                               TotalSales = dbContext.Sales.Where(y => y.ProductID == gro.Key.Id).Sum(x => x.Quantity),
+                               Color = gro.Key.Color,
+                               Price = gro.Key.Price,
+                           };
+
+            foreach (var p in products.OrderByDescending(x => x.TotalSales).Take(3))
+            {
+                Product product = new Product();
+                product.ID = (int)p.Id;
+                product.Name = (string)p.Name;
+                product.Color = (string)p.Color;
+                product.Size = new Size();
+                product.Size.Height = (int) p.Height;
+                product.Size.Width = (int)p.Width;
+                product.Img = (string)p.Img;
+                product.Price = (decimal)p.Price;
+
+                home.TopProducts.Add(product);
+            }
 
             return home;
         }
@@ -40,6 +76,7 @@ namespace BoardGameSleeveWebsite.services
                 c.Width = (int)p.Key.Width;
                 c.Height = (int)p.Key.Height;
                 c.Colors = new List<string>();
+                c.Img = dbContext.Products.Where(y => y.SizeID == p.Key.ID).FirstOrDefault().Img;
 
                 foreach (var s in dbContext.Products.Include("Size").Where(y => y.Size.Name == c.SizeName))
                 {
@@ -103,7 +140,7 @@ namespace BoardGameSleeveWebsite.services
             dbContext.Sizes.Add(size);
             dbContext.SaveChanges();
         }
-        public string CreateGame(string name, int sizeId)
+        public string CreateGame(string name, List<string> sizeNames)
         {
             //Returns an empty string if succeeded, otherwise the string will be the error description
 
@@ -112,15 +149,17 @@ namespace BoardGameSleeveWebsite.services
                 Game newGame = new Game();
                 newGame.Name = name;
 
-                var sizes = (from x in dbContext.Sizes
-                             where x.ID == sizeId
-                             select x).ToList();
+                IQueryable<Size> query = null;
+                int sizesCount = dbContext.Sizes.Count();
+                query = dbContext.Sizes.Where(x => sizeNames.Contains(x.Name));
 
-                //If there are none of that size
-                if (sizes.Count == 0)
-                    return "Cant add game. No sizeId of: " + sizeId + " exists";
+                if (query.Count() != sizeNames.Count)
+                    return "Cant add game. Some of the sizeIds doesn't exist";
 
-                newGame.Sizes.Add(sizes.First());
+                List<Size> sizes = query.ToList();
+                foreach (Size size in sizes)
+                    newGame.Sizes.Add(size);
+
                 dbContext.Games.Add(newGame);
                 dbContext.SaveChanges();
             }
@@ -148,6 +187,29 @@ namespace BoardGameSleeveWebsite.services
                 return e.Message;
             }
         }
+        public List<Game> GetAllGames()
+        {
+            return (from x in this.dbContext.Games
+                    select x).ToList();
+        }
+        public void UpdateGame(int gameId, string gameName, List<string> sizeNames)
+        {
+            Game game = (from x in this.dbContext.Games
+                         where x.ID == gameId
+                         select x).FirstOrDefault();
+            if (game == null)
+                return;
+            game.Name = gameName;
+            game.Sizes.Clear();
+
+            IQueryable<Size> query = dbContext.Sizes.Where(x => sizeNames.Contains(x.Name));
+
+            List<Size> sizes = query.ToList();
+            foreach (Size size in sizes)
+                game.Sizes.Add(size);
+
+            dbContext.SaveChanges();
+        }
 
         public void deleteSizeFromId(int id)
         {
@@ -157,6 +219,15 @@ namespace BoardGameSleeveWebsite.services
 
             dbContext.SaveChanges();
         }
+
+        public void deleteProductFromID(int id)
+        {
+            Product p = dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
+            dbContext.Products.Remove(p);
+
+            dbContext.SaveChanges();
+        }
+
 
         public void editSize(int width, int height, string name, string description, int id)
         {
@@ -170,11 +241,16 @@ namespace BoardGameSleeveWebsite.services
             dbContext.SaveChanges();
         }
 
+        public Size getSizeFromId(int id)
+        {
+            return dbContext.Sizes.Where(x => x.ID == id).FirstOrDefault();
+        }
+
         public List<Product> GetProductsBasedOnIds(List<SessionProduct> sessionProducts)
         {
             List<Product> products = new List<Product>();
 
-            if(sessionProducts != null)
+            if (sessionProducts != null)
             {
                 foreach (var s in sessionProducts)
                 {
@@ -182,9 +258,97 @@ namespace BoardGameSleeveWebsite.services
                     products.Add(p);
                 }
             }
-            
+
 
             return products;
         }
+
+        public List<Product> GetAlleProducts()
+        {
+            return dbContext.Products.ToList();
+        }
+        public bool IsLoginCredentialsCorrect(string username, string password)
+        {
+            var admin = (from x in this.dbContext.Admins
+                         where x.Username == username
+                         select x).FirstOrDefault();
+            if (admin == null)
+                return false;
+
+            if (admin.Password == password)
+                return true;
+            return false;
+        }
+
+        public void CreateSale(VMCheckout vm)
+        {
+            Invoice i = new Invoice();
+            i.Date = DateTime.Now;
+            i.Comment = vm.CustomerInfo.Comment;
+
+            Customer c = new Customer();
+            c.Name = vm.CustomerInfo.FullName;
+            c.Address = vm.CustomerInfo.Address;
+            c.Country = vm.CustomerInfo.Country;
+            c.Email = vm.CustomerInfo.Email;
+            c.Phone = vm.CustomerInfo.Phone;
+            c.Zip = vm.CustomerInfo.ZipCode;
+            c.Invoice = i;
+
+
+            foreach (var p in vm.SessionProducts)
+            {
+                Sale s = new Sale();
+                s.Product = dbContext.Products.Where(x => x.ID == p.productId).FirstOrDefault();
+                s.Quantity = p.quantity;
+
+                i.Sales.Add(s);
+            }
+
+            dbContext.Invoices.Add(i);
+            dbContext.Customers.Add(c);
+
+            dbContext.SaveChanges();
+
+        }
+
+        public List<Game> getAllGames()
+        {
+            return dbContext.Games.ToList();
+        }
+
+        public void CreateProduct(Product produt)
+        {
+            dbContext.Products.Add(produt);
+            dbContext.SaveChanges();
+        }
+
+
+        public void EditProduct(int ID, string Name, string Description, string Color, decimal Price, int InStock, int SleeveCountInProduct, Size size, string Img)
+        {
+            Product p = dbContext.Products.Where(x => x.ID == ID).FirstOrDefault();
+            p.Name = Name;
+            p.Description = Description;
+            p.Color = Color;
+            p.Price = Price;
+            p.InStock = InStock;
+            p.SleeveCountInProduct = SleeveCountInProduct;
+            p.Size = size;
+            p.Img = Img;
+
+            dbContext.SaveChanges();
+
+        }
+
+        public Product getProductFromID(int id)
+        {
+            return dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
+        }
+
+        public List<Game>GetGamesOfProduct(int productId)
+        {
+            return dbContext.Products.Where(x => x.ID == productId).Select(y => y.Size).SelectMany(z => z.Games).ToList();
+        }
+
     }
 }

@@ -37,7 +37,6 @@ C:\Users\Eydun\Desktop\Pba. Webudvikling\Projekt\BoardGameSleeve\obj\Debug\Board
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.pdb
-C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
@@ -46,3 +45,16 @@ C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameS
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
 C:\Users\Danny\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.pdb
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
+C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe.config
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeve\bin\Debug\BoardGameSleeve.exe
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeve\bin\Debug\BoardGameSleeve.pdb
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb

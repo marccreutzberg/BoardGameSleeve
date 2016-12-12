@@ -25,6 +25,7 @@ namespace BoardGameSleeveWebsite.ViewModels
         public int Height { get; set; }
         public List<string> Games { get; set; }
         public List<string> Colors { get; set; }
+        public string Img { get; set; }
 
         public CommonProduct() { }
     }

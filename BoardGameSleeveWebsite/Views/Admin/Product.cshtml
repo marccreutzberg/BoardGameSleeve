@@ -1,8 +1,49 @@
-﻿
+﻿@model List<Product>
 @{
     ViewBag.Title = "createProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="row">
+    <div class="col-md-12">
+        <h2>Board Game Sleeves</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <h3>All board Game Sleeves</h3>
 
-<h2>createProduct</h2>
+        <div class="listOverview">
+            <ul>
+                @{
+                    foreach (var product in Model)
+                    {
+                        <li class="@product.ID">
+                            Navn: @product.Name - Color: @product.Color - SizeName: @product.Size.Name - Pris: @product.Price
 
+                            <div data-id="@product.ID" id="delete-product-button" title="Delete Product">
+                                <img width="20" src="~/img/RemoveItemIcon2.png" />
+                            </div>
+
+                            <a id="edit-product-button" title="Edit Product" href='@Url.Action("editProduct", new { id = @product.ID })'>
+                                <img width="23" src="/img/edit-icon.png" />
+                            </a>
+
+                        </li>
+                    }
+                }
+            </ul>
+
+         
+
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <h3>Create a New Product</h3>
+        <a class="createProductButton" href="/admin/createproduct">Create Product</a>
+    </div>
+</div>
+
+<div class="delete-popup">
+    <h2>The command Delete a product is succeeded</h2>
+</div>

@@ -650,6 +650,14 @@ th {
 body {
   font-family: Mission Gothic Regular; }
 
+.basket img {
+  -webkit-transition: transform 0.8s;
+  transition: transform 0.8s; }
+
+.basket img.clicked {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg); }
+
 /*Frontpage and layout*/
 header {
   border-bottom: 1px solid #dcdcdc;
@@ -671,6 +679,17 @@ header {
         line-height: 200%; }
       header nav ul li a:hover {
         color: #8cc1e3; }
+
+.productLink {
+  background-color: #01020a;
+  -moz-border-radius: 35px;
+  -webkit-border-radius: 35px;
+  border-radius: 35px;
+  text-align: center;
+  padding: 5px 35px;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none; }
 
 .basket {
   margin-top: 75px; }
@@ -701,16 +720,6 @@ header {
     border-right: 1px solid #dcdcdc; }
   .frontpageProduct .col-md-4:nth-child(3n+3) {
     border-right: none; }
-  .frontpageProduct a {
-    background-color: #01020a;
-    -moz-border-radius: 35px;
-    -webkit-border-radius: 35px;
-    border-radius: 35px;
-    text-align: center;
-    padding: 5px 35px;
-    color: #fff;
-    font-size: 15px;
-    text-decoration: none; }
   .frontpageProduct a:hover {
     color: #8cc1e3; }
 
@@ -803,16 +812,7 @@ footer {
     font-family: 'Mission Gothic Light'; }
   .products .product ul li {
     font-size: 14px; }
-  .products .product a {
-    background-color: #01020a;
-    -moz-border-radius: 35px;
-    -webkit-border-radius: 35px;
-    border-radius: 35px;
-    text-align: center;
-    padding: 8px 50px;
-    color: #fff;
-    font-size: 15px;
-    text-decoration: none;
+  .products .product .productLink {
     line-height: 450%; }
   .products .product a:hover {
     color: #8cc1e3; }
@@ -827,10 +827,11 @@ footer {
   text-align: center; }
 
 .shopBasket .basketQuantity {
+  text-align: center;
   height: 70px;
   padding: 45px 0;
   border-right: 1px solid #dcdcdc; }
-  .shopBasket .basketQuantity a {
+  .shopBasket .basketQuantity #subtract-quantity, .shopBasket .basketQuantity #add-quantity {
     line-height: 300%;
     color: #01020a;
     text-decoration: none;
@@ -840,12 +841,11 @@ footer {
     font-style: normal; }
 
 .shopBasket .basketQuantityCount {
-  margin-top: 10px;
+  margin-top: 23px;
   text-align: center;
   border: 1px solid #f1f1f1; }
   .shopBasket .basketQuantityCount .quantity-number {
-    width: 50px;
-    height: 50px; }
+    width: 100%; }
 
 .shopBasket .basketPrice {
   height: 70px;
@@ -918,6 +918,10 @@ footer {
   .checkOut h1 {
     text-align: center;
     margin: 0 0 20px; }
+  .checkOut .validation-error {
+    color: #cc0000; }
+  .checkOut .total {
+    font-weight: bold; }
 
 .checkoutLeft p {
   margin: 20px 0 0; }
@@ -950,7 +954,7 @@ footer {
   width: 100%;
   height: 140px; }
 
-.checkoutRight a {
+.checkoutRight input[type=submit] {
   background-color: #01020a;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
@@ -965,7 +969,7 @@ footer {
 .checkoutRight hr {
   clear: both; }
 
-.checkoutRight a:hover {
+.checkoutRight input[type=submit]:hover {
   color: #8cc1e3; }
 
 .clear {
@@ -1058,20 +1062,45 @@ footer {
 
 .product-box, #product-image, #product-info, #product-games, #product-description {
   height: 380px;
-  border: 2px solid #dcdcdc; }
+  border: 1px solid #dcdcdc; }
 
 #product-image {
   text-align: center;
   padding: 20px;
   box-sizing: border-box; }
   #product-image img {
-    width: 40%; }
+    width: 65%; }
 
 #product-info {
   padding: 20px;
   box-sizing: border-box;
   width: 100%;
   background-color: #f1f1f1; }
+  #product-info .basketPopup {
+    display: none;
+    bottom: 65px;
+    right: 60px;
+    text-align: center;
+    width: 165px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    position: absolute;
+    background-size: 20px;
+    background-color: #fff;
+    padding-bottom: 18px; }
+    #product-info .basketPopup .basketPopupcontent {
+      margin-bottom: 7px; }
+    #product-info .basketPopup h4 {
+      margin: 0;
+      margin-bottom: 5px;
+      font-size: 24px;
+      font-family: 'Mission Gothic';
+      font-weight: 900;
+      font-style: italic; }
+    #product-info .basketPopup p {
+      font-size: 16px;
+      font-family: 'Mission Gothic Light'; }
   #product-info hr {
     margin: 15px 0px 15px 0px;
     background-color: #dcdcdc; }
@@ -1119,7 +1148,7 @@ footer {
   #product-description p {
     margin: 15px; }
 
-#add-cart-button {
+.button, #add-cart-button, #print-receipt {
   background-color: deepskyblue;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
@@ -1130,5 +1159,193 @@ footer {
   margin-right: 20px;
   cursor: pointer;
   color: white; }
-  #add-cart-button:hover {
+  .button:hover, #add-cart-button:hover, #print-receipt:hover {
     background-color: black; }
+
+/*Confirmation Order*/
+#confirmation-items {
+  border-collapse: collapse;
+  width: 100%; }
+  #confirmation-items td, #confirmation-items th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px; }
+
+/*Index search*/
+#game-dropdown {
+  width: 500px;
+  display: none; }
+
+.product-option {
+  height: 100px;
+  background-size: 100px 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin: 10px; }
+
+#game-dropdown option:hover {
+  background-color: #f2f6fa;
+  cursor: pointer; }
+
+#size-dropdown option:hover {
+  background-color: #f2f6fa;
+  cursor: pointer; }
+
+#size-dropdown {
+  width: 600px;
+  display: none; }
+
+.size-option {
+  height: 50px;
+  margin: 10px; }
+
+.search-size {
+  display: none; }
+
+.searchWidthHeight {
+  border: 1px solid #dcdcdc;
+  color: #dcdcdc;
+  padding-left: 50px;
+  background-image: url("/img/Search-icon.png");
+  background-repeat: no-repeat;
+  background-position: 15px, center;
+  height: 50px;
+  width: 235px;
+  margin-right: 10px;
+  margin-top: 40px; }
+
+.highlight-browse {
+  opacity: 0.5; }
+  .highlight-browse:hover {
+    opacity: 1.0; }
+
+/*Basket*/
+#add-quantity, #subtract-quantity {
+  cursor: pointer; }
+
+#add-quantity:hover, #subtract-quantity:hover {
+  box-shadow: 2px 2px 2px 2px grey; }
+
+input[type=number] {
+  -moz-appearance: textfield; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+#progress {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  z-index: 5000;
+  display: none; }
+
+@media (max-width: 768px) {
+  .basket {
+    margin-top: 0; }
+  .frontpage .browse {
+    width: 48%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-sizing: border-box; }
+  .frontpage .frontpageTop img {
+    display: none; }
+  .frontpage .frontpageTop h1 {
+    margin-top: 0;
+    margin: 0; }
+  .searchBoardGame {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px; }
+  footer {
+    padding: 10px 20px;
+    box-sizing: border-box; }
+  .products hr {
+    display: none; }
+  .products hr:first-child {
+    display: block; }
+  .products .product {
+    border-bottom: 1px solid #f1f1f1; }
+  .products .col-md-4 {
+    border-right: none; }
+  .productPage #product-image {
+    height: auto;
+    margin-bottom: 20px; }
+  #product-games {
+    height: auto; }
+  #product-description {
+    height: auto; }
+  .shopBasket .basketImage {
+    text-align: center;
+    height: auto;
+    border-right: none; }
+    .shopBasket .basketImage img {
+      width: 100%; }
+  .shopBasket .basketDescription, .shopBasket .basketQuantity, .shopBasket .basketPrice {
+    height: auto;
+    border-right: none; }
+  .shopBasket .basketQuantity {
+    text-align: center; }
+  .shopBasket .basketCheckOutPush {
+    display: none; }
+  .shopBasket .basketCheckOut {
+    padding-bottom: 30px; }
+  .shopBasket .basketQuantity {
+    padding: 0;
+    border: 1px solid #f1f1f1; }
+  .shopBasket .basketPrice {
+    padding: 0;
+    text-align: left; }
+  .shopBasket .basketRemoveItem {
+    padding: 0;
+    margin-top: 25px; }
+  .shopBasketDescription {
+    display: none; } }
+
+@media (max-width: 992px) {
+  .basket {
+    text-align: center;
+    margin-top: 0; }
+  #add-cart-button {
+    width: 100%;
+    box-sizing: border-box;
+    float: none;
+    margin: 10px 0; }
+  .frontpage .frontpageTop img {
+    display: none; }
+  .frontpageProduct .col-md-4 {
+    border-right: none; }
+  #product-info {
+    height: auto; }
+  #product-info .basketPopup {
+    width: 80%;
+    bottom: 100px;
+    margin: 0 15px;
+    right: 10px; }
+  .shopBasket .basketImage {
+    text-align: center;
+    height: auto;
+    border-right: none; }
+    .shopBasket .basketImage img {
+      width: 100%; }
+  .shopBasket .basketDescription, .shopBasket .basketQuantity, .shopBasket .basketPrice {
+    height: auto;
+    border-right: none; }
+  .shopBasket .basketQuantity {
+    text-align: center; }
+  .shopBasket .basketCheckOutPush {
+    display: none; }
+  .shopBasket .basketCheckOut {
+    padding-bottom: 30px; }
+  .shopBasket .basketQuantity {
+    padding: 0;
+    border: 1px solid #f1f1f1; }
+  .shopBasket .basketPrice {
+    padding: 0;
+    text-align: left; }
+  .shopBasket .basketRemoveItem {
+    padding: 0;
+    margin-top: 25px; }
+  .shopBasketDescription {
+    display: none; } }
