@@ -60,7 +60,13 @@ $backgroundGray: #f1f1f1;
         .product {
             border-bottom: 1px solid $backgroundGray;
         }
+
+        .col-md-4 {
+            border-right: none;
+        }
     }
+
+
 
     .productPage {
         #product-image {
@@ -73,13 +79,144 @@ $backgroundGray: #f1f1f1;
         height: auto;
     }
 
-    #product-description{
+    #product-description {
         height: auto;
-    }   
+    }
+
+
+    .shopBasket {
+
+        .basketImage {
+            text-align: center;
+            height: auto;
+            border-right: none;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .basketDescription, .basketQuantity, .basketPrice {
+            height: auto;
+            border-right: none;
+        }
+
+        .basketQuantity {
+            text-align: center;
+        }
+
+        .basketCheckOutPush {
+            display: none;
+        }
+
+        .basketCheckOut {
+            padding-bottom: 30px;
+        }
+
+        .basketQuantity {
+            padding: 0;
+            border: 1px solid $backgroundGray;
+        }
+
+        .basketPrice {
+            padding: 0;
+            text-align: left;
+        }
+
+        .basketRemoveItem {
+            padding: 0;
+            margin-top: 25px;
+        }
+    }
+
+    .shopBasketDescription {
+        display: none;
+    }
 }
 
-@media (min-width: 768px ) {
-}
+@media (max-width: 992px ) {
+    .basket {
+        text-align: center;
+        margin-top: 0;
+    }
 
-@media (min-width: 992px) {
+    #add-cart-button{
+        width: 100%;
+        box-sizing: border-box;
+        float: none;
+        margin: 10px 0;
+    }
+
+    .frontpage {
+
+        .frontpageTop {
+            img {
+                display: none;
+            }
+        }
+    }
+
+    .frontpageProduct .col-md-4 {
+        border-right: none;
+    }
+
+    #product-info{
+        height: auto;
+    }
+    #product-info .basketPopup{
+        width: 80%;
+        bottom: 100px;
+        margin: 0 15px;
+        right: 10px;
+    }
+    
+
+    .shopBasket {
+
+        .basketImage {
+            text-align: center;
+            height: auto;
+            border-right: none;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .basketDescription, .basketQuantity, .basketPrice {
+            height: auto;
+            border-right: none;
+        }
+
+        .basketQuantity {
+            text-align: center;
+        }
+
+        .basketCheckOutPush {
+            display: none;
+        }
+
+        .basketCheckOut {
+            padding-bottom: 30px;
+        }
+
+        .basketQuantity {
+            padding: 0;
+            border: 1px solid $backgroundGray;
+        }
+
+        .basketPrice {
+            padding: 0;
+            text-align: left;
+        }
+
+        .basketRemoveItem {
+            padding: 0;
+            margin-top: 25px;
+        }
+    }
+
+    .shopBasketDescription {
+        display: none;
+    }
 }
