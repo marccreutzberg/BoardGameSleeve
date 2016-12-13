@@ -153,3 +153,8 @@ h1 {
   box-sizing: border-box;
   text-align: center;
   border: none; }
+
+.admin-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }

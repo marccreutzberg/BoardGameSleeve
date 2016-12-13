@@ -19,7 +19,7 @@
             <div class="listOverview">
                 <ul>
                     @{
-                        foreach (var size in Model)
+                        foreach (var size in Model.OrderBy(x => x.Name))
                         {
                             <li class="@size.ID">
                                 <strong>Name:</strong> @size.Name - <strong>Width:</strong> @size.Width - <strong>Height:</strong>                                 @size.Height
