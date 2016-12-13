@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BoardGameSleeveWebsite.ViewModels;
+using Newtonsoft.Json;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -16,6 +17,12 @@ namespace BoardGameSleeveWebsite.Controllers
         public ActionResult Index()
         {
             VMHome model = service.HomeModel();
+
+            foreach (var d in model.DropDownProducts)
+            {
+                d.JsonGames = JsonConvert.SerializeObject(d.Games);
+            }
+
             return View("Index", model);
         }
 

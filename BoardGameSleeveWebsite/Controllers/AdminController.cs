@@ -47,12 +47,13 @@ namespace BoardGameSleeveWebsite.Controllers
             return this.View("Product", products);
         }
 
-        public ActionResult Product(bool? isValid)
+        public ActionResult Product(bool? isValid, string type)
         {
             if (this.HasLoginCredentialsInCookies() == false)
                 return this.RedirectToAction("Login");
             List<Product> products = service.GetAlleProducts();
             this.ViewData["isValid"] = isValid;
+            this.ViewData["type"] = type;
 
             return View(products);
         }
@@ -202,7 +203,7 @@ namespace BoardGameSleeveWebsite.Controllers
 
                 service.CreateProduct(p1);
 
-                return RedirectToAction("Product", new { isValid = ModelState.IsValid });
+                return RedirectToAction("Product", new { isValid = ModelState.IsValid, type = "created" });
 
             }
 
@@ -240,33 +241,38 @@ namespace BoardGameSleeveWebsite.Controllers
             if (this.HasLoginCredentialsInCookies() == false)
                 return this.RedirectToAction("Login");
 
-            Product p = new Product();
-            p.ID = vm.ID;
-            p.Name = vm.Name;
-            p.Description = vm.Description;
-            p.Color = vm.Color;
-            p.Price = vm.Price;
-            p.InStock = vm.InStock;
-            p.SleeveCountInProduct = vm.SleeveCountInProduct;
-            p.Size = service.getSizeFromId(Convert.ToInt32(vm.selectedSize));
-
-            if (file != null)
+            if (ModelState.IsValid)
             {
-                string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(Server.MapPath("~/img/Products"), pic);
+                Product p = new Product();
+                p.ID = vm.ID;
+                p.Name = vm.Name;
+                p.Description = vm.Description;
+                p.Color = vm.Color;
+                p.Price = vm.Price;
+                p.InStock = vm.InStock;
+                p.SleeveCountInProduct = vm.SleeveCountInProduct;
+                p.Size = service.getSizeFromId(Convert.ToInt32(vm.selectedSize));
 
-                p.Img = pic;
+                if (file != null)
+                {
+                    string pic = System.IO.Path.GetFileName(file.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/img/Products"), pic);
 
-                file.SaveAs(path);
+                    p.Img = pic;
+
+                    file.SaveAs(path);
+                }
+                else
+                {
+                    p.Img = vm.Img;
+                }
+
+                service.EditProduct(p.ID, p.Name, p.Description, p.Color, Convert.ToDecimal(p.Price), Convert.ToInt32(p.InStock), Convert.ToInt32(p.SleeveCountInProduct), p.Size, p.Img);
+
+                return RedirectToAction("Product", new { isValid = ModelState.IsValid, type = "edited" });
             }
-            else
-            {
-                p.Img = vm.Img;
-            }
-
-            service.EditProduct(p.ID, p.Name, p.Description, p.Color, Convert.ToDecimal(p.Price), Convert.ToInt32(p.InStock), Convert.ToInt32(p.SleeveCountInProduct), p.Size, p.Img);
-
-            return RedirectToAction("Product", "Admin");
+            vm.Sizes = service.GetSize();
+            return View("editProduct", vm);
         }
 
 

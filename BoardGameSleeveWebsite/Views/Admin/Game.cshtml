@@ -63,9 +63,17 @@
             </table>
             <div id="tableBlocker"></div>
             <br />
-            <button id="addNewGameButton">Add new game</button>
+            <div>
+
+            </div>
+
+            <div class="col-md-2">
+                <button id="addNewGameButton">Add new game</button>
+            </div>
         </div>
         <hr />
+
+        <br />
         <div id="editAddForm">
             <h3>Editing <span id="editAddForm_headlineName"></span></h3>
             <strong>Name</strong><br />
@@ -73,20 +81,30 @@
             <hr />
             <strong>Sizes</strong> <br />
             <table id="editAddForm_table">
-                <tbody>
-                    @*<tr>
-                            <td>Mini</td>
-                            <td><a href="#" onclick="return false">Remove</a></td>
-                        </tr>*@
-                </tbody>
+                <tbody></tbody>
             </table>
-            <select id="editAddForm_selectToAdd">
-                <option disabled>Select size to add</option>
-            </select>
-            <button id="editAddForm_addButton">Add</button>
+            <div class="col-md-8">
+                <div class="row">
+                    <select id="editAddForm_selectToAdd">
+                        <option disabled>Select size to add</option>
+                    </select>
+
+                    <button id="editAddForm_addButton">Add</button>
+
+                </div>
+            </div>
             <br />
-            <button id="editAddForm_acceptButton">Accept</button>
-            <button id="editAddForm_cancelButton">Cancel</button>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button id="editAddForm_acceptButton">Accept</button>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button id="editAddForm_cancelButton">Cancel</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

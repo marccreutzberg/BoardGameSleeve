@@ -3,6 +3,7 @@
     ViewBag.Title = "createProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     bool? isValid = (bool?)ViewData["isValid"];
+    string type = (string)ViewData["type"];
 }
 
 <script>
@@ -10,12 +11,14 @@
         var bool = @Json.Encode(isValid);
 
 
-        if(bool = true && bool != null){
-
-            //Popup
+        if(bool === true && bool != null){
+            var text = @Html.Raw(Json.Encode(type));
+            $('.delete-popup').fadeIn();
+            $('.delete-popup h3').text('The product has been ' + text);
             setTimeout(function () {
-                //Luk popup
-            }, 2000);
+                $(".delete-popup").fadeOut();
+                $('.delete-popup h3').text("");
+            }, 3000);
 
         }
     });
@@ -63,5 +66,7 @@
 </div>
 
 <div class="delete-popup">
-    <h2>The command Delete a product is succeeded</h2>
+    <h3></h3>
 </div>
+
+

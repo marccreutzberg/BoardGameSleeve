@@ -161,6 +161,7 @@
     <Content Include="img\basket.png" />
     <Content Include="img\bglogin.png" />
     <Content Include="img\edit-icon.png" />
+    <Content Include="img\favicon.ico" />
     <Content Include="img\frontpageSpot.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\maps.PNG" />

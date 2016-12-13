@@ -15,8 +15,26 @@ namespace BoardGameSleeveWebsite.services
         {
             VMHome home = new VMHome();
             home.TopProducts = new List<Product>();
-            home.DropDownProducts = dbContext.Products.ToList();
             home.DropDownSizes = dbContext.Sizes.ToList();
+            home.DropDownProducts = new List<DropDownProduct>();
+
+            foreach (var p in dbContext.Products)
+            {
+                DropDownProduct d = new DropDownProduct();
+                d.Id = p.ID;
+                d.Name = p.Name;
+                d.Img = p.Img;
+                d.Games = new List<string>();
+
+                foreach (var g in p.Size.Games)
+                {
+                    d.Games.Add(g.Name);
+                }
+                home.DropDownProducts.Add(d);
+
+
+
+            }
 
 
             var products = from p in dbContext.Products
@@ -52,7 +70,7 @@ namespace BoardGameSleeveWebsite.services
                 product.Name = (string)p.Name;
                 product.Color = (string)p.Color;
                 product.Size = new Size();
-                product.Size.Height = (int) p.Height;
+                product.Size.Height = (int)p.Height;
                 product.Size.Width = (int)p.Width;
                 product.Img = (string)p.Img;
                 product.Price = (decimal)p.Price;
@@ -346,7 +364,7 @@ namespace BoardGameSleeveWebsite.services
             return dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
         }
 
-        public List<Game>GetGamesOfProduct(int productId)
+        public List<Game> GetGamesOfProduct(int productId)
         {
             return dbContext.Products.Where(x => x.ID == productId).Select(y => y.Size).SelectMany(z => z.Games).ToList();
         }
