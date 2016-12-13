@@ -15,7 +15,7 @@
         <div class="listOverview">
             <ul>
                 @{
-                    foreach (var product in Model)
+                    foreach (var product in Model.OrderBy(x => x.Name))
                     {
                         <li class="@product.ID">
                             Navn: @product.Name - Color: @product.Color - SizeName: @product.Size.Name - Pris: @product.Price
@@ -33,7 +33,7 @@
                 }
             </ul>
 
-         
+
 
         </div>
     </div>
