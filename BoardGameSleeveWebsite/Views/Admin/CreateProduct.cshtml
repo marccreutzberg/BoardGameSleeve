@@ -7,37 +7,52 @@
 }
 
 
+
 <div class="createProduct">
     <div class="row">
         <div class="col-md-12">
             <h2>Create Product</h2>
         </div>
     </div>
-    @using (Html.BeginForm("CreateProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
+    @using (Html.BeginForm("CreateProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "create-product-form" }))
+    {
         <div class="row">
             <div class="col-md-4">
+
                 <p>Name</p>
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.Name)</p>
                 @Html.TextBoxFor(m => m.Name)
+
 
                 <p>Description</p>
                 @Html.TextAreaFor(m => m.Description)
 
                 <p>Color</p>
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.Color)</p>
                 @Html.TextBoxFor(m => m.Color)
 
                 <p>Price</p>
+                <p class="validation-error">
+                    @Html.ValidationMessageFor(m => m.Price)
+                </p>
                 @Html.TextBoxFor(m => m.Price)
 
-                <p>Product in pack</p>
+                <p>Sleeves in pack</p>
+                <p class="validation-error">
+                    @Html.ValidationMessageFor(x => x.SleeveCountInProduct)
+                </p>
                 @Html.TextBoxFor(m => m.SleeveCountInProduct)
 
                 <p>In Stock</p>
+                <p class="validation-error">
+                    @Html.ValidationMessageFor(x => x.InStock)
+                </p>
                 @Html.TextBoxFor(m => m.InStock)
 
             </div>
             <div class="col-md-4">
                 <p>Chose Size</p>
+                <p class="validation-error">@Html.ValidationMessageFor(x => x.selectedSize)</p>
                 @foreach (var item in Model.Size)
                 {
                     @Html.RadioButtonFor(m => m.selectedSize, item.ID)
@@ -45,18 +60,16 @@
                     <br />
                 }
 
-
-                <p></p>
-
                 <label for="file">Upload Image:</label>
-                <input type="file" name="file" id="file" style="width: 100%;" />
+                <input type="file" name="file" id="file" style="width: 100%;" required />
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="submit" value="Create Product" class="submit" />
+                <input type="submit" value="Create Product" class="submit" id="create-product" />
             </div>
 
         </div>
     }
+
 </div>

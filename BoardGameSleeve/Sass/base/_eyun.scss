@@ -80,7 +80,7 @@ $textBlue: #8cc1e3;
     }
 
     #add-to-cart {
-        margin-top: 50px;
+        margin-top: 30px;
 
         p {
             float: left;
@@ -133,7 +133,7 @@ $textBlue: #8cc1e3;
 }
 
 .button {
-    background-color: deepskyblue;
+    background-color: $textBlue;
     -moz-border-radius: 35px;
     -webkit-border-radius: 35px;
     border-radius: 35px;
@@ -156,6 +156,12 @@ $textBlue: #8cc1e3;
 
 #print-receipt {
     @extend .button;
+    float: left;
+   margin-bottom: 30px;
+
+    &:after {
+        clear: both;
+    }
 }
 
 /*Confirmation Order*/

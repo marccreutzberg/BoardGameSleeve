@@ -151,6 +151,8 @@
     <Content Include="bin\System.Web.Webpages.Deployment.dll" />
     <Content Include="bin\System.Web.Webpages.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="css\administration.css" />
+    <Content Include="css\games.css" />
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="img\arrow.png" />
@@ -177,9 +179,12 @@
     <Content Include="img\Search-icon.png" />
     <Content Include="img\test\Mini.png" />
     <Content Include="img\test\Standart.png" />
+    <Content Include="scripts\admingame.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\file1.js" />
     <Content Include="scripts\Games.js" />
+    <Content Include="scripts\login.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -267,10 +272,12 @@
     <Content Include="Views\Product\Size.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\EditSize.cshtml" />
-    <Content Include="Views\Admin\index.cshtml" />
     <Content Include="Views\Admin\CreateProduct.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Shop\OrderConfirmation.cshtml" />
+    <Content Include="scripts\admingame.js.map" />
+    <Content Include="scripts\file1.js.map" />
+    <Content Include="scripts\login.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -284,7 +291,9 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="scripts\admingame.ts" />
     <TypeScriptCompile Include="scripts\file1.ts" />
+    <TypeScriptCompile Include="scripts\login.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
