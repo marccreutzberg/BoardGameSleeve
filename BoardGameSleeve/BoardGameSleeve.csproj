@@ -1958,8 +1958,9 @@
     <None Include="node_modules\yargs\README.md" />
     <None Include="package.json" />
     <None Include="Sass\administration.scss" />
-    <None Include="Sass\base\_eyun.scss" />
-    <None Include="Sass\base\_marc.scss" />
+    <None Include="Sass\base\_customResponsiv.scss" />
+    <None Include="Sass\base\_fonts.scss" />
+    <None Include="Sass\base\_custom.scss" />
     <None Include="Sass\base\mixins\_grid.scss" />
     <None Include="Sass\base\_grid.scss" />
     <None Include="Sass\base\_normalize.scss" />
