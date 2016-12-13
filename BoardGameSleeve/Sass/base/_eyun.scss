@@ -157,7 +157,7 @@ $textBlue: #8cc1e3;
 #print-receipt {
     @extend .button;
     float: left;
-   margin-bottom: 30px;
+    margin-bottom: 30px;
 
     &:after {
         clear: both;
@@ -229,7 +229,7 @@ tbody tr:nth-child(2n+1) {
         color: rgb(135, 135, 135);
     }
 
-    input[type=email] {
+    input[type="text"] {
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
@@ -245,6 +245,15 @@ tbody tr:nth-child(2n+1) {
     .marginTop0 {
         margin-top: 0;
     }
+
+    p {
+        margin: 20px 0 0 0;
+    }
+
+    .validation-error {
+        margin: 0 0 20px;
+    }
+
 
     #contactFormSendBtn {
         padding: 5px;
@@ -327,7 +336,7 @@ tbody tr:nth-child(2n+1) {
 
 
 #add-quantity:hover, #subtract-quantity:hover {
-    box-shadow: 2px 2px 2px 2px grey;
+    color: $textBlue;
 }
 
 
@@ -343,9 +352,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #progress {
+    width: 100px;
     position: absolute;
     left: 45%;
-    top: 50%;
+    top: 40%;
     z-index: 5000;
     display: none;
 }

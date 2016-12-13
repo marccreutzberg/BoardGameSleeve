@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using BoardGameSleeveWebsite.ViewModels;
+using System.Net.Mail;
 
 namespace BoardGameSleeveWebsite.services
 {
@@ -368,5 +369,43 @@ namespace BoardGameSleeveWebsite.services
             return dbContext.Products.Where(x => x.ID == productId).Select(y => y.Size).SelectMany(z => z.Games).ToList();
         }
 
+        public void sendContactFormEmail(VMContactForm VM)
+        {
+
+            // Using Google's SMTP 
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("Creutzberq@gmail.com", "ztwxercx4321");
+            client.UseDefaultCredentials = false;
+            client.Credentials = credentials;
+
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(VM.Email);
+            msg.To.Add(new MailAddress("Creutzberq@gmail.com"));
+
+            msg.Subject = "Board Game Sleeve - Contact FOrm";
+            msg.IsBodyHtml = true;
+            msg.Body = string.Format("<html><head></head><body><strong>Name: </strong> "  + VM.Name + "<br /><strong>Email: </strong> " + VM.Email + "<br /> <strong>Message: </strong> " +VM.Message + "</body></html>");
+
+            // Afsender mailen
+            try
+            {
+                //most be on a secure connection aka a online server
+                client.Send(msg);
+            }
+            catch (Exception)
+            {
+
+                
+            }
+  
+
+
+
+        }
     }
 }

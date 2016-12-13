@@ -28,12 +28,24 @@ namespace BoardGameSleeveWebsite.Controllers
 
         public ActionResult Contact()
         {
-            return View("Contact");
+            VMContactForm vm = new VMContactForm();
+            return View(vm);
         }
 
         public ActionResult About()
         {
             return View("About");
+        }
+
+        [HttpPost]
+        public ActionResult Contact(VMContactForm vm)
+        {
+            service.sendContactFormEmail(vm);
+
+            ViewBag.signifier = "Thanks for the message we will contact your as fast as posseble";
+
+            VMContactForm vmNew = new VMContactForm();
+            return View(vmNew);
         }
     }
 }
