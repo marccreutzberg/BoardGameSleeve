@@ -368,7 +368,7 @@ footer {
     border-right: 1px solid $borderGray;
     height: 120px;
 
-    h2 {
+    h3 {
         margin: 0;
     }
 
@@ -447,7 +447,11 @@ footer {
 
     .city {
         width: 180px;
-        margin-left: 20px;
+        margin-left: 15px;
+    }
+
+    .validation-error{
+        margin: 0;
     }
 }
 
@@ -473,6 +477,7 @@ footer {
     }
 
     input[type=submit] {
+        margin-top: 20px;
         background-color: $backColor;
         -moz-border-radius: 35px;
         -webkit-border-radius: 35px;
@@ -482,7 +487,7 @@ footer {
         color: #fff;
         font-size: 15px;
         text-decoration: none;
-        line-height: 450%;
+        border: none;
     }
 
     hr {

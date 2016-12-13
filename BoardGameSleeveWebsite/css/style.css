@@ -904,7 +904,7 @@ footer {
   padding: 20px 0;
   border-right: 1px solid #dcdcdc;
   height: 120px; }
-  .basketDescription h2 {
+  .basketDescription h3 {
     margin: 0; }
   .basketDescription p {
     margin: 5px 0 0; }
@@ -958,7 +958,10 @@ footer {
 
 .checkoutLeft .city {
   width: 180px;
-  margin-left: 20px; }
+  margin-left: 15px; }
+
+.checkoutLeft .validation-error {
+  margin: 0; }
 
 .checkoutRight h4 {
   margin: 20px 0 0; }
@@ -976,6 +979,7 @@ footer {
   height: 140px; }
 
 .checkoutRight input[type=submit] {
+  margin-top: 20px;
   background-color: #01020a;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
@@ -985,7 +989,7 @@ footer {
   color: #fff;
   font-size: 15px;
   text-decoration: none;
-  line-height: 450%; }
+  border: none; }
 
 .checkoutRight hr {
   clear: both; }
@@ -1142,7 +1146,7 @@ footer {
   #product-info input {
     width: 50px; }
   #product-info #add-to-cart {
-    margin-top: 50px; }
+    margin-top: 30px; }
     #product-info #add-to-cart p {
       float: left;
       margin-right: 15px; }
@@ -1182,7 +1186,7 @@ footer {
     margin: 15px; }
 
 .button, #add-cart-button, #print-receipt {
-  background-color: deepskyblue;
+  background-color: #8cc1e3;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
   border-radius: 35px;
@@ -1194,6 +1198,12 @@ footer {
   color: white; }
   .button:hover, #add-cart-button:hover, #print-receipt:hover {
     background-color: black; }
+
+#print-receipt {
+  float: left;
+  margin-bottom: 30px; }
+  #print-receipt:after {
+    clear: both; }
 
 /*Confirmation Order*/
 #confirmation-items {
@@ -1309,6 +1319,28 @@ tbody tr:nth-child(2n+1) {
   opacity: 0.5; }
   .highlight-browse:hover {
     opacity: 1.0; }
+
+/*Basket*/
+#add-quantity, #subtract-quantity {
+  cursor: pointer; }
+
+#add-quantity:hover, #subtract-quantity:hover {
+  box-shadow: 2px 2px 2px 2px grey; }
+
+input[type=number] {
+  -moz-appearance: textfield; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+#progress {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  z-index: 5000;
+  display: none; }
 
 @media (max-width: 768px) {
   .basket {

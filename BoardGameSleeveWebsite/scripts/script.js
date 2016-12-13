@@ -30,23 +30,34 @@
         });
     }
     function createSize() {
+
+        var error = 0;
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
         var nameVal = $("#name-Size").val();
         var descriptionVal = $("#description-Size").val();
 
-        $.ajax({
-            type: "POST",
-            url: "/Admin/CreateSize",
-            data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        });
+        if (nameVal === "") {
+            $('#name-Size').after('<p style=\' color: red; margin: 0;\'>Write a Size name</p>');
+            error++;
+        }
 
-        $('.delete-popup').fadeIn();
-        setTimeout(function () {
-            top.location.href = "/admin/index";
-        }, 3000);
+        if (error === 0) {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/CreateSize",
+                data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+            });
+
+            $('.delete-popup h3').text('Size has been created');
+            $('.delete-popup').fadeIn();
+
+            setTimeout(function () {
+                top.location.href = "/admin/Size";
+            }, 3000);
+        }
 
     }
     function updateBasketQuantity() {
@@ -163,8 +174,13 @@
             dataType: "json",
         });
 
+
+
         $('.delete-popup').fadeIn();
         $('.' + id).hide();
+
+        $('.delete-popup h3').text('The chosen size has been deleted');
+
         setTimeout(function () {
             $('.delete-popup').fadeOut();
         }, 3000);
@@ -191,21 +207,40 @@
     }
 
     function editSize() {
+        var error = 0;
         var widthVal = $("#width-Size").val();
         var heightVal = $("#height-Size").val();
         var nameVal = $("#name-Size").val();
         var descriptionVal = $("#description-Size").val();
         var idVal = $("#id-Size").val();
 
-        $.ajax({
-            type: "POST",
-            url: "/Admin/EditChosenSize",
-            data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        });
 
-        top.location.href = "/admin/size";
+        if (nameVal === "") {
+            $('#name-Size').after('<p style=\' color: red; margin: 0;\'>Write a Size name</p>');
+            error++;
+        }
+
+        if (error === 0) {
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EditChosenSize",
+                data: JSON.stringify({ width: widthVal, height: heightVal, name: nameVal, description: descriptionVal, id: idVal }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+            });
+
+
+            $('.delete-popup').fadeIn();
+            $('.delete-popup h3').text('The Size has been edit');
+
+            setTimeout(function () {
+                top.location.href = "/admin/size";
+            }, 3000);
+
+            
+
+        }
     }
 
     function saveCheckoutInfo() {
