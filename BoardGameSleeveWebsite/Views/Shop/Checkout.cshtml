@@ -23,24 +23,26 @@
                         <div class="checkoutForm">
                             <div style="border-right: 1px solid gray" class="col-md-6">
                                 <div class="checkoutLeft">
-                                    <p>First* & Last name*  </p> 
+                                    <p>First* & Last name*  </p>
                                     @Html.TextBoxFor(m => m.CustomerInfo.FullName, new { @class = "checkout-field", id = "name-field" })
                                     <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.FullName)</p>
 
-                                    <p>Address * </p> 
+                                    <p>Address * </p>
                                     @Html.TextBoxFor(m => m.CustomerInfo.Address, new { @class = "checkout-field", id = "address-field" })
                                     <p class="validation-error">@Html.ValidationMessageFor(m => m.CustomerInfo.Address) </p>
 
 
                                     <p>Zipcode* & City</p>
-                  
+
                                     @Html.TextBoxFor(m => m.CustomerInfo.ZipCode, new { @class = "zip", id = "zip-field" })
                                     @Html.TextBoxFor(m => m.CustomerInfo.City, new { @class = "city", id = "city-field" })
                                     <p class="validation-error">
                                         @Html.ValidationMessageFor(m => m.CustomerInfo.ZipCode)
-                                        @Html.ValidationMessageFor(m => m.CustomerInfo.City)
-
                                     </p>
+                                    <p class="validation-error">
+                                        @Html.ValidationMessageFor(m => m.CustomerInfo.City)
+                                    </p>
+
 
                                     <p>Country * </p>
                                     @Html.TextBoxFor(m => m.CustomerInfo.Country, new { @class = "checkout-field", id = "country-field" })
@@ -81,7 +83,7 @@
                                     <div class="clear"></div>
 
                                     <h4>Comment</h4>
-                                    @Html.TextAreaFor(x => x.CustomerInfo.Comment, new { @class="checkout-field", id="comment-field"})
+                                    @Html.TextAreaFor(x => x.CustomerInfo.Comment, new { @class = "checkout-field", id = "comment-field" })
 
                                     <input type="submit" value="Complete order" />
                                 </div>

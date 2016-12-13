@@ -203,3 +203,47 @@ h1 {
         border: none;
     }
 }
+
+
+.admin-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*Games*/
+#gameAdmin table {
+    width: 100%;
+    text-align: left;
+}
+
+#gameAdmin th {
+    vertical-align: baseline;
+}
+
+#gameAdmin tbody tr:nth-child(2n+1) {
+    background-color: rgb(220, 220, 220);
+}
+
+#editAddForm table td {
+    width: 50%;
+}
+
+#tableParent {
+    position: relative;
+}
+
+#tableBlocker {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#editAddForm {
+    display: none;
+}
