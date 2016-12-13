@@ -11,30 +11,28 @@ namespace BoardGameSleeveWebsite
     {
         public class GameItemFirst
         {
-            public string Name;
-            public string SizeText;
+			public string Name;
+			public List<Tuple<int, string>> Sizes; //<id,name>
             public GameItemFirst(Game game)
             {
-                this.Name = game.Name;
-                List<string> sizesText = new List<string>();
-
-                foreach (var item in game.Sizes)
-                    sizesText.Add(item.Name);
-                sizesText.Sort();
-
-                StringBuilder sText = new StringBuilder();
-                foreach (var item in sizesText)
-                    sText.Append(item + ", ");
-                sText.Remove(sText.Length - 2, 2);
-                this.SizeText = sText.ToString();
+				this.Name = game.Name;
+				this.Sizes = new List<Tuple<int, string>>();
+				foreach (Size size in game.Sizes)
+					this.Sizes.Add(new Tuple<int, string>(size.ID, size.Name));
+				this.Sizes.Sort((Tuple<int, string> t1, Tuple<int, string> t2) =>
+				{
+					return String.Compare(t1.Item2, t2.Item2);
+				});
             }
         }
         public class SizeItemFirst
         {
+			public int Id;
             public string Name;
             public List<string> Games;
             public SizeItemFirst(Size size)
             {
+				this.Id = size.ID;
                 this.Name = size.Name;
                 this.Games = new List<string>();
                 foreach (var item in size.Games)
