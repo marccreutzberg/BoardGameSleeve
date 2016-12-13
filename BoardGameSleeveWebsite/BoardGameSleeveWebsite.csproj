@@ -154,12 +154,14 @@
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="img\arrow.png" />
+    <Content Include="img\arrowpopup.png" />
     <Content Include="img\at-logo.jpg" />
     <Content Include="img\basket.png" />
     <Content Include="img\bglogin.png" />
     <Content Include="img\edit-icon.png" />
     <Content Include="img\frontpageSpot.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\maps.PNG" />
     <Content Include="img\product.png" />
     <Content Include="img\Products\extra-large.png" />
     <Content Include="img\Products\Large.png" />
@@ -169,17 +171,15 @@
     <Content Include="img\Products\Small.png" />
     <Content Include="img\Products\Square.png" />
     <Content Include="img\Products\Standard.png" />
+    <Content Include="img\progress.gif" />
     <Content Include="img\RemoveItemIcon.png" />
     <Content Include="img\RemoveItemIcon2.png" />
     <Content Include="img\Search-icon.png" />
     <Content Include="img\test\Mini.png" />
     <Content Include="img\test\Standart.png" />
-    <Content Include="scripts\admingame.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="scripts\file1.js" />
     <Content Include="scripts\Games.js" />
-    <Content Include="scripts\login.js" />
     <Content Include="scripts\script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -204,6 +204,7 @@
     <Compile Include="ViewModels\VMBasket.cs" />
     <Compile Include="ViewModels\VMCheckout.cs" />
     <Compile Include="ViewModels\VMCreateProduct.cs" />
+    <Compile Include="ViewModels\VMEditProduct.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
     <Compile Include="ViewModels\VMProductSingle.cs" />
     <Compile Include="ViewModels\VMGames.cs" />
@@ -268,9 +269,7 @@
     <Content Include="Views\Admin\EditSize.cshtml" />
     <Content Include="Views\Admin\index.cshtml" />
     <Content Include="Views\Admin\CreateProduct.cshtml" />
-    <Content Include="scripts\login.js.map" />
-    <Content Include="scripts\admingame.js.map" />
-    <Content Include="scripts\file1.js.map" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Shop\OrderConfirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -285,9 +284,7 @@
     <Folder Include="Views\obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="scripts\admingame.ts" />
     <TypeScriptCompile Include="scripts\file1.ts" />
-    <TypeScriptCompile Include="scripts\login.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>

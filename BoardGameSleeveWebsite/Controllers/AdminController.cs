@@ -195,6 +195,64 @@ namespace BoardGameSleeveWebsite.Controllers
             return RedirectToAction("createProduct", "Admin");
         }
 
+        [HttpGet]
+        public ActionResult EditProduct(int id)
+        {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return this.RedirectToAction("Login");
+
+            Product p = service.getProductFromID(id);
+
+            VMEditProduct ep = new VMEditProduct();
+            ep.ID = p.ID;
+            ep.Name = p.Name;
+            ep.Description = p.Description;
+            ep.Color = p.Color;
+            ep.Price = Convert.ToDecimal(p.Price);
+            ep.InStock = Convert.ToInt32(p.InStock);
+            ep.SleeveCountInProduct = Convert.ToInt32(p.SleeveCountInProduct);
+            ep.Sizes = service.GetSize();
+            ep.Img = p.Img;
+            ep.selectedSize = p.Size.ID.ToString();
+
+            return View(ep);
+        }
+
+        [HttpPost]
+        public ActionResult EditProduct(VMEditProduct vm, HttpPostedFileBase file)
+        {
+            if (this.HasLoginCredentialsInCookies() == false)
+                return this.RedirectToAction("Login");
+
+            Product p = new Product();
+            p.ID = vm.ID;
+            p.Name = vm.Name;
+            p.Description = vm.Description;
+            p.Color = vm.Color;
+            p.Price = vm.Price;
+            p.InStock = vm.InStock;
+            p.SleeveCountInProduct = vm.SleeveCountInProduct;
+            p.Size = service.getSizeFromId(Convert.ToInt32(vm.selectedSize));
+
+            if (file != null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(Server.MapPath("~/img/Products"), pic);
+
+                p.Img = pic;
+        
+                file.SaveAs(path);
+            }else
+            {
+                p.Img = vm.Img;
+            }
+
+            service.EditProduct(p.ID, p.Name, p.Description, p.Color, Convert.ToDecimal(p.Price), Convert.ToInt32(p.InStock), Convert.ToInt32(p.SleeveCountInProduct), p.Size, p.Img );
+
+            return RedirectToAction("Product", "Admin");
+        }
+
+
         [WebMethod]
         public void DeleteProduct(int id)
         {

@@ -1,5 +1,6 @@
 ﻿using BoardGameSleeveWebsite.services;
 using BoardGameSleeveWebsite.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,19 @@ namespace BoardGameSleeveWebsite.Controllers
             }
             
 
+        }
+
+        [WebMethod]
+        public object GetGamesOfProduct(int productId)
+        {
+            List<string> Games = new List<string>();
+            foreach(var g in service.GetGamesOfProduct(productId))
+            {
+                Games.Add(g.Name);
+            }
+
+
+            return JsonConvert.SerializeObject(Games); ;
         }
     }
 }

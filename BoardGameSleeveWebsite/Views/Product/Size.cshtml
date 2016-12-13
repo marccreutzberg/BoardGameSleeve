@@ -6,41 +6,46 @@
 	int count = 0;
 }
 <main class="products">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1>@Model.Products.FirstOrDefault().Size.Name.ToUpper() SLEEVES</h1>
-			</div>
-		</div>
-		<hr />
-		<div class="row">
-			@foreach (var p in Model.Products)
-			{
-				<div class="col-md-4">
-					<div class="product">
-						<img src="~/img/Products/@p.Img" />
-						<h3>Board Game Sleeves •  @p.Size.Name</h3>
-						<h4>@p.Name</h4>
-						<h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
-						<h4>Color: @p.Color</h4>
-						@{
-							string href = "href=/product/singleproduct/" + p.ID;
-						}
-						<p>
-							@(!String.IsNullOrWhiteSpace(p.Description) && p.Description.Length >= 25 ?
-								p.Description.Substring(0, 25) + "...." : p.Description).
-						</p>
-					<a @href>
-						Add to cart
-					</a>
-				</div>
-			</div>
-			count++;
-			if (count % 3 == 0)
-			{
-				@Html.Raw("</div> <hr /> <div class=\"row\">");
-				}
-			}
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@Model.Products.FirstOrDefault().Size.Name.ToUpper() SLEEVES</h2>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            @foreach (var p in Model.Products)
+            {
+                count++;
+                <div class="col-md-4">
+                    <div class="product">
+                        @{
+                            string href = "href=/product/singleproduct/" + p.ID;
+                        }
+                        <a @href>
+                            <img src="~/img/Products/@p.Img" />
+                        </a>
+                        <h3>Board Game Sleeves •  @p.Size.Name</h3>
+                        <h4>@p.Name</h4>
+                        <h4>Size: @p.Size.Width x @p.Size.Height mm</h4>
+
+                        <h4>Color: @p.Color</h4>
+                        <h4>  @(!String.IsNullOrWhiteSpace(p.Description) && p.Description.Length >= 25 ? p.Description.Substring(0, 25) + "...." : p.Description).</h4>
+
+                        <h4>Price: @p.Price</h4>
+                        <a class="productLink" @href>
+                            Add to cart
+                        </a>
+                    </div>
+                </div>
+
+                            if (count % 3 == 0)
+                            {
+                                @Html.Raw("</div> <hr /> <div class=\"row\">");
+                                }
+                            }
+        </div>
+    </div>
+
+
 </main>
