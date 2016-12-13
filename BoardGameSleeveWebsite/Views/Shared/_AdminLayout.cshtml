@@ -16,10 +16,18 @@
 
     <script>
         $(document).ready(function () {
-            windowsize = 0;
-            windowsize = $(document).height() - 40;
-            $(".administrationsNavn").height(windowsize);
+
+            if ($(window).width() > 992) {
+
+                windowsize = 0;
+                windowsize = $(document).height() - 40;
+                $(".administrationsNavn").height(windowsize);
+            } else {
+                $(".administrationsNavn").height(auto);
+            }
+
         });
+
     </script>
 </head>
 <body>
