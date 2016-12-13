@@ -153,6 +153,5 @@ C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\Sy
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\EntityFramework.xml
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb

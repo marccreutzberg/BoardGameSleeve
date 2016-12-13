@@ -208,6 +208,7 @@
     <Compile Include="DataModels\Size.cs" />
     <Compile Include="ViewModels\VMBasket.cs" />
     <Compile Include="ViewModels\VMCheckout.cs" />
+    <Compile Include="ViewModels\VMContactForm.cs" />
     <Compile Include="ViewModels\VMCreateProduct.cs" />
     <Compile Include="ViewModels\VMEditProduct.cs" />
     <Compile Include="ViewModels\VMProducts.cs" />
