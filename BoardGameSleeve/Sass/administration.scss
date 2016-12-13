@@ -1,5 +1,6 @@
 ﻿$blackcolor: #3d3d3d;
 $WhiteColor: #fff;
+$textBlue: #8cc1e3;
 
 h1 {
     color: $WhiteColor;
@@ -81,7 +82,8 @@ h1 {
     }
 }
 
-#create-size-button, #edit-chosen-size-button, #product-Create-Button, .createProductButton {
+#create-size-button, #edit-chosen-size-button, #product-Create-Button, .createProductButton, #addNewGameButton, #editAddForm_acceptButton,
+#editAddForm_cancelButton {
     cursor: pointer;
     background-color: $blackcolor;
     -moz-border-radius: 8px;
@@ -246,4 +248,9 @@ h1 {
 
 #editAddForm {
     display: none;
+}
+
+#editAddForm {
+    clear: both;
+    margin-top: 100px;
 }
