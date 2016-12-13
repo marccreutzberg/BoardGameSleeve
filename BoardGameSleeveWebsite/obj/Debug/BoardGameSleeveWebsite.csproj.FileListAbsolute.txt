@@ -155,3 +155,4 @@ C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\En
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
+C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache

@@ -63,3 +63,4 @@ C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeve\bin\Debug\Boa
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeve\bin\Debug\BoardGameSleeve.pdb
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.exe
 C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.pdb
+C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeve\obj\Debug\BoardGameSleeve.csprojResolveAssemblyReference.cache
