@@ -1262,6 +1262,54 @@ tbody tr:nth-child(2n+1) {
     color: white;
     border-width: 0; }
 
+/*Index search*/
+#game-dropdown {
+  width: 500px;
+  display: none; }
+
+.product-option {
+  height: 100px;
+  background-size: 100px 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin: 10px; }
+
+#game-dropdown option:hover {
+  background-color: #f2f6fa;
+  cursor: pointer; }
+
+#size-dropdown option:hover {
+  background-color: #f2f6fa;
+  cursor: pointer; }
+
+#size-dropdown {
+  width: 600px;
+  display: none; }
+
+.size-option {
+  height: 50px;
+  margin: 10px; }
+
+.search-size {
+  display: none; }
+
+.searchWidthHeight {
+  border: 1px solid #dcdcdc;
+  color: #dcdcdc;
+  padding-left: 50px;
+  background-image: url("/img/Search-icon.png");
+  background-repeat: no-repeat;
+  background-position: 15px, center;
+  height: 50px;
+  width: 235px;
+  margin-right: 10px;
+  margin-top: 40px; }
+
+.highlight-browse {
+  opacity: 0.5; }
+  .highlight-browse:hover {
+    opacity: 1.0; }
+
 @media (max-width: 768px) {
   .basket {
     margin-top: 0; }
