@@ -283,7 +283,7 @@ tbody tr:nth-child(2n+1) {
     display: none;
 }
 
-.size-option{
+.size-option {
     height: 50px;
     margin: 10px;
 }
@@ -305,12 +305,41 @@ tbody tr:nth-child(2n+1) {
     margin-top: 40px;
 }
 
-.highlight-browse{
+.highlight-browse {
     opacity: 0.5;
 
-    &:hover{
+    &:hover {
         opacity: 1.0;
     }
 }
 
 
+/*Basket*/
+#add-quantity, #subtract-quantity {
+    cursor: pointer;
+}
+
+
+#add-quantity:hover, #subtract-quantity:hover {
+    box-shadow: 2px 2px 2px 2px grey;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#progress {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    z-index: 5000;
+    display: none;
+}
