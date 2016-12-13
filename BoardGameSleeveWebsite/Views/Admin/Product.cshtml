@@ -2,7 +2,25 @@
 @{
     ViewBag.Title = "createProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool? isValid = (bool?)ViewData["isValid"];
 }
+
+<script>
+    $(document).ready(function () {
+        var bool = @Json.Encode(isValid);
+
+
+        if(bool = true && bool != null){
+
+            //Popup
+            setTimeout(function () {
+                //Luk popup
+            }, 2000);
+
+        }
+    });
+</script>
+
 <div class="row">
     <div class="col-md-12">
         <h2>Board Game Sleeves</h2>

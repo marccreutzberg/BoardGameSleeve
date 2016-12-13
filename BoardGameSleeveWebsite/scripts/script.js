@@ -413,8 +413,6 @@
     }
 
 
-
-
     return {
         addToCart: addToCart,
         createSize: createSize,

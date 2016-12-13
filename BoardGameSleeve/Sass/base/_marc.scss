@@ -409,6 +409,9 @@ footer {
     }
 }
 
+.validation-error {
+    color: #cc0000;
+}
 
 /*checkout*/
 
@@ -418,10 +421,6 @@ footer {
     h1 {
         text-align: center;
         margin: 0 0 20px;
-    }
-
-    .validation-error {
-        color: #cc0000;
     }
 
     .total {
@@ -507,15 +506,16 @@ footer {
 }
 
 
-.about{
+.about {
 
-    h2{
+    h2 {
         margin: 30px 0 0 0;
     }
 
-    p{
+    p {
         margin: 0 0 20px;
     }
+
     padding-bottom: 40px;
 }
 

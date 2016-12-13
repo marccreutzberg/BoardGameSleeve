@@ -933,14 +933,15 @@ footer {
 .basketCheckOut a:hover {
   color: #8cc1e3; }
 
+.validation-error {
+  color: #cc0000; }
+
 /*checkout*/
 .checkOut {
   padding: 30px 0; }
   .checkOut h1 {
     text-align: center;
     margin: 0 0 20px; }
-  .checkOut .validation-error {
-    color: #cc0000; }
   .checkOut .total {
     font-weight: bold; }
 

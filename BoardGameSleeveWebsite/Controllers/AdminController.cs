@@ -47,11 +47,12 @@ namespace BoardGameSleeveWebsite.Controllers
             return this.View("Product", products);
         }
 
-        public ActionResult Product()
+        public ActionResult Product(bool? isValid)
         {
             if (this.HasLoginCredentialsInCookies() == false)
                 return this.RedirectToAction("Login");
             List<Product> products = service.GetAlleProducts();
+            this.ViewData["isValid"] = isValid;
 
             return View(products);
         }
@@ -152,6 +153,15 @@ namespace BoardGameSleeveWebsite.Controllers
             return Content("redirect");
         }
 
+
+
+
+
+
+        #endregion
+
+
+        #region Product
         [HttpGet]
         public ActionResult CreateProduct()
         {
@@ -172,28 +182,33 @@ namespace BoardGameSleeveWebsite.Controllers
             if (this.HasLoginCredentialsInCookies() == false)
                 return this.RedirectToAction("Login");
 
-            Product p1 = new Product();
-            p1.Name = vm.Name;
-            p1.Description = vm.Description;
-            p1.Color = vm.Color;
-            p1.Price = vm.Price;
-            p1.SleeveCountInProduct = vm.SleeveCountInProduct;
-            p1.InStock = vm.InStock;
-            p1.Size = service.getSizeFromId(Convert.ToInt32(vm.selectedSize));
-
-            if (file != null)
+            if (ModelState.IsValid && file != null)
             {
+                Product p1 = new Product();
+                p1.Name = vm.Name;
+                p1.Description = vm.Description;
+                p1.Color = vm.Color;
+                p1.Price = vm.Price;
+                p1.SleeveCountInProduct = vm.SleeveCountInProduct;
+                p1.InStock = vm.InStock;
+                p1.Size = service.getSizeFromId(Convert.ToInt32(vm.selectedSize));
+
                 string pic = System.IO.Path.GetFileName(file.FileName);
                 string path = System.IO.Path.Combine(Server.MapPath("~/img/Products"), pic);
 
                 p1.Img = pic;
 
                 file.SaveAs(path);
+
+                service.CreateProduct(p1);
+
+                return RedirectToAction("Product", new { isValid = ModelState.IsValid });
+
             }
 
-            service.CreateProduct(p1);
+            vm.Size = service.GetSize();
+            return View("createProduct", vm);
 
-            return RedirectToAction("createProduct", "Admin");
         }
 
         [HttpGet]
@@ -263,10 +278,6 @@ namespace BoardGameSleeveWebsite.Controllers
 
             service.deleteProductFromID(id);
         }
-
-
-
-
         #endregion
     }
 }
