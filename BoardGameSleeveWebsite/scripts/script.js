@@ -300,6 +300,7 @@
         $("#game-dropdown").css("display", "block");
         $("#game-dropdown").children("option").hide();
         var gameSizeDropdown = 0;
+        $(".search-match").remove();
 
         if (searchToUpperCase != "") {
             $("#game-dropdown option").each(function (i) {
@@ -316,6 +317,7 @@
                         $.each(games, function (key, value) {
                             if (value.toUpperCase().indexOf(searchToUpperCase) >= 0) {
                                 showOption = true;
+                                $("option[value^=" + optionValue + "]").append("<b class='search-match'>" + value + "&nbsp; </b>");
                             }
                         })
 
@@ -342,8 +344,13 @@
                 $("#game-dropdown").children("option[value^=" + "empty" + "]").show();
                 gameSizeDropdown += 1;
             }
+            if (gameSizeDropdown > 4) {
+                $("#game-dropdown").attr("size", 4);
+            }
+            else {
+                $("#game-dropdown").attr("size", gameSizeDropdown);
+            }
 
-            $("#game-dropdown").attr("size", gameSizeDropdown);
         }
     }
 
