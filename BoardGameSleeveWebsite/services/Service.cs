@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using BoardGameSleeveWebsite.ViewModels;
+using System.Net.Mail;
 
 namespace BoardGameSleeveWebsite.services
 {
@@ -14,8 +15,26 @@ namespace BoardGameSleeveWebsite.services
         {
             VMHome home = new VMHome();
             home.TopProducts = new List<Product>();
-            home.DropDownProducts = dbContext.Products.ToList();
             home.DropDownSizes = dbContext.Sizes.ToList();
+            home.DropDownProducts = new List<DropDownProduct>();
+
+            foreach (var p in dbContext.Products)
+            {
+                DropDownProduct d = new DropDownProduct();
+                d.Id = p.ID;
+                d.Name = p.Name;
+                d.Img = p.Img;
+                d.Games = new List<string>();
+
+                foreach (var g in p.Size.Games)
+                {
+                    d.Games.Add(g.Name);
+                }
+                home.DropDownProducts.Add(d);
+
+
+
+            }
 
 
             var products = from p in dbContext.Products
@@ -51,7 +70,7 @@ namespace BoardGameSleeveWebsite.services
                 product.Name = (string)p.Name;
                 product.Color = (string)p.Color;
                 product.Size = new Size();
-                product.Size.Height = (int) p.Height;
+                product.Size.Height = (int)p.Height;
                 product.Size.Width = (int)p.Width;
                 product.Img = (string)p.Img;
                 product.Price = (decimal)p.Price;
@@ -345,10 +364,48 @@ namespace BoardGameSleeveWebsite.services
             return dbContext.Products.Where(x => x.ID == id).FirstOrDefault();
         }
 
-        public List<Game>GetGamesOfProduct(int productId)
+        public List<Game> GetGamesOfProduct(int productId)
         {
             return dbContext.Products.Where(x => x.ID == productId).Select(y => y.Size).SelectMany(z => z.Games).ToList();
         }
 
+        public void sendContactFormEmail(VMContactForm VM)
+        {
+
+            // Using Google's SMTP 
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("Creutzberq@gmail.com", "ztwxercx4321");
+            client.UseDefaultCredentials = false;
+            client.Credentials = credentials;
+
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(VM.Email);
+            msg.To.Add(new MailAddress("Creutzberq@gmail.com"));
+
+            msg.Subject = "Board Game Sleeve - Contact FOrm";
+            msg.IsBodyHtml = true;
+            msg.Body = string.Format("<html><head></head><body><strong>Name: </strong> "  + VM.Name + "<br /><strong>Email: </strong> " + VM.Email + "<br /> <strong>Message: </strong> " +VM.Message + "</body></html>");
+
+            // Afsender mailen
+            try
+            {
+                //most be on a secure connection aka a online server
+                client.Send(msg);
+            }
+            catch (Exception)
+            {
+
+                
+            }
+  
+
+
+
+        }
     }
 }
