@@ -200,6 +200,7 @@
         $('.delete-popup').fadeIn();
         $('.' + id).hide();
         setTimeout(function () {
+         
             $('.delete-popup').fadeOut();
         }, 3000);
 
