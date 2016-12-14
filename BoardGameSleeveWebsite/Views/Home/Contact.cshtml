@@ -1,11 +1,8 @@
-﻿
+﻿@using BoardGameSleeveWebsite.ViewModels
+@model VMContactForm
 @{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@section css
-{
-
 }
 <div class="container contact">
     <div class="row">
@@ -38,13 +35,27 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <h2>Contact Formula</h2>
-            <div>
-                <input type="email" placeholder="Email" />
-                <br />
-                <br />
-                <textarea placeholder="Your Inquiry"></textarea>
-                <button id="contactFormSendBtn">SEND</button>
-            </div>
+
+            @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+            {
+                <p>First* & Last name*  </p>
+                @Html.TextBoxFor(m => m.Name, new { @class = "checkout-field", id = "name-field" })
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.Name)</p>
+
+                <p>Email*  </p>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "checkout-field", id = "Email-field" })
+                    <p class="validation-error">@Html.ValidationMessageFor(m => m.Email)</p>
+
+                    <h4>Message</h4>
+                    @Html.TextAreaFor(x => x.Message, new { @class = "checkout-field", id = "Message-field" })
+                    <p class="validation-error">@Html.ValidationMessageFor(m => m.Message)</p>
+
+                    <input type="submit" value="Send Email" />
+            }
+            <h3>
+                @ViewBag.signifier
+            </h3>
+
         </div>
     </div>
 </div>

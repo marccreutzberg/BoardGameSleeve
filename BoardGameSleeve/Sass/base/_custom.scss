@@ -409,6 +409,9 @@ footer {
     }
 }
 
+.validation-error {
+    color: #cc0000;
+}
 
 /*checkout*/
 
@@ -418,10 +421,6 @@ footer {
     h1 {
         text-align: center;
         margin: 0 0 20px;
-    }
-
-    .validation-error {
-        color: #cc0000;
     }
 
     .total {
@@ -450,7 +449,7 @@ footer {
         margin-left: 15px;
     }
 
-    .validation-error{
+    .validation-error {
         margin: 0;
     }
 }
@@ -504,119 +503,394 @@ footer {
 }
 
 .GamesTable {
+    .firstGameCol, .secoundGameCol {
+        cursor: pointer;
+    }
+
+    a {
+        color: $backColor;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
     td {
         margin-bottom: 20px;
         font-family: 'Mission Gothic';
         font-weight: normal;
     }
+    margin-bottom: 40px;
 }
 
 
-.about{
+.about {
 
-    h2{
+    h2 {
         margin: 30px 0 0 0;
     }
 
-    p{
+    p {
         margin: 0 0 20px;
     }
+
     padding-bottom: 40px;
 }
 
-@font-face {
-    font-family: 'Mission Gothic Regular';
-    src: url('/font/MissionGothic-RegularItalic.eot');
-    src: url('/font/MissionGothic-RegularItalic.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-RegularItalic.woff') format('woff'), url('/font/MissionGothic-RegularItalic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
+.productPage {
+    padding-top: 30px;
 }
 
-@font-face {
-    font-family: 'Mission Gothic';
-    src: url('/font/MissionGothic-Regular.eot');
-    src: url('/font/MissionGothic-Regular.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-Regular.woff') format('woff'), url('/font/MissionGothic-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+.product-box {
+    height: 380px;
+    border: 1px solid $borderGray;
 }
 
-@font-face {
-    font-family: 'Mission Gothic';
-    src: url('/font/MissionGothic-Black.eot');
-    src: url('/font/MissionGothic-Black.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-Black.woff') format('woff'), url('/font/MissionGothic-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
+#product-image {
+    @extend .product-box;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    img {
+        width: 65%;
+    }
 }
 
-@font-face {
-    font-family: 'Mission Gothic Bold';
-    src: url('/font/MissionGothic-BoldItalic.eot');
-    src: url('/font/MissionGothic-BoldItalic.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-BoldItalic.woff') format('woff'), url('/font/MissionGothic-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
+#product-info {
+    @extend .product-box;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $backgroundGray;
+
+    .basketPopup {
+        display: none;
+        bottom: 65px;
+        right: 60px;
+        text-align: center;
+        width: 165px;
+        height: 50px;
+        padding: 10px;
+        border: 1px solid $borderGray;
+        position: absolute;
+        background-size: 20px;
+        background-color: #fff;
+        padding-bottom: 18px;
+
+        .basketPopupcontent {
+            margin-bottom: 7px;
+        }
+
+        img {
+        }
+
+        h4 {
+            margin: 0;
+            margin-bottom: 5px;
+            font-size: 24px;
+            font-family: 'Mission Gothic';
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 16px;
+            font-family: 'Mission Gothic Light';
+        }
+    }
+
+    hr {
+        margin: 15px 0px 15px 0px;
+        background-color: #dcdcdc;
+    }
+
+    p {
+        margin: 0px;
+    }
+
+    input {
+        width: 50px;
+    }
+
+    #add-to-cart {
+        margin-top: 30px;
+
+        p {
+            float: left;
+            margin-right: 15px;
+        }
+
+        button {
+            float: right;
+        }
+    }
 }
 
-@font-face {
-    font-family: 'Mission Gothic';
-    src: url('/font/MissionGothic-Bold.eot');
-    src: url('/font/MissionGothic-Bold.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-Bold.woff') format('woff'), url('/font/MissionGothic-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+@mixin productHeaders {
+    .product-header {
+        margin: -78px 0px 0px -1px;
+        border: 2px solid $borderGray;
+        height: 75px;
+        width: 50%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    margin-top: 200px;
+
+    p {
+        margin: 15px;
+    }
 }
 
-@font-face {
-    font-family: 'Mission Gothic';
-    src: url('/font/MissionGothic-Light.eot');
-    src: url('/font/MissionGothic-Light.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-Light.woff') format('woff'), url('/font/MissionGothic-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
+#product-games {
+    @extend .product-box;
+    @include productHeaders;
+    margin-top: 150px;
+    width: 100%;
+
+    ul {
+        list-style-type: none;
+        margin-left: -20px;
+    }
 }
 
-@font-face {
-    font-family: 'Mission Gothic Thin';
-    src: url('/font/MissionGothic-ThinItalic.eot');
-    src: url('/font/MissionGothic-ThinItalic.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-ThinItalic.woff') format('woff'), url('/font/MissionGothic-ThinItalic.ttf') format('truetype');
-    font-weight: 100;
-    font-style: italic;
+#product-description {
+    @extend .product-box;
+    @include productHeaders;
+    margin-top: 150px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-@font-face {
-    font-family: 'Mission Gothic Black';
-    src: url('/font/MissionGothic-BlackItalic.eot');
-    src: url('/font/MissionGothic-BlackItalic.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-BlackItalic.woff') format('woff'), url('/font/MissionGothic-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
-}
+.button {
+    background-color: $textBlue;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    border-radius: 35px;
+    float: right;
+    text-align: center;
+    padding: 10px 60px 10px 60px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
 
-@font-face {
-    font-family: 'Mission Gothic';
-    src: url('/font/MissionGothic-Thin.eot');
-    src: url('/font/MissionGothic-Thin.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-Thin.woff') format('woff'), url('/font/MissionGothic-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Mission Gothic Light';
-    src: url('/font/MissionGothic-LightItalic.eot');
-    src: url('/font/MissionGothic-LightItalic.eot?#iefix') format('embedded-opentype'), url('/font/MissionGothic-LightItalic.woff') format('woff'), url('/font/MissionGothic-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-}
-
-
-
-
-
-/*@media (min-width: @screen-sm-min) {
-    .browse{
-        width: 46%;
-        margin: 0 2%;
+    &:hover {
+        background-color: black;
     }
 }
 
 
-@media (min-width: @screen-md-min) { }
+#add-cart-button {
+    @extend .button;
+}
+
+#print-receipt {
+    @extend .button;
+    float: left;
+    margin-bottom: 30px;
+
+    &:after {
+        clear: both;
+    }
+}
+
+/*Confirmation Order*/
+#confirmation-items {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+}
 
 
-@media (min-width: @screen-lg-min) {  }*/
+table {
+    max-width: 100%;
+}
+
+table, td {
+    border: 1px solid black;
+    padding: 5px;
+    vertical-align: baseline;
+}
+
+th {
+    padding: 10px;
+    font-size: 1.2em;
+    min-width: 150px;
+    width: 300px;
+    max-width: 100%;
+}
+
+thead {
+    background-color: $textBlue;
+}
+
+thead th.column-active {
+    color: white;
+}
+
+tbody tr:nth-child(2n+1) {
+    background-color: rgb(230,230,230);
+}
+
+
+.contact {
+    padding-bottom: 30px;
+
+    #googlemaps img {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        height: 250px;
+    }
+
+    table td {
+        vertical-align: super;
+        width: 50%;
+    }
+
+    .colorGray {
+        color: rgb(135, 135, 135);
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        height: 200px;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .marginTop0 {
+        margin-top: 0;
+    }
+
+    p {
+        margin: 20px 0 0 0;
+    }
+
+    .validation-error {
+        margin: 0 0 20px;
+    }
+
+
+    #contactFormSendBtn {
+        padding: 5px;
+        margin-top: 11px;
+        width: 300px;
+        background-color: #01020a;
+        -moz-border-radius: 35px;
+        -webkit-border-radius: 35px;
+        border-radius: 35px;
+        color: white;
+        border-width: 0;
+    }
+}
+
+/*Index search*/
+
+#game-dropdown {
+    width: 500px;
+    display: none;
+}
+
+.product-option {
+    height: 100px;
+    background-size: 100px 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin: 10px;
+}
+
+#game-dropdown option:hover {
+    background-color: #f2f6fa;
+    cursor: pointer;
+}
+
+#size-dropdown option:hover {
+    background-color: #f2f6fa;
+    cursor: pointer;
+}
+
+#size-dropdown {
+    width: 600px;
+    display: none;
+}
+
+.size-option {
+    height: 50px;
+    margin: 10px;
+}
+
+.search-size {
+    display: none;
+}
+
+.searchWidthHeight {
+    border: 1px solid $borderGray;
+    color: $borderGray;
+    padding-left: 50px;
+    background-image: url('/img/Search-icon.png');
+    background-repeat: no-repeat;
+    background-position: 15px, center;
+    height: 50px;
+    width: 235px;
+    margin-right: 10px;
+    margin-top: 40px;
+}
+
+.highlight-browse {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1.0;
+    }
+}
+
+
+/*Basket*/
+#add-quantity, #subtract-quantity {
+    cursor: pointer;
+}
+
+
+#add-quantity:hover, #subtract-quantity:hover {
+    color: $textBlue;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#progress {
+    width: 100px;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    z-index: 5000;
+    display: none;
+}

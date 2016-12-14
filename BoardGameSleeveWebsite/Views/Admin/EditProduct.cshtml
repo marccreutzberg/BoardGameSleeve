@@ -17,6 +17,7 @@
             {
             <div class="col-md-4">
 
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.Name)</p>
                 <p>Name</p>
                 @Html.HiddenFor(m => m.ID)
                 @Html.HiddenFor(m => m.Img)
@@ -26,15 +27,19 @@
                 <p>Description</p>
                 @Html.TextAreaFor(m => m.Description)
 
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.Color)</p>
                 <p>Color</p>
                 @Html.TextBoxFor(m => m.Color)
 
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.Price)</p>
                 <p>Price</p>
                 @Html.TextBoxFor(m => m.Price)
 
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.SleeveCountInProduct)</p>
                 <p>Product in pack</p>
                 @Html.TextBoxFor(m => m.SleeveCountInProduct)
 
+                <p class="validation-error">@Html.ValidationMessageFor(m => m.InStock)</p>
                 <p>In Stock</p>
                 @Html.TextBoxFor(m => m.InStock)
 

@@ -1,5 +1,5 @@
 ﻿var functions = (function () {
-    var gameSizeDropdown = 0;
+
 
     function addToCart() {
 
@@ -38,7 +38,7 @@
         var descriptionVal = $("#description-Size").val();
 
         if (nameVal === "") {
-            $('#name-Size').after('<p style=\' color: red; margin: 0;\'>Write a Size name</p>');
+            $("#size-error").text("Write a Size name");
             error++;
         }
 
@@ -53,6 +53,7 @@
 
             $('.delete-popup h3').text('Size has been created');
             $('.delete-popup').fadeIn();
+            $("#size-error").text("");
 
             setTimeout(function () {
                 top.location.href = "/admin/Size";
@@ -198,10 +199,13 @@
         });
 
         $('.delete-popup').fadeIn();
+        $('.delete-popup h3').text('The product has been deleted');
         $('.' + id).hide();
         setTimeout(function () {
          
             $('.delete-popup').fadeOut();
+            $('.delete-popup h3').text();
+            location.reload();
         }, 3000);
 
 
@@ -217,12 +221,12 @@
 
 
         if (nameVal === "") {
-            $('#name-Size').after('<p style=\' color: red; margin: 0;\'>Write a Size name</p>');
+            $('#edit-size-error').text('Write a Size name');
             error++;
         }
 
         if (error === 0) {
-
+            $('#edit-size-error').text('');
             $.ajax({
                 type: "POST",
                 url: "/Admin/EditChosenSize",
@@ -239,7 +243,7 @@
                 top.location.href = "/admin/size";
             }, 3000);
 
-            
+
 
         }
     }
@@ -296,8 +300,8 @@
         var searchToUpperCase = searchInput.toUpperCase();
         $("#game-dropdown").css("display", "block");
         $("#game-dropdown").children("option").hide();
-        gameSizeDropdown = 0;
-
+        var gameSizeDropdown = 0;
+        $(".search-match").remove();
 
         if (searchToUpperCase != "") {
             $("#game-dropdown option").each(function (i) {
@@ -306,54 +310,50 @@
                 var text = this.text;
 
                 if (optionValue != 0 && optionValue != "empty") {
-                    $.ajax({
-                        type: "POST",
-                        url: "product/GetGamesOfProduct",
-                        data: JSON.stringify({ productId: optionValue }),
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: function (dbdata) {
-                            games = dbdata;
-                            var showOption = new Boolean(false);
+                    var json = $(this).attr("data-games");
+                    var games = JSON.parse(json);
+                    var showOption = new Boolean(false);
 
-                            if (games != "") {
-                                $.each(games, function (key, value) {
-                                    if (value.toUpperCase().indexOf(searchToUpperCase) >= 0) {
-                                        showOption = true;
-                                    }
-                                })
-
-                                if (showOption === true) {
-                                    $("#game-dropdown").children("option[value^=" + optionValue + "]").show();
-                                    gameSizeDropdown += 1;
-                                }
-
-                                else {
-                                    $("#game-dropdown").children("option[value^=" + optionValue + "]").hide();
-                                }
+                    if (games != "") {
+                        $.each(games, function (key, value) {
+                            if (value.toUpperCase().indexOf(searchToUpperCase) >= 0) {
+                                showOption = true;
+                                $("option[value^=" + optionValue + "]").append("<b class='search-match'>" + value + "&nbsp; </b>");
                             }
+                        })
 
-                            else {
-                                $("#game-dropdown").children("option[value^=" + optionValue + "]").hide();
-                            }
-                        }
-                    })
-
+                    }
                 }
-                //Magic alert
-                //alert("");
 
+                if (showOption === true) {
+                    $("#game-dropdown").children("option[value^=" + optionValue + "]").show();
+                    gameSizeDropdown += 1;
+                }
+
+                else {
+                    $("#game-dropdown").children("option[value^=" + optionValue + "]").hide();
+                }
             })
-        }
 
-        if (gameSizeDropdown === 0) {
-            $("#game-dropdown").children("option[value^=" + 0 + "]").show();
-            $("#game-dropdown").children("option[value^=" + "empty" + "]").hide();
-            gameSizeDropdown += 2;
+            if (gameSizeDropdown === 0) {
+                $("#game-dropdown").children("option[value^=" + 0 + "]").show();
+                $("#game-dropdown").children("option[value^=" + "empty" + "]").hide();
+                gameSizeDropdown += 2;
+            }
+
+            if (gameSizeDropdown === 1) {
+                $("#game-dropdown").children("option[value^=" + "empty" + "]").show();
+                gameSizeDropdown += 1;
+            }
+            if (gameSizeDropdown > 4) {
+                $("#game-dropdown").attr("size", 4);
+            }
+            else {
+                $("#game-dropdown").attr("size", gameSizeDropdown);
+            }
+
         }
-        $("#game-dropdown").attr("size", gameSizeDropdown);
     }
-
 
     function hideSearchResults() {
         var id = $(this).attr("data-id");
@@ -395,12 +395,14 @@
             $("#game-browse").removeClass("highlight-browse");
             $("#size-browse").addClass("highlight-browse");
             $(".search-size").css("display", "none");
+            $("#size-dropdown").css("display", "none");
         }
         else {
             $(".search-size").css("display", "block");
             $(".search-game").css("display", "none");
             $("#size-browse").removeClass("highlight-browse");
             $("#game-browse").addClass("highlight-browse");
+            $("#game-dropdown").css("display", "none");
         }
 
     }
@@ -449,8 +451,6 @@
     }
 
 
-
-
     return {
         addToCart: addToCart,
         createSize: createSize,
@@ -470,7 +470,6 @@
         gameSearchToProduct: gameSearchToProduct,
         sizeSearchToProduct: sizeSearchToProduct,
         searchSizes: searchSizes,
-        gameSizeDropdown: gameSizeDropdown,
     }
 })();
 

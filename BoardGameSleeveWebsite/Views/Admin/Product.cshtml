@@ -2,7 +2,28 @@
 @{
     ViewBag.Title = "createProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool? isValid = (bool?)ViewData["isValid"];
+    string type = (string)ViewData["type"];
 }
+
+<script>
+    $(document).ready(function () {
+        var bool = @Json.Encode(isValid);
+
+
+        if(bool === true && bool != null){
+            var text = @Html.Raw(Json.Encode(type));
+            $('.delete-popup').fadeIn();
+            $('.delete-popup h3').text('The product has been ' + text);
+            setTimeout(function () {
+                $(".delete-popup").fadeOut();
+                $('.delete-popup h3').text("");
+            }, 3000);
+
+        }
+    });
+</script>
+
 <div class="row">
     <div class="col-md-12">
         <h2>Board Game Sleeves</h2>
@@ -45,5 +66,7 @@
 </div>
 
 <div class="delete-popup">
-    <h2>The Product has been deleted</h2>
+    <h3></h3>
 </div>
+
+

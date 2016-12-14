@@ -25,8 +25,8 @@
 				<table class="GamesTable">
 					<thead>
 						<tr>
-							<th class="column-active" onclick="sortGame();">Find by Game</th>
-							<th onclick="sortSize();">Find by Size</th>
+							<th class="column-active firstGameCol" onclick="sortGame();">Find by Game</th>
+							<th class="secoundGameCol" onclick="sortSize();">Find by Size</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -36,7 +36,20 @@
 							{
 								<tr>
 									<td>@games[i].Name</td>
-									<td>@games[i].SizeText</td>
+									<td>
+										@for (int j = 0; j < games[i].Sizes.Count; j++)
+										{
+											string href = "href=/product/size/" + games[i].Sizes[j].Item1;
+											if (j + 1 < games[i].Sizes.Count)
+											{
+												<a @href>@games[i].Sizes[j].Item2</a><span>,</span>
+											}
+											else
+											{
+												<a @href>@games[i].Sizes[j].Item2</a>
+											}
+										}
+									</td>
 								</tr>
 							}
 						}
@@ -47,7 +60,10 @@
 							for (int i = 0; i < sizes.Count; i++)
 							{
 								<tr>
-									<td>@sizes[i].Name</td>
+									@{ 
+										string href = "href=/product/size/" + sizes[i].Id;
+									}
+									<td><a @href>@sizes[i].Name</a></td>
 									<td>
 										@if (sizes[i].Games.Count == 0)
 										{

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BoardGameSleeveWebsite.ViewModels;
+using Newtonsoft.Json;
 
 namespace BoardGameSleeveWebsite.Controllers
 {
@@ -16,17 +17,35 @@ namespace BoardGameSleeveWebsite.Controllers
         public ActionResult Index()
         {
             VMHome model = service.HomeModel();
+
+            foreach (var d in model.DropDownProducts)
+            {
+                d.JsonGames = JsonConvert.SerializeObject(d.Games);
+            }
+
             return View("Index", model);
         }
 
         public ActionResult Contact()
         {
-            return View("Contact");
+            VMContactForm vm = new VMContactForm();
+            return View(vm);
         }
 
         public ActionResult About()
         {
             return View("About");
+        }
+
+        [HttpPost]
+        public ActionResult Contact(VMContactForm vm)
+        {
+            service.sendContactFormEmail(vm);
+
+            ViewBag.signifier = "Thanks for the message we will contact your as fast as posseble";
+
+            VMContactForm vmNew = new VMContactForm();
+            return View(vmNew);
         }
     }
 }
