@@ -16,19 +16,6 @@
     int productId = product.ID;
 }
 
-@section css{
-    <style>
-        #ps-productname {
-            margin-bottom: 0;
-            margin-top: 5px;
-        }
-
-        #ps-title {
-            margin-top: 5px;
-        }
-    </style>
-}
-
 
 <main class="productPage">
     <div class="container">
@@ -58,7 +45,7 @@
                     </div>
                     <div id="add-to-cart">
                         <p>Quantity </p>
-                        <input type="number" name="quantity" min="1" id="quantity-product" data-id="quantity-product">
+                        <input type="number" name="quantity" min="1" value="1" id="quantity-product" data-id="quantity-product">
                         <input type="hidden" name="productId" id="productId" value="@productId" />
                         <div id="add-cart-button">Add to Cart</div>
                     </div>

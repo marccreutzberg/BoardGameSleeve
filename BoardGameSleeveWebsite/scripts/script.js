@@ -202,6 +202,7 @@
         $('.delete-popup h3').text('The product has been deleted');
         $('.' + id).hide();
         setTimeout(function () {
+         
             $('.delete-popup').fadeOut();
             $('.delete-popup h3').text();
             location.reload();
