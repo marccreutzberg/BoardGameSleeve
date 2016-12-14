@@ -714,6 +714,11 @@ footer {
 }
 
 /*Confirmation Order*/
+
+.order-receipt{
+    color: $backColor;
+}
+
 #confirmation-items {
     border-collapse: collapse;
     width: 100%;

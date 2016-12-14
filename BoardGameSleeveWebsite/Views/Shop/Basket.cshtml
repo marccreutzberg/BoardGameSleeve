@@ -70,7 +70,21 @@
                                     <h3>Board Game Sleeves • @p.Size.Name</h3>
                                     <p>@p.Name</p>
                                     <p>Size: @p.Size.Width x @p.Size.Height mm</p>
-                                    <p>@p.Description</p>
+
+
+                                    @if (@p.Description.Length >= 100)
+                                    {
+                                        string desc = @p.Description.Substring(0, 100);
+                                        desc = desc + "...";
+                                        <p> @desc </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            @p.Description
+                                        </p>
+                                    }
+
                                 </div>
                             </div>
                             <div class="col-md-2 col-md-offset-0 col-xs-10 col-xs-offset-1">
