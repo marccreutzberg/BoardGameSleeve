@@ -30,7 +30,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-8">
         <h3>All board Game Sleeves</h3>
 
         <div class="listOverview">
@@ -39,15 +39,26 @@
                     foreach (var product in Model.OrderBy(x => x.Name))
                     {
                         <li class="@product.ID">
-                            Navn: @product.Name - Color: @product.Color - SizeName: @product.Size.Name - Pris: @product.Price
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="/img/products/@product.Img" width="100%" />
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Navn: @product.Name</h3> - Color: @product.Color - SizeName: @product.Size.Name - Pris: @product.Price
+                                </div>
+                                <div class="col-md-2">
+                                    <div data-id="@product.ID" id="delete-product-button" title="Delete Product">
+                                        <img width="20" src="~/img/RemoveItemIcon2.png" />
+                                    </div>
 
-                            <div data-id="@product.ID" id="delete-product-button" title="Delete Product">
-                                <img width="20" src="~/img/RemoveItemIcon2.png" />
+                                    <a id="edit-product-button" title="Edit Product" href='@Url.Action("editProduct", new { id = @product.ID })'>
+                                        <img width="23" src="/img/edit-icon.png" />
+                                    </a>
+                                </div>
                             </div>
 
-                            <a id="edit-product-button" title="Edit Product" href='@Url.Action("editProduct", new { id = @product.ID })'>
-                                <img width="23" src="/img/edit-icon.png" />
-                            </a>
+
+
 
                         </li>
                     }

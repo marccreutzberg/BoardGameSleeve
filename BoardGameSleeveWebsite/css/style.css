@@ -676,6 +676,10 @@ p {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg); }
 
+.basket img:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg); }
+
 /*Frontpage and layout*/
 header {
   border-bottom: 1px solid #dcdcdc;
@@ -1026,7 +1030,7 @@ footer {
   padding-top: 30px; }
 
 .product-box, #product-image, #product-info, #product-games, #product-description {
-  height: 380px;
+  min-height: 150px;
   border: 1px solid #dcdcdc; }
 
 #product-image {
@@ -1086,8 +1090,8 @@ footer {
   margin-top: 150px;
   width: 100%; }
   #product-games .product-header {
-    margin: -78px 0px 0px -1px;
-    border: 2px solid #dcdcdc;
+    margin: -77px 0px 0px -1px;
+    border: 1px solid #dcdcdc;
     height: 75px;
     width: 50%; }
   #product-games h2 {
@@ -1097,6 +1101,8 @@ footer {
   #product-games ul {
     list-style-type: none;
     margin-left: -20px; }
+  #product-games h2 {
+    margin: 14px 0; }
 
 #product-description {
   margin-top: 200px;
@@ -1104,14 +1110,16 @@ footer {
   width: 100%;
   margin-bottom: 20px; }
   #product-description .product-header {
-    margin: -78px 0px 0px -1px;
-    border: 2px solid #dcdcdc;
+    margin: -77px 0px 0px -1px;
+    border: 1px solid #dcdcdc;
     height: 75px;
     width: 50%; }
   #product-description h2 {
     text-align: center; }
   #product-description p {
     margin: 15px; }
+  #product-description h2 {
+    margin: 14px 0; }
 
 .button, #add-cart-button, #print-receipt {
   background-color: #8cc1e3;
@@ -1274,6 +1282,13 @@ input[type=number]::-webkit-outer-spin-button {
   top: 40%;
   z-index: 5000;
   display: none; }
+
+#ps-productname {
+  margin-bottom: 0;
+  margin-top: 5px; }
+
+#ps-title {
+  margin-top: 5px; }
 
 @media (max-width: 768px) {
   .basket {

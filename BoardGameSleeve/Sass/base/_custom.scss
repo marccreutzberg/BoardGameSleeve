@@ -44,6 +44,11 @@ p {
     transform: rotate(360deg);
 }
 
+.basket img:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
 /*Frontpage and layout*/
 header {
     border-bottom: 1px solid $borderGray;
@@ -521,6 +526,7 @@ footer {
         font-family: 'Mission Gothic';
         font-weight: normal;
     }
+
     margin-bottom: 40px;
 }
 
@@ -543,7 +549,7 @@ footer {
 }
 
 .product-box {
-    height: 380px;
+    min-height: 150px;
     border: 1px solid $borderGray;
 }
 
@@ -630,8 +636,8 @@ footer {
 
 @mixin productHeaders {
     .product-header {
-        margin: -78px 0px 0px -1px;
-        border: 2px solid $borderGray;
+        margin: -77px 0px 0px -1px;
+        border: 1px solid $borderGray;
         height: 75px;
         width: 50%;
     }
@@ -657,6 +663,10 @@ footer {
         list-style-type: none;
         margin-left: -20px;
     }
+
+    h2 {
+        margin: 14px 0;
+    }
 }
 
 #product-description {
@@ -665,6 +675,10 @@ footer {
     margin-top: 150px;
     width: 100%;
     margin-bottom: 20px;
+
+    h2 {
+        margin: 14px 0;
+    }
 }
 
 .button {
@@ -893,4 +907,13 @@ input[type=number]::-webkit-outer-spin-button {
     top: 40%;
     z-index: 5000;
     display: none;
+}
+
+#ps-productname {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+#ps-title {
+    margin-top: 5px;
 }
