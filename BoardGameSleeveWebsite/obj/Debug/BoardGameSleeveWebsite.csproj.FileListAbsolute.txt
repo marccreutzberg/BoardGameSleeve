@@ -77,58 +77,10 @@ C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsi
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\ApplicationInsights.config
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\csc.exe
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\vbc.exe
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll.config
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.pdb
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\System.Web.dll
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.xml
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
-C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
 C:\Users\Marc Creutzberg\Desktop\Vinter Projekt Game Sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\ApplicationInsights.config
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\csc.exe
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\vbc.exe
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll.config
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.pdb
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\EntityFramework.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\System.Web.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\EntityFramework.xml
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
-C:\Users\Marc Creutzberg\Desktop\board game sleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
+C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
 C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\ApplicationInsights.config
 C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\csc.exe
 C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -152,6 +104,29 @@ C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\System.Web.dll
 C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\EntityFramework.xml
 C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
 C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
-C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
-C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
-C:\Users\Eydun\Desktop\Projekt\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\ApplicationInsights.config
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\csc.exe
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\vbc.exe
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll.config
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\BoardGameSleeveWebsite.pdb
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\System.Web.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.xml
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\EntityFramework.SqlServer.xml
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\bin\Newtonsoft.Json.xml
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.dll
+C:\Users\Danny Chu\Source\Repos\BoardGameSleeve\BoardGameSleeveWebsite\obj\Debug\BoardGameSleeveWebsite.pdb
